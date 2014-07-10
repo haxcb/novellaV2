@@ -1,0 +1,341 @@
+
+* {
+	font-family:'Segoe UI', 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
+}
+
+body {
+	font-size:1em;
+}
+
+b {
+	font-family: 'Segoe UI Semibold';
+}
+
+em {
+	font-family: 'Segoe UI Bold';
+}
+
+b {
+	font-family: 'Segoe UI Semibold';
+}
+
+
+a {
+	text-decoration: none;
+	color: #8924f9;
+	font-family: 'Segoe UI Bold';
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-align:left;
+	font-weight:100;
+	margin:0;
+	padding:0;
+	margin:10px 0;
+	color:#28119c;
+	line-height:110%;
+}
+
+h1 {
+	font-size:1.5em;
+	margin-top:30px;
+}
+
+h2 {
+	font-size:1.3em;
+}
+
+h3 {
+	font-size:1.2em;
+	font-family:'Segoe UI Light';
+}
+
+h4 {
+	font-size:1em;
+}
+
+h5 {
+	font-size:0.9em;
+}
+
+h6 {
+	font-size:0.8em;
+}
+
+button h1,
+button h2,
+button h3,
+button h4,
+button h5,
+button h6 {
+	color:#fff;
+}
+
+.container {
+	width:70%;
+	margin:0 auto;
+}
+
+.container .row {
+	width:100%;
+}
+
+input {
+	display: block;
+	width:100%;
+}
+
+.page {
+	background-color: #e3e3e3;
+}
+
+article {
+	width: 100%;
+    padding: 15px;
+    border: 1px solid #8d8d8d;
+    margin: 0px; 
+	margin-bottom:10px;
+    background-color: #d8d8d8;
+    border-radius: 5px;
+	display:block;
+	overflow:auto;
+}
+
+
+
+/********************************
+	CUSTOM ELEMENT STYLES
+********************************/
+.row {
+	width: 70%;
+	margin: 0 auto;
+	/* border:1px solid red; */
+	text-align:left;
+}
+
+.left {
+	float:left;
+}
+
+.right {
+	float:right;
+}
+
+.clear {
+	clear:both;
+}
+
+
+mark {
+	font-family:'Quicksand';
+	background-color:transparent;
+	color:#fff;
+}
+
+
+/********************************
+		LOGIN STYLES
+********************************/
+
+.login {
+	width:40%;
+	margin:20px auto 0 auto;
+}
+
+.login p,
+.login h1 {
+	text-align:center;
+	color:#fff;
+	margin:0;
+	font-family:'Segoe UI Light';
+}
+
+.login h1 {
+	font-size:2.5em;
+}
+
+.login p {
+	font-size:1.3em;
+	margin-bottom:10px;
+}
+
+.login button {
+	width:100%;
+}
+
+.loginBG {
+	background:url('img/palebg.png') no-repeat;
+	background-size:cover;
+	min-width:100%;
+	min-height:100%;
+}
+
+.login .email {
+	border-bottom-left-radius:0;
+	border-bottom-right-radius:0;
+	padding:20px 15px;
+}
+
+.login .password {
+	border-top-left-radius:0;
+	border-top-right-radius:0;
+	padding:20px 15px;
+}
+
+
+/********************************
+		NAVIGATOR STYLES
+********************************/
+
+/* Top Title */
+.bar.bar-stable  {
+	background-color:#372440;
+	border:none;
+}
+
+.bar.bar-stable .title {
+	text-transform:uppercase;
+	color:#fff;
+	font-family:'Quicksand';
+	font-size:1.3em;
+}
+
+.bar-stable .button {
+	color:#fff;
+	opacity:1;
+}
+
+.bar-stable .button:active,
+.bar-stable .button:hover {
+	opacity:0.9;
+}
+
+
+/* Footer */
+
+.fakeBar {
+	width:100%;
+	position:absolute;
+	bottom:0;
+	display:block;
+	height:43px;
+	background-color:#000;
+	opacity:0.5;	
+}
+
+.footerBar {
+	width:100%;
+	position:absolute;
+	bottom:0;
+	display:block;
+	height:43px;
+}
+
+.footerBar h1 {
+	margin:0 auto;
+	color:#fff;
+	text-align:center;
+	font-size:1em;
+	font-family:'Quicksand', sans-serif;
+	padding-top:12px;
+	-webkit-font-smoothing:antialiased;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+	position:relative;
+}
+
+
+
+
+/********************************
+		BUTTON STYLES
+********************************/
+
+button,
+button:visited {
+	padding: 4px 20px;
+	font-size: 16px;
+	line-height: 36px;
+	letter-spacing: 0;
+	color: #c6c8c8;
+	color: #fff;
+	text-shadow: 0 1px none;
+	vertical-align: top;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	background: #f05050;
+    background: -webkit-linear-gradient(#f05050, #f14949); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#f05050, #f14949); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#f05050, #f14949); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#f05050, #f14949); /* Standard syntax (must be last) */	
+	border:1px solid #cf3232;
+	margin:10px 0;
+}
+
+button.orange,
+button.orange:visited,
+button.orange:focus {
+	background-color: #fb9a31;
+    background: -webkit-linear-gradient(#fb9a31, #f5943e); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#fb9a31, #f5943e); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#fb9a31, #f5943e); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#fb9a31, #f5943e); /* Standard syntax (must be last) */		
+	border:1px solid #e38a2c;
+}
+
+
+button:active {
+	background-color: #f14949;
+    background: -webkit-linear-gradient(#e24242, #f14949); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#e24242, #f14949); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#e24242, #f14949); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#e24242, #f14949); /* Standard syntax (must be last) */	
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	color: #fff;
+	-webkit-transition: none;
+	-moz-transition: none;
+	-o-transition: none;
+	transition: none;
+	border:1px solid #cf3232;
+}
+
+button.orange:active {
+	background-color: #f5943e;
+    background: -webkit-linear-gradient(#f5943e, #fb9a31); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#f5943e, #fb9a31); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#f5943e, #fb9a31); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#f5943e, #fb9a31); /* Standard syntax (must be last) */		
+	border:1px solid #e38a2c;	
+}
+
+.longButton {
+	display:block;
+	width:70%;
+	margin-top:10px;
+	text-transform:uppercase;
+}
+
+.longButton h4{
+	margin:5px 0;
+	font-family:'Segoe UI Light';
+	text-align:right;
+}
+
+.container .longButton {
+	width:100%;
+}
+
+
+/********************************
+		MOBILE STYLES
+********************************/
+@media only screen
+	and (max-width: 900px) {
+	.row ,
+	.login,
+	.container {
+		width:95%;
+	}
+}
