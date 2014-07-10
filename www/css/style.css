@@ -34,6 +34,7 @@ h1, h2, h3, h4, h5, h6 {
 	margin:10px 0;
 	color:#28119c;
 	line-height:110%;
+	text-transform:uppercase;
 }
 
 h1 {
@@ -85,8 +86,19 @@ input {
 	width:100%;
 }
 
-.scroll-content {
+.scroll-content{
 	background-color: #e3e3e3;
+}
+
+.nov-page {
+	width:70%;
+	margin:0 auto;
+	margin-top:20px;
+}
+
+.menu .nov-page {
+	width:100%;
+	margin:0;
 }
 
 article {
@@ -138,7 +150,7 @@ mark {
 ********************************/
 
 .login {
-	width:40%;
+	max-width:500px;
 	margin:20px auto 0 auto;
 }
 
@@ -170,17 +182,197 @@ mark {
 	min-height:100%;
 }
 
-.login .email {
+.login .email input  {
+	border-radius:10px;
 	border-bottom-left-radius:0;
 	border-bottom-right-radius:0;
+	border:1px solid #aaa;
 	padding:20px 15px;
 }
 
-.login .password {
+.login .password  input{
+	border-radius:10px;
 	border-top-left-radius:0;
 	border-top-right-radius:0;
+	border:1px solid #aaa;
+	border-top:none;
 	padding:20px 15px;
 }
+
+
+
+/********************************
+		COURSES STYLES
+********************************/
+
+.course {
+	padding:0;
+}
+
+.courseButton {
+	float:left;
+	width:40%;
+	max-width:300px;
+	padding:20px 20px 20px 0;
+	margin:0;
+	border:none;
+	border-radius:0;
+	background:url('img/angle.png') no-repeat right,
+			   url('img/bg.png') no-repeat right center;
+}
+
+/* Odd numbered buttons should be orange */
+.course:nth-child(odd) .courseButton {
+	background:url('img/angle.png') no-repeat right,
+			   url('img/bg.png') no-repeat center;
+}
+
+
+.courseButton h1 {
+	font-size:3em;
+	font-family:'Segoe UI Light';
+}
+
+.courseButton h4 {
+	font-family:'Segoe UI';
+}
+
+.courseButton h1,
+.courseButton h4 {
+	color:#fff;
+	text-align:left;
+	margin:0;
+	margin-left:5%;
+	padding:0;
+}
+
+
+.course ul {
+	list-style:none;
+	text-align:left;
+	padding:0;
+	margin:0;
+	margin-top:10px;
+	padding:0 20px;
+	overflow:hidden;
+}
+
+.course ul li {
+	word-wrap:break-word;
+}
+
+
+@media only screen
+	and (max-width: 900px) {
+	.courseButton {
+		width:50%;
+		background:url('img/angleSmall.png') no-repeat right,
+			   url('img/bg.png') no-repeat right center;
+	}
+	
+	.course:nth-child(odd) .courseButton {
+		background:url('img/angleSmall.png') no-repeat right,
+				   url('img/bg.png') no-repeat center;
+	}
+	
+	.course ul {
+		padding:0 10px;
+	}
+	
+	.course ul li {
+		font-size:0.9em;
+	}
+	.courseButton h1 {
+		font-size:2em;
+	}
+}
+
+
+
+/******************************
+		ICONS STYLES
+*******************************/
+
+.topIcons {
+	margin-top:30px;
+}
+
+.individualIcon {
+	float:left;
+	margin-right:2%;
+	width:23%;
+}
+
+.lastIndividualIcon {
+	float:left;
+	margin-right:0;
+	width:23%;
+}
+
+.individualIcon button,
+.lastIndividualIcon button {
+	margin: 0;
+	margin-top: 10px;
+	width: 100%;
+	padding:7px 15px;
+	border-radius:7px;
+	line-height:0;
+}
+
+
+.individualIcon h4 ,
+.lastIndividualIcon h4{
+	margin: 10px 0;
+ 	color: #b33b36;
+ 	font-family: 'Segoe UI';
+ 	text-align: center;
+}
+
+.iconImageParticipation {
+	background-image: url('img/icon_participation.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100%;
+	width: 100%;
+}
+
+.iconImageQuizzes {
+	background-image: url('img/icon_quizzes.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100%;
+	width: 100%;
+}
+
+.iconImageGrades {
+	background-image: url('img/icon_grades.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100%;
+	width: 100%;
+}
+
+.iconImageAssignments {
+	background-image: url('img/icon_assignments.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100%;
+	width: 100%;
+}
+
+@media only screen
+	and (max-width: 900px) {
+	.individualIcon h4 ,
+	.lastIndividualIcon h4{
+		font-size: 0.75em;
+		margin:5px 0;
+	}
+	
+	.topIcons {
+		margin-top:10px;
+	}
+}
+
 
 
 /********************************
@@ -249,30 +441,33 @@ mark {
 		MENU STYLES
 ********************************/
 
+/* Disable default background color on menu */
 .menu .item-complex .item-content {
 	background-color:transparent;
 }
-
+/* Change style of menu text */
 .menu .item a {
 	font-family:'Segoe UI';	
-}
-
-.menu .item {
 	text-transform:uppercase;
-	background-color:#E44945;
 	color:#fff;
 	font-size:1.5em;
 }
 
+/* Style each item in the menu */
+.menu .item {
+	background-color:#E44945;
+}
+
+/* Change color of first item in menu */
 .menu  .list .first {
 	background-color:#8e3243;
 }
 
+/* Highlight color */
 .menu .item :active,
 .menu .item :first-child:active {
 	background-color:#ff8777;
 }
-
 
 /* Context menu BG */
 .menu .scroll-content,
@@ -280,7 +475,12 @@ mark {
 	background-color:#E44945;
 }
 
-
+/* Back button color */
+.bar-stable .button.button-clear {
+	color:#fff;
+	font-family:'Quicksand';
+	text-transform:uppercase;
+}
 
 
 /********************************
@@ -372,7 +572,7 @@ button.orange:active {
 	and (max-width: 900px) {
 	.row ,
 	.login,
-	.container {
+	.nov-page {
 		width:95%;
 	}
 }

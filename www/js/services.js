@@ -8,31 +8,39 @@
 			AFTER: testApp.controller('MainCtrl', ['$scope', 'Math', function ($scope, Math) {
 			
 */
-var sNov = angular.module('nov.services', []);
+var nov = angular.module('nov.services', []);
 
-sNov.service('Data', function () {
+nov.service('Data', function () {
 
-	var currentCourse = {};
-
-	var enrolledCourses = [
-	{ name: 'CMPT 475', id: 0, instructor: 'Herbert H. Tsang', semester: 'Summer 2014', section: 'E100' },
-	{ name: 'CMPT 355', id: 1, instructor: 'Wo Shun Luk', semester: 'Summer 2014', section: 'D100' },
-	{ name: 'ENGL 103w', id: 2, instructor: 'Orion Kidder', semester: 'Summer 2014', section: 'D100' }
-	];
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Student
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
-	this.setCurrentCourse = function(id) {
-		
-		currentCourse = enrolledCourses[id];
-		console.log("Current course set to: " + currentCourse);
+	var student = {
+		name: 'David Holik',
+		id: '301142643',
+		enrolledCourses: [
+		{ name: 'CMPT 475', id: 0, instructor: 'Herbert H. Tsang', semester: 'Summer 2014', section: 'E100', role: 'Student' },
+		{ name: 'CMPT 355', id: 1, instructor: 'Wo Shun Luk', semester: 'Summer 2014', section: 'D100', role: 'Student' },
+		{ name: 'ENGL 103w', id: 2, instructor: 'Orion Kidder', semester: 'Summer 2014', section: 'D100', role: 'Student' }
+		]
+	};
+	
+	this.getStudent = function() {
+		return student;
 	}
 	
-	this.getCurrentCourse = function() {
-		
-		return currentCourse;
-	}
+
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Courses
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	
-	this.getEnrolledCourses = function() {
-		return enrolledCourses;
+	var currentCourse = student.enrolledCourses[0]; // Default value to avoid strange cases
+	
+	this.getCourse = function(id) {
+		console.log('Course: ' + id);
+		return student.enrolledCourses[id];
 	}
 
 });

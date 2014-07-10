@@ -3,17 +3,21 @@
 		<button menu-toggle="right"class="button button-icon icon ion-navicon"></button>
 	</ion-nav-buttons>
 	
-	<ion-content class="has-header">
-		<h1>Courses</h1>
-		<ion-list>
-			<ion-item 
-				ng-repeat="course in getEnrolledCourses()"
-				  href="#/app/courses/course"
-				  ng-click="setCurrentCourse(course.id)">
-						{{ course.name }}
-			</ion-item>
-		</ion-list>
+	<nov-content>
+		<h1>Your Courses</h1>
+		
+		<nov-frame class="course"
+				   ng-repeat="course in getStudent().enrolledCourses">
+						<nov-course-button href="#/app/courses/{{ course.id }}">
+							<h1>{{ course.name }}</h1>
+							<h4>{{ course.section + ' ' + course.semester }}</h4>
+						</nov-course-button>
+						<ul>
+							<li><b>Instructor:</b> {{ course.instructor }}</li>
+							<li><b>Role:</b> {{ course.role }}</li>
+						</ul>
+		</nov-frame>
 	   
-	</ion-content>
+	</nov-content>
 	
 </ion-view>

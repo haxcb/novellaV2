@@ -1,10 +1,11 @@
-<ion-view title="Courses">
-  <ion-nav-buttons side="right">
-    <button menu-toggle="right"class="button button-icon icon ion-navicon"></button>
-  </ion-nav-buttons>
-  <ion-content class="has-header">
-    <h1>{{ getCurrentCourse().name }}</h1>
-	
+<ion-view title="{{ course.name }}">
+	<ion-nav-buttons side="right">
+	<button menu-toggle="right"class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
 
-  </ion-content>
+	<nov-content>
+		<nov-course-icons></nov-course-icons>
+
+	</nov-content>
+
 </ion-view>

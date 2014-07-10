@@ -1,7 +1,13 @@
-var cNov = angular.module('nov.controllers', []);
+/*
+	CONTROLLERS:
+		For manipulating DATA only
+		NEVER use DOM manipulation here (do that with directives)
+*/
+
+var nov = angular.module('nov.controllers', []);
 
 // Commonly used app-wide methods
-cNov.controller('AppCtrl', ['$scope', '$ionicModal', '$timeout', '$ionicSideMenuDelegate', function($scope, $ionicModal, $timeout, $ionicSideMenuDelegate) {
+nov.controller('AppCtrl', ['$scope', '$ionicModal', '$timeout', '$ionicSideMenuDelegate', function($scope, $ionicModal, $timeout, $ionicSideMenuDelegate) {
 	
 	// Enable/disable dragging to open the menu
 	$scope.setMenuDrag = function(val) {
@@ -12,28 +18,38 @@ cNov.controller('AppCtrl', ['$scope', '$ionicModal', '$timeout', '$ionicSideMenu
 
 
 // Provide data access to HTML (corresponds with services.js)
-cNov.controller('DataCtrl', ['$scope', 'Data', function($scope, Data) {
+nov.controller('DataCtrl', ['$scope', 'Data', function($scope, Data) {
 	
-	$scope.getEnrolledCourses = function() {
-		return Data.getEnrolledCourses();
-	}
-	
-	$scope.setCurrentCourse = function(id) {
-		Data.setCurrentCourse(id);
-	}
-	
-	$scope.getCurrentCourse = function() {
-		return Data.getCurrentCourse();
+	$scope.getStudent = function() {
+		return Data.getStudent();
 	}
 
 }]);
 
-
-cNov.controller('CoursesCtrl', ['$scope', function($scope) {
+nov.controller('LoginCtrl', ['$scope', function($scope) {
 
 }]);
 
+nov.controller('CoursesCtrl', ['$scope', function($scope) {
 
-cNov.controller('LoginCtrl', ['$scope', function($scope) {
+}]);
 
+nov.controller('CourseCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
+	$scope.course = Data.getCourse($stateParams.courseId);
+}]);
+
+nov.controller('ParticipationCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
+	$scope.course = Data.getCourse($stateParams.courseId);
+}]);
+
+nov.controller('AssignmentsCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
+	$scope.course = Data.getCourse($stateParams.courseId);
+}]);
+
+nov.controller('GradesCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
+	$scope.course = Data.getCourse($stateParams.courseId);
+}]);
+
+nov.controller('QuizzesCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
+	$scope.course = Data.getCourse($stateParams.courseId);
 }]);
