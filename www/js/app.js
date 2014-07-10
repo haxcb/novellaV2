@@ -50,11 +50,11 @@ nov.config(function($stateProvider, $urlRouterProvider) {
       }
     })
 
-    .state('app.single', {
-      url: "/courses/:courseId",
+    .state('app.course', {
+      url: "/courses/course",
       views: {
         'menuContent' :{
-          templateUrl: "/course.html",
+          templateUrl: "course.html",
           controller: 'CoursesCtrl'
         }
       }
