@@ -85,7 +85,7 @@ input {
 	width:100%;
 }
 
-.page {
+.scroll-content {
 	background-color: #e3e3e3;
 }
 
@@ -241,6 +241,43 @@ mark {
 	-webkit-font-smoothing:antialiased;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
 	position:relative;
+}
+
+
+
+/********************************
+		MENU STYLES
+********************************/
+
+.menu .item-complex .item-content {
+	background-color:transparent;
+}
+
+.menu .item a {
+	font-family:'Segoe UI';	
+}
+
+.menu .item {
+	text-transform:uppercase;
+	background-color:#E44945;
+	color:#fff;
+	font-size:1.5em;
+}
+
+.menu  .list .first {
+	background-color:#8e3243;
+}
+
+.menu .item :active,
+.menu .item :first-child:active {
+	background-color:#ff8777;
+}
+
+
+/* Context menu BG */
+.menu .scroll-content,
+.menu .item {
+	background-color:#E44945;
 }
 
 
