@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="XM6475YHW9.2014.475.Erik.Ross.*" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>HelloCordova</name>
+    <name>Novella</name>
     <description>
         An Ionic Framework and Cordova project.
     </description>
@@ -17,7 +17,9 @@
          to be sent to iCloud. Note: enabling this could result in Apple rejecting your app.
     -->
     <preference name="BackupWebStorage" value="none" />
-
+	<plugins>
+		<plugin name="Device" value="org.apache.cordova.Device"/>
+	</plugins>
     <feature name="StatusBar">
       <param name="ios-package" value="CDVStatusBar" onload="true" />
     </feature>
