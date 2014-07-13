@@ -5,7 +5,13 @@
 
 	<nov-content>
 		<nov-course-icons></nov-course-icons>
-
+		<h1>Course Materials</h1>
+		<nov-frame class="materials"
+			   ng-repeat="materials in getStudent().enrolledCourses[course.id].courseMaterials">
+					<nov-button>
+						<h1>{{ materials.name }}</h1>
+					</nov-button>
+		</nov-frame>
 	</nov-content>
 
 </ion-view>
