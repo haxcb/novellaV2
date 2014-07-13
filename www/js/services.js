@@ -27,12 +27,17 @@ nov.service('Data', function () {
 				{ name: 'Security', id: 12, fileType: 'pdf', uploadDate: '2014-06-16', url: 'test/1.pdf'}
 			],
 			assignments: [
-				{name: 'Project Deliverable 1', id: 21, dueDate: '2014-05-25'},
-				{name: 'Report', id: 22, dueDate: '2014-06-15'},
-				{name: 'Project Deliverable 2', id: 23, dueDate: '2014-08-20'}
+				{name: 'Project Deliverable 1', id: 21, dueDate: '2014-05-25', weight: 25},
+				{name: 'Report', id: 22, dueDate: '2014-06-15', weight: 30},
+				{name: 'Project Deliverable 2', id: 23, dueDate: '2014-08-20', weight: 30}
 			] },
 		{ name: 'CMPT 355', id: 1, instructor: 'Wo Shun Luk', semester: 'Summer 2014', section: 'D100', role: 'Student' },
 		{ name: 'ENGL 103w', id: 2, instructor: 'Orion Kidder', semester: 'Summer 2014', section: 'D100', role: 'Student' }
+		],
+		submissions: [
+			{id: 40, assignmentId: 21, submitDate: '2014-05-25', status: 'submitted', grade: 100, comment: 'Well done'},
+			{id: 41, assignmentId: 22, submitDate: '2014-06-16', status: 'late', grade: 80, comment: 'Late!'},
+			{id: 42, assignmentId: 33, submitDate: '2014-06-16', status: 'submitted', grade: 85, comment: ''},
 		]
 	};
 	
@@ -68,6 +73,21 @@ nov.service('Data', function () {
 
 	this.getAssignments = function(courseId) {
 		return student.enrolledCourses[courseId].assignments;
+	}
+
+	this.getAssignment = function(courseId, assignmentId) {
+		return student.enrolledCourses[courseId].assignments[assignmentId];
+	}
+
+	this.getAssignmentSubmissions = function(assignmentId) {
+		var submissions = student.submissions;
+		var filtered_list = [];
+		for (var i = 0; i < submissions.length; i++) {
+			if (submissions[i].assignmentId = assignmentId) {
+			  	filtered_list.push(submissions[i]);
+			}
+		}
+		return filtered_list;
 	}
 
 });
