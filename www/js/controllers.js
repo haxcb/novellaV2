@@ -37,6 +37,7 @@ nov.controller('CoursesCtrl', ['$scope', function($scope) {
 nov.controller('CourseCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
 	$scope.course = Data.getCourse($stateParams.courseId);
 	$scope.materials = Data.getCourseMaterials($stateParams.courseId);
+	$scope.predicate = '-uploadDate';
 }]);
 
 nov.controller('ParticipationCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {

@@ -6,9 +6,13 @@
 	<nov-content>
 		<nov-course-icons></nov-course-icons>
 		<h1>Course Materials</h1>
+		<div id="sort-options">
+			<button ng-click="predicate = 'name'; reverse=!reverse">Sort by Name</button>
+			<button ng-click="predicate = 'uploadDate'; reverse=!reverse">Sort by Date</button>
+		</div>
 		<nov-frame class="materials"
-			   ng-repeat="material in materials">
-					<open-external url="url" exit="closeBrowser()" 
+			   ng-repeat="material in materials | orderBy:predicate:reverse">
+					<open-external url="material.url" exit="closeBrowser()" 
 		               load-start="loadStart()"
 		               load-stop="loadStop()"
 		               load-error="loadError()">

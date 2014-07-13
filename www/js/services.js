@@ -22,8 +22,9 @@ nov.service('Data', function () {
 		enrolledCourses: [
 		{ name: 'CMPT 475', id: 0, instructor: 'Herbert H. Tsang', semester: 'Summer 2014', section: 'E100', role: 'Student',
 			courseMaterials: [
-				{ name: 'Intro to Software Engineering', id: 10, fileType: 'pdf', url: 'test/1.pdf'},
-				{ name: 'Agile Development', id: 11, fileType: 'pdf', url: 'test/1.pdf'}
+				{ name: 'Intro to Software Engineering', id: 10, fileType: 'pdf', uploadDate: '2014-05-05', url: 'test/1.pdf'},
+				{ name: 'Agile Development', id: 11, fileType: 'pdf', uploadDate: '2014-05-12', url: 'test/1.pdf'},
+				{ name: 'Security', id: 12, fileType: 'pdf', uploadDate: '2014-06-16', url: 'test/1.pdf'}
 			] },
 		{ name: 'CMPT 355', id: 1, instructor: 'Wo Shun Luk', semester: 'Summer 2014', section: 'D100', role: 'Student' },
 		{ name: 'ENGL 103w', id: 2, instructor: 'Orion Kidder', semester: 'Summer 2014', section: 'D100', role: 'Student' }
