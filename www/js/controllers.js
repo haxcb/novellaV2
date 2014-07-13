@@ -36,6 +36,7 @@ nov.controller('CoursesCtrl', ['$scope', function($scope) {
 
 nov.controller('CourseCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
 	$scope.course = Data.getCourse($stateParams.courseId);
+	$scope.materials = Data.getCourseMaterials($stateParams.courseId);
 }]);
 
 nov.controller('ParticipationCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
@@ -55,18 +56,19 @@ nov.controller('QuizzesCtrl', ['$scope', '$stateParams', 'Data', function($scope
 }]);
 
 //http://tech.pro/tutorial/1357/phonegap-and-angularjs-in-app-browser
-nov.controller("InAppBrowserController", ["$scope", function($scope){
-    $scope.url = "http://www.google.com";
+nov.controller('MaterialsCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data){
+    $scope.course = Data.getCourse($stateParams.courseId);
+    $scope.url = 'http://www.google.com';
     $scope.actions = [];
     $scope.closeBrowser = function(){
-        $scope.actions.push("Closed Browser");
+        $scope.actions.push('Closed Browser');
     };
     $scope.loadStart = function(){
-        $scope.actions.push("Load Start");
+        $scope.actions.push('Load Start');
     }   ;
     $scope.loadStop = function(){
-        $scope.actions.push("Load Stop");
+        $scope.actions.push('Load Stop');
     };
     $scope.loadError = function(){
-        $scope.actions.push("Load Error");
+        $scope.actions.push('Load Error');
     }; }]);

@@ -7,15 +7,12 @@
 		<nov-course-icons></nov-course-icons>
 		<h1>Course Materials</h1>
 		<nov-frame class="materials"
-			   ng-repeat="materials in getStudent().enrolledCourses[course.id].courseMaterials">
-					<nov-button>
-						<h1>{{ materials.name }}</h1>
-					</nov-button>
+			   ng-repeat="material in materials">
 					<open-external url="url" exit="closeBrowser()" 
 		               load-start="loadStart()"
 		               load-stop="loadStop()"
 		               load-error="loadError()">
-					Open in Browser
+						{{material.name}}
 					</open-external>
 		</nov-frame>
 	</nov-content>
