@@ -19,6 +19,7 @@
     <preference name="BackupWebStorage" value="none" />
 	<plugins>
 		<plugin name="Device" value="org.apache.cordova.Device"/>
+        <plugin name="InAppBrowser" value="org.apache.cordova.inappbrowser" />
 	</plugins>
     <feature name="StatusBar">
       <param name="ios-package" value="CDVStatusBar" onload="true" />
