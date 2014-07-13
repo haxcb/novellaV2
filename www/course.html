@@ -11,6 +11,12 @@
 					<nov-button>
 						<h1>{{ materials.name }}</h1>
 					</nov-button>
+					<open-external url="url" exit="closeBrowser()" 
+		               load-start="loadStart()"
+		               load-stop="loadStop()"
+		               load-error="loadError()">
+					Open in Browser
+					</open-external>
 		</nov-frame>
 	</nov-content>
 
