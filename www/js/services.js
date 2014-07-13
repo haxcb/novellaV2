@@ -25,6 +25,11 @@ nov.service('Data', function () {
 				{ name: 'Intro to Software Engineering', id: 10, fileType: 'pdf', uploadDate: '2014-05-05', url: 'test/1.pdf'},
 				{ name: 'Agile Development', id: 11, fileType: 'pdf', uploadDate: '2014-05-12', url: 'test/1.pdf'},
 				{ name: 'Security', id: 12, fileType: 'pdf', uploadDate: '2014-06-16', url: 'test/1.pdf'}
+			],
+			assignments: [
+				{name: 'Project Deliverable 1', id: 21, dueDate: '2014-05-25'},
+				{name: 'Report', id: 22, dueDate: '2014-06-15'},
+				{name: 'Project Deliverable 2', id: 23, dueDate: '2014-08-20'}
 			] },
 		{ name: 'CMPT 355', id: 1, instructor: 'Wo Shun Luk', semester: 'Summer 2014', section: 'D100', role: 'Student' },
 		{ name: 'ENGL 103w', id: 2, instructor: 'Orion Kidder', semester: 'Summer 2014', section: 'D100', role: 'Student' }
@@ -59,6 +64,10 @@ nov.service('Data', function () {
 
 	this.getCourseMaterial = function(courseId, materialId) {
 		return student.enrolledCourses[courseId].courseMaterials[materialId];
+	}
+
+	this.getAssignments = function(courseId) {
+		return student.enrolledCourses[courseId].assignments;
 	}
 
 });

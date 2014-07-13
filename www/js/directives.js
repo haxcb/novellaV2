@@ -90,7 +90,6 @@ nov.directive("openExternal", function($window){
             $scope.openUrl = function(){
             	// inAppBrowser = $window.open('test/1.pdf', '_blank', 'location=yes');
                 inAppBrowser = $window.open($scope.url, '_blank', 'location=yes');
-                console.log("did it");
                 if($scope.exit instanceof Function){
                     inAppBrowser.addEventListener('exit', wrappedFunction($scope.exit));
                 }

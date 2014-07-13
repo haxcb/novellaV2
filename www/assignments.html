@@ -4,8 +4,19 @@
 	</ion-nav-buttons>
 
 	<nov-content>
-		<h1>{{ course.name }} Assignments</h1>
+		<h1>Upcoming</h1>
+		{{date | date:'yyyy-MM-dd'}}
+		<nov-frame class="assignments"
+			   ng-repeat="assignment in assignments | upcomingAssignments">
+					<novButton>{{assignment.name}} due {{assignment.dueDate}}</novButton>
+		</nov-frame>
 
+		
+		<h1>Past</h1>	
+		<nov-frame class="assignments"
+			   ng-repeat="assignment in assignments | pastAssignments">
+					<novButton>{{assignment.name}} due {{assignment.dueDate}}</novButton>
+		</nov-frame>
 	</nov-content>
 
 </ion-view>

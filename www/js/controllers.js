@@ -46,7 +46,40 @@ nov.controller('ParticipationCtrl', ['$scope', '$stateParams', 'Data', function(
 
 nov.controller('AssignmentsCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
 	$scope.course = Data.getCourse($stateParams.courseId);
-}]);
+	$scope.assignments = Data.getAssignments($stateParams.courseId);
+	$scope.predicate = '-dueDate';
+	$scope.date = new Date();
+}])
+
+//Adapted from Zack Argyle
+//http://stackoverflow.com/questions/20335409/ng-repeat-compare-to-current-date-using-filter
+.filter('upcomingAssignments', function() {
+return function (assignments) {
+	var filtered_list = [];
+	for (var i = 0; i < assignments.length; i++) {
+		var today = new Date().getTime()
+		var dueDate = new Date(assignments[i].dueDate).getTime();
+		if (today <= dueDate) {
+		  	filtered_list.push(assignments[i]);
+		}
+	}
+	return filtered_list;
+}
+})
+
+.filter('pastAssignments', function() {
+return function (assignments) {
+	var filtered_list = [];
+	for (var i = 0; i < assignments.length; i++) {
+		var today = new Date().getTime()
+		var dueDate = new Date(assignments[i].dueDate).getTime();
+		if (today > dueDate) {
+		  	filtered_list.push(assignments[i]);
+		}
+	}
+	return filtered_list;
+}
+});
 
 nov.controller('GradesCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
 	$scope.course = Data.getCourse($stateParams.courseId);
