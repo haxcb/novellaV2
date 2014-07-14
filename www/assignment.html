@@ -4,6 +4,20 @@
 	</ion-nav-buttons>
 
 	<nov-content>
+		<h1>{{assignment.name}}</h1>
+		<nov-frame class="assignment">
+			Due {{assignment.dueDate}}
+		</nov-frame>
+
+		
+		<nov-frame class="submission"
+			ng-repeat="submission in submissions">
+			<h1>Grade</h1>
+			Worth {{assignment.weight}}%
+			<span ng-if="submission.grade">
+			</span>
+			<h1>Comment</h1>
+		</nov-frame>
 	</nov-content>
 
 </ion-view>

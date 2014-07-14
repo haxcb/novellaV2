@@ -83,7 +83,7 @@ nov.service('Data', function () {
 		var submissions = student.submissions;
 		var filtered_list = [];
 		for (var i = 0; i < submissions.length; i++) {
-			if (submissions[i].assignmentId = assignmentId) {
+			if (submissions[i].assignmentId == assignmentId) {
 			  	filtered_list.push(submissions[i]);
 			}
 		}

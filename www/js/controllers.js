@@ -81,8 +81,11 @@ return function (assignments) {
 }
 });
 
-nov.controller('AssignmentCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
+nov.controller('AssignmentCtrl', ['$scope', '$stateParams', 'Data', '$filter', function($scope, $stateParams, Data, $filter) {
 	$scope.course = Data.getCourse($stateParams.courseId);
+	var assignments = Data.getAssignments($stateParams.courseId);
+	var assignment = $filter('filter')(assignments, {id: $stateParams.assignmentId})[0];
+	$scope.assignment = assignment;
 	$scope.submissions = Data.getAssignmentSubmissions($stateParams.assignmentId)
 }]);
 
