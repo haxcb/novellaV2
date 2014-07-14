@@ -86,7 +86,7 @@ nov.controller('AssignmentCtrl', ['$scope', '$stateParams', 'Data', '$filter', f
 	var assignments = Data.getAssignments($stateParams.courseId);
 	var assignment = $filter('filter')(assignments, {id: $stateParams.assignmentId})[0];
 	$scope.assignment = assignment;
-	$scope.submissions = Data.getAssignmentSubmissions($stateParams.assignmentId)
+	$scope.submissions = Data.getAssignmentSubmissions($stateParams.assignmentId);
 }]);
 
 nov.controller('GradesCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
