@@ -17,9 +17,15 @@
 			<!-- Login button box -->
 			<nov-button href="#/app/courses"
 				ng-init="setMenuDrag(false)"
-				ng-click="setMenuDrag(true)"
+				ng-click="setMenuDrag(true); setUser('student')"
 				nav-clear>
-				LOGIN
+				STUDENT LOGIN
+			</nov-button>
+			<nov-button href="#/app/courses"
+				ng-init="setMenuDrag(false)"
+				ng-click="setMenuDrag(true); setUser('instructor')"
+				nav-clear>
+				INSTRUCTOR LOGIN
 			</nov-button>
 			
 		</div>	

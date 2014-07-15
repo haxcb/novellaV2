@@ -26,18 +26,21 @@ nov.controller('DataCtrl', ['$scope', 'Data', function($scope, Data) {
 
 }]);
 
-nov.controller('LoginCtrl', ['$scope', function($scope) {
-
+nov.controller('LoginCtrl', ['$scope', 'Data', 'userModel', function($scope, Data, userModel) {
+	$scope.userModel = userModel;
+	$scope.setUser = userModel.setUser;
 }]);
 
-nov.controller('CoursesCtrl', ['$scope', function($scope) {
-
+nov.controller('CoursesCtrl', ['$scope', 'Data', 'userModel', function($scope, Data, userModel) {
+	$scope.userModel = userModel;
+	$scope.user = $scope.userModel.getUser();
 }]);
 
 nov.controller('CourseCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
 	$scope.course = Data.getCourse($stateParams.courseId);
 	$scope.materials = Data.getCourseMaterials($stateParams.courseId);
 	$scope.predicate = '-uploadDate';
+
 }]);
 
 nov.controller('ParticipationCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {

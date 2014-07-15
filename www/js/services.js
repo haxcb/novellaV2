@@ -10,6 +10,21 @@
 */
 var nov = angular.module('nov.services', []);
 
+nov.factory('userModel', function () {
+    var userModel = {
+        currentUser: ""
+    };
+    userModel.setUser = function (userRole) {
+        userModel.currentUser = userRole;
+    };
+    userModel.getUser = function () {
+    	console.log('getUser', userModel.currentUser)
+    	return userModel.currentUser;
+    }
+    return userModel;
+});
+
+
 nov.service('Data', function () {
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////
