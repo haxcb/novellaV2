@@ -26,7 +26,25 @@ nov.controller('DataCtrl', ['$scope', 'Data', function($scope, Data) {
 
 }]);
 
-nov.controller('LoginCtrl', ['$scope', function($scope) {
+nov.controller('LoginCtrl', ['$scope', function($scope, $http) {
+	$scope.errors = []
+	$scope.messages = []
+
+	$scope.logIn = function() {
+		$scope.errors.splice(0, $scope.errors.length); //to reset errors array
+		$scope.messages.splice(0, $scope.messages.length); //to reset messages array
+
+		$http.post('http://54:54:54:54', {
+			'username': $scope.username,
+			'password': $scope.password
+		}).success(function(data, status, headers, config) {
+			$scope.messages.push(status)
+
+		}).error(function(data, status){
+			$scope.errors.push(status);
+
+		});
+	}
 
 }]);
 
