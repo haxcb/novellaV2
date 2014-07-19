@@ -42,17 +42,17 @@ nov.service('Data', function () {
 				{ name: 'Security', id: 12, fileType: 'pdf', uploadDate: '2014-06-16', url: 'test/1.pdf'}
 			],
 			assignments: [
-				{name: 'Project Deliverable 1', id: 21, dueDate: '2014-05-25', weight: 25},
-				{name: 'Report', id: 22, dueDate: '2014-06-15', weight: 30},
-				{name: 'Project Deliverable 2', id: 23, dueDate: '2014-08-20', weight: 30}
+				{name: 'Project Deliverable 1', id: 21, dueDate: '2014-05-25', totalGrade: 100, weight: 25, uploadDate: '2014-05-05', url: 'test/1.pdf'},
+				{name: 'Report', id: 22, dueDate: '2014-06-15', weight: 30, totalGrade: 80, uploadDate: '2014-05-05', url: 'test/1.pdf'},
+				{name: 'Project Deliverable 2', id: 23, dueDate: '2014-08-20', totalGrade: 10, weight: 30, uploadDate: '2014-05-05', url: 'test/1.pdf'}
 			] },
 		{ name: 'CMPT 355', id: 1, instructor: 'Wo Shun Luk', semester: 'Summer 2014', section: 'D100', role: 'Student' },
 		{ name: 'ENGL 103w', id: 2, instructor: 'Orion Kidder', semester: 'Summer 2014', section: 'D100', role: 'Student' }
 		],
 		submissions: [
-			{id: 40, assignmentId: 21, submitDate: '2014-05-25', status: 'submitted', grade: 100, comment: 'Well done'},
-			{id: 41, assignmentId: 22, submitDate: '2014-06-16', status: 'late', grade: 80, comment: 'Late!'},
-			{id: 42, assignmentId: 33, submitDate: '2014-06-16', status: 'submitted', grade: 85, comment: ''},
+			{id: 40, assignmentId: 21, submitDate: '2014-05-25', status: 'submitted', actualGrade: 100, studentComment: '', instructorComment: 'Well done'},
+			{id: 41, assignmentId: 22, submitDate: '2014-06-16', status: 'late', actualGrade: 80, studentComment: '', instructorComment: 'Late!'},
+			{id: 42, assignmentId: 33, submitDate: '2014-06-16', status: 'submitted', actualGrade: 85, studentComment: '', instructorComment: ''},
 		]
 	};
 	

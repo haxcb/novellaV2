@@ -6,13 +6,17 @@
 	<nov-content>
 		<h1>{{assignment.name}}</h1>
 		<nov-frame class="assignment">
+			See <a href="{{assignment.url}}">{{assignment.url}}</a>
+			<hr>
 			Due {{assignment.dueDate}}
+			Posted {{assignment.uploadDate}}
 		</nov-frame>
 
 		<!--If the assignment has been submitted, show the submissions.-->
-		<form class="submissions">
+		<form name="submit" class="submissions">
 			<span ng-repeat="submission in submissions">
-				<h1>Grade</h1> {{submission.grade}} <input type="text" ng-model="submission.grade" /><br />
+				<h1>Grade</h1> 
+				<input type="text" ng-model="submission.grade" ng-pattern="pattern" placeholder="{{submission.actualGrade}}"/> / {{assignment.totalGrade}} <br />
 				<h1>Comment</h1> {{submission.comment}} <input type="text" ng-model="submission.comment" /><br />
 				<h1>Submitted date:</h1> date
 			</span>

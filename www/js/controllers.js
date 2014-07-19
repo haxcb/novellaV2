@@ -113,6 +113,8 @@ nov.controller('AssignmentCtrl', ['$scope', '$stateParams', 'Data', '$filter', f
 		r.readAsBinaryString(f);
 	}
 
+	$scope.pattern = /^\d*(\.\d*)?$/;
+
 }]);
 
 nov.controller('GradesCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
