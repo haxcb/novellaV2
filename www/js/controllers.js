@@ -90,6 +90,29 @@ nov.controller('AssignmentCtrl', ['$scope', '$stateParams', 'Data', '$filter', f
 	var assignment = $filter('filter')(assignments, {id: $stateParams.assignmentId})[0];
 	$scope.assignment = assignment;
 	$scope.submissions = Data.getAssignmentSubmissions($stateParams.assignmentId);
+
+	$scope.master = {};
+
+	$scope.save = function(submission) {
+		$scope.master = angular.copy(submission);
+	};
+
+	$scope.reset = function() {
+		$scope.submission = angular.copy($scope.master);
+	};
+
+	$scope.reset();
+
+	$scope.uploadFile = function(){
+		var f = document.getElementById('file').files[0],
+			r = new FileReader();
+		r.onloadend = function(e){
+			var data = e.target.result;
+			//send you binary data via $http or $resource or do anything else with it
+		}
+		r.readAsBinaryString(f);
+	}
+
 }]);
 
 nov.controller('GradesCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {

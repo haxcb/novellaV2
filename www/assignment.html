@@ -10,21 +10,23 @@
 		</nov-frame>
 
 		<!--If the assignment has been submitted, show the submissions.-->
-		<nov-frame class="submissions">
+		<form class="submissions">
 			<span ng-repeat="submission in submissions">
-				<h1>Grade</h1> {{submission.grade}}
-				<h1>Comment</h1> {{submission.comment}}
+				<h1>Grade</h1> {{submission.grade}} <input type="text" ng-model="submission.grade" /><br />
+				<h1>Comment</h1> {{submission.comment}} <input type="text" ng-model="submission.comment" /><br />
 				<h1>Submitted date:</h1> date
 			</span>
 			<hr ng-if="submissions.length > 0">
-
 			<span>
 				<h1>Worth {{assignment.weight}}%</h1>
-				<h1>Add a Comment</h1> <textarea ng-model="comment"></textarea>
+				<h1>Add a Comment</h1><input type="text" ng-model="submission.comment" /><br />
 				<!--Button text is 'Resubmit' if there are submissions-->
-				<button>Browse</button> <button ng-if="submissions.length==0">Submit</button> <button ng-if="submissions.length > 0">Resubmit</button>
+				<input type="file" id="file" name="file"/>
+				<button ng-click="uploadFile()">Browse</button> <button ng-if="submissions.length==0" ng-click="save(submission)">Submit</button> <button ng-if="submissions.length > 0" ng-click="save(submission)">Resubmit</button>
 			</span>
-		</nov-frame>
+		</form>
+		<pre>form = {{submission | json}}</pre>
+		<pre>master = {{master | json}}</pre>
 	</nov-content>
 
 </ion-view>
