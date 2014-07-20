@@ -84,7 +84,10 @@ return function (assignments) {
 }
 });
 
-nov.controller('AssignmentCtrl', ['$scope', '$stateParams', 'Data', '$filter', function($scope, $stateParams, Data, $filter) {
+nov.controller('AssignmentCtrl', ['$scope', '$stateParams', 'Data', 'userModel', '$filter', function($scope, $stateParams, Data, userModel, $filter) {
+	$scope.userModel = userModel;
+	$scope.user = $scope.userModel.getUser();	
+
 	$scope.course = Data.getCourse($stateParams.courseId);
 	var assignments = Data.getAssignments($stateParams.courseId);
 	var assignment = $filter('filter')(assignments, {id: $stateParams.assignmentId})[0];
@@ -93,25 +96,22 @@ nov.controller('AssignmentCtrl', ['$scope', '$stateParams', 'Data', '$filter', f
 
 	$scope.master = {};
 
+	$scope.uploadFile = function(){
+		console.log(document.getElementById('file').files[0])
+		// var f = document.getElementById('file').files[0],
+		// 	r = new FileReader();
+		// r.onloadend = function(e){
+		// 	var data = e.target.result;
+		// 	//send you binary data via $http or $resource or do anything else with it
+		// }
+		// r.readAsBinaryString(f);
+	}
+
 	$scope.save = function(submission) {
 		$scope.master = angular.copy(submission);
+		console.log(document.getElementById('file').files[0])
+		console.log(submission)
 	};
-
-	$scope.reset = function() {
-		$scope.submission = angular.copy($scope.master);
-	};
-
-	$scope.reset();
-
-	$scope.uploadFile = function(){
-		var f = document.getElementById('file').files[0],
-			r = new FileReader();
-		r.onloadend = function(e){
-			var data = e.target.result;
-			//send you binary data via $http or $resource or do anything else with it
-		}
-		r.readAsBinaryString(f);
-	}
 
 	$scope.pattern = /^\d*(\.\d*)?$/;
 
