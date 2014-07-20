@@ -36,7 +36,9 @@ nov.controller('CoursesCtrl', ['$scope', 'Data', 'userModel', function($scope, D
 	$scope.user = $scope.userModel.getUser();
 }]);
 
-nov.controller('CourseCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
+nov.controller('CourseCtrl', ['$scope', '$stateParams', 'Data', 'userModel', function($scope, $stateParams, Data, userModel) {
+	$scope.userModel = userModel;
+	$scope.user = $scope.userModel.getUser();
 	$scope.course = Data.getCourse($stateParams.courseId);
 	$scope.materials = Data.getCourseMaterials($stateParams.courseId);
 	$scope.predicate = '-uploadDate';
@@ -47,7 +49,9 @@ nov.controller('ParticipationCtrl', ['$scope', '$stateParams', 'Data', function(
 	$scope.course = Data.getCourse($stateParams.courseId);
 }]);
 
-nov.controller('AssignmentsCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
+nov.controller('AssignmentsCtrl', ['$scope', '$stateParams', 'Data', 'userModel', function($scope, $stateParams, Data, userModel) {
+	$scope.userModel = userModel;
+	$scope.user = $scope.userModel.getUser();	
 	$scope.course = Data.getCourse($stateParams.courseId);
 	$scope.assignments = Data.getAssignments($stateParams.courseId);
 	$scope.predicate = '-dueDate';
