@@ -121,6 +121,39 @@ nov.controller('AssignmentCtrl', ['$scope', '$stateParams', 'Data', 'userModel',
 
 }]);
 
+nov.controller('SubmissionCtrl', ['$scope', '$stateParams', 'Data', 'userModel', '$filter', function($scope, $stateParams, Data, userModel, $filter) {
+	$scope.userModel = userModel;
+	$scope.user = $scope.userModel.getUser();	
+
+	$scope.course = Data.getCourse($stateParams.courseId);
+	var assignments = Data.getAssignments($stateParams.courseId);
+	var assignment = $filter('filter')(assignments, {id: $stateParams.assignmentId})[0];
+	$scope.assignment = assignment;
+	$scope.submissions = Data.getAssignmentSubmissions($stateParams.assignmentId);
+
+	$scope.master = {};
+
+	$scope.uploadFile = function(){
+		console.log(document.getElementById('file').files[0])
+		// var f = document.getElementById('file').files[0],
+		// 	r = new FileReader();
+		// r.onloadend = function(e){
+		// 	var data = e.target.result;
+		// 	//send you binary data via $http or $resource or do anything else with it
+		// }
+		// r.readAsBinaryString(f);
+	}
+
+	$scope.save = function(submission) {
+		$scope.master = angular.copy(submission);
+		console.log(document.getElementById('file').files[0])
+		console.log(submission)
+	};
+
+	$scope.pattern = /^\d*(\.\d*)?$/;
+
+}]);
+
 nov.controller('GradesCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
 	$scope.course = Data.getCourse($stateParams.courseId);
 }]);

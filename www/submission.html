@@ -1,0 +1,38 @@
+<ion-view title="Assignment">
+	<ion-nav-buttons side="right">
+		<button menu-toggle="right"class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+
+	<nov-content>
+		<h1>{{assignment.name}}</h1>
+		<nov-frame class="assignment">
+			See <a href="{{assignment.url}}">{{assignment.url}}</a>
+			<hr>
+			Due {{assignment.dueDate}}
+			Posted {{assignment.uploadDate}}
+		</nov-frame>
+
+		<nov-frame class="submission">
+			<!--Instructor: Grade and instructor comment fields are editable.-->
+			<form ng-if="user=='instructor'" name="submit" class="submissions">
+				<span ng-repeat="submission in submissions">
+					<h1>Submission</h1>
+					<a href="{{submission.file}}">{{submission.file}}</a>
+					<a href="#">Student Name</a>
+					<h2>Student's Comment</h2> {{submission.studentComment}}
+					<h2>Submitted date</h2> {{submission.submitDate}}
+					<br>
+				</span>
+				<hr ng-if="submissions.length > 0">
+				<span>
+					<h1>Grade <input type="text" ng-model="submissions[0].actualGrade" required> / {{assignment.totalGrade}}</h1>
+					<h1>Add a Comment</h1><input type="text" ng-model="submissions[0].instructorComment" />
+					<button ng-click="save(submission)">Submit Grade</button> 
+				</span>
+			</form>
+
+		</nov-frame>
+
+	</nov-content>
+
+</ion-view>

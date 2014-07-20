@@ -89,7 +89,17 @@ nov.config(function($stateProvider, $urlRouterProvider) {
           controller: 'AssignmentCtrl'
         }
       }
-    }); 
+    });
+
+    $stateProvider.state('app.submission', {
+      url: "/courses/:courseId/assignments/:assignmentId/submissions/:submissionId",
+      views: {
+        'menuContent' :{
+          templateUrl: "submission.html",
+          controller: 'SubmissionCtrl'
+        }
+      }
+    });  
 	
     $stateProvider.state('app.quizzes', {
       url: "/courses/:courseId/quizzes",
