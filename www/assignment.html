@@ -18,16 +18,24 @@
 				<span ng-repeat="submission in submissions">
 					<h1>Submission</h1>
 					<a href="{{submission.file}}">{{submission.file}}</a>
-					<h1>Submitted date:</h1> {{submission.submitDate}}
+					<h2>Comment</h2> {{submission.studentComment}}
+					<h2>Submitted date</h2> {{submission.submitDate}}
 					<br>
 				</span>
 				<hr ng-if="submissions.length > 0">
 				<span>
-					<h1>Grade {{submission.actualGrade}} / {{assignment.totalGrade}}</h1>
-					<h1>Add a Comment</h1><input type="text" ng-model="submission.studentComment" /><br />
-					<!--Button text is 'Resubmit' if there are submissions-->
-					<input type="file" id="file" name="file" required/>
-					<button ng-if="submissions.length==0" ng-click="save(submission)">Submit</button> <button ng-if="submissions.length > 0" ng-click="save(submission)">Resubmit</button>
+					<h1>Grade {{submissions[0].actualGrade}} / {{assignment.totalGrade}}</h1>
+					<!--Show instructor comment if assignment has been marked.-->
+					<span ng-if="submissions.length > 0 && submissions[0].actualGrade !== ''">
+						<h1>Comment</h1> {{submissions[0].instructorComment}}
+					</span>
+					<!--The student can make submissions while the assignment has not been marked.-->
+					<span ng-if="submissions.length == 0 || submissions[0].actualGrade == ''">
+						<h1>Add a Comment</h1><input type="text" ng-model="submission.studentComment" />
+						<!--Button text is 'Resubmit' if there are submissions-->
+						<input type="file" id="file" name="file" required/>
+						<button ng-if="submissions.length==0" ng-click="save(submission)">Submit</button> <button ng-if="submissions.length > 0" ng-click="save(submission)">Resubmit</button>
+					</span>
 				</span>
 			</form>
 

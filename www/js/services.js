@@ -51,8 +51,8 @@ nov.service('Data', function () {
 		],
 		submissions: [
 			{id: 40, assignmentId: 21, submitDate: '2014-05-25', status: 'submitted', actualGrade: 100, studentComment: '', instructorComment: 'Well done', file: 'test/1.pdf'},
-			{id: 41, assignmentId: 22, submitDate: '2014-06-16', status: 'late', actualGrade: 80, studentComment: '', instructorComment: 'Late!', file: 'test/1.pdf'},
-			{id: 42, assignmentId: 33, submitDate: '2014-06-16', status: 'submitted', actualGrade: -1, studentComment: '', instructorComment: '', file: 'test/2.pdf'},
+			{id: 41, assignmentId: 22, submitDate: '2014-06-16', status: 'late', actualGrade: '', studentComment: 'Sorry, late!', instructorComment: '', file: 'test/1.pdf'},
+			{id: 42, assignmentId: 33, submitDate: '2014-06-16', status: 'submitted', actualGrade: '', studentComment: '', instructorComment: '', file: 'test/2.pdf'},
 		]
 	};
 	
