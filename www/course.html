@@ -16,8 +16,11 @@
 					<!--File uploader-->
 					<h1>Upload File</h1>
 						<form id="courseMaterial">
-							<input type="file" id="file" name="file" ng-model="courseMaterial.file" required/>
-							<input type="text" ng-model="courseMaterial.name" placeholder="File Name">
+							<input type="file" id="file" name="file" ng-model="courseMaterial.file" required/><br>
+							<input type="text" ng-model="courseMaterial.name" placeholder="File Name" required><br>
+							<select ng-model="courseMaterial.fileType" ng-options="option as option.name for option in fileTypeOptions">
+								<option value="">-- Choose File Type --</option>
+							</select><br>
 							<button ng-click="upload(courseMaterial)">Submit</button>
 						</form>
 					<!--Text editor needs a lot of styling TLC.-->

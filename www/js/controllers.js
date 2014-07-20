@@ -43,6 +43,11 @@ nov.controller('CourseCtrl', ['$scope', '$stateParams', 'Data', 'userModel', fun
 	$scope.materials = Data.getCourseMaterials($stateParams.courseId);
 	$scope.predicate = '-uploadDate';
 	$scope.editing = false;
+	$scope.fileTypeOptions = [
+		{id: 1, name: 'PDF'}, 
+		{id: 2, name: 'audio'}, 
+		{id: 3, name: 'video'}
+		];
 }]);
 
 nov.controller('ParticipationCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
