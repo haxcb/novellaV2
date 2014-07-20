@@ -60,6 +60,16 @@ nov.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     });
+
+    $stateProvider.state('app.courseMaterial', {
+      url: "/courses/:courseId/materials/:materialId",
+      views: {
+        'menuContent' :{
+          templateUrl: "courseMaterial.html",
+          controller: 'CourseMaterialCtrl'
+        }
+      }
+    });
 	
     $stateProvider.state('app.participation', {
       url: "/courses/:courseId/participation",

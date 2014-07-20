@@ -41,12 +41,9 @@
 		Search: <input ng-model="searchText">
 		<nov-frame class="materials"
 			   ng-repeat="material in materials | orderBy:predicate:reverse | filter:searchText">
-					<open-external url="material.url" exit="closeBrowser()" 
-		               load-start="loadStart()"
-		               load-stop="loadStop()"
-		               load-error="loadError()">
-						{{material.name}}
-					</open-external>
+					<a href="#/app/courses/{{course.id}}/materials/{{material.id}}">
+						<button>{{material.name}}</button>
+					</a>
 					<ul>
 						<li><b>Uploaded:</b> {{ material.uploadDate }}</li>
 						<li><b>Type:</b> {{ material.fileType }}</li>

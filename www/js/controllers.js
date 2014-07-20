@@ -50,6 +50,15 @@ nov.controller('CourseCtrl', ['$scope', '$stateParams', 'Data', 'userModel', fun
 		];
 }]);
 
+nov.controller('CourseMaterialCtrl', ['$scope', '$stateParams', 'Data', 'userModel', '$filter', function($scope, $stateParams, Data, userModel, $filter) {
+	$scope.userModel = userModel;
+	$scope.user = $scope.userModel.getUser();
+	var materials = Data.getCourseMaterials($stateParams.courseId);
+	var courseMaterial = $filter('filter')(materials, {id: $stateParams.materialId})[0];
+	console.log(courseMaterial)
+	$scope.courseMaterial = courseMaterial;
+}]);
+
 nov.controller('ParticipationCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
 	$scope.course = Data.getCourse($stateParams.courseId);
 }]);
