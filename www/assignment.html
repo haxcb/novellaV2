@@ -16,15 +16,14 @@
 			<!--Student: Can submit and add comments.-->
 			<form ng-if="user=='student'" name="submit" class="submissions">
 				<span ng-repeat="submission in submissions">
-					<h1>Grade</h1> {{submission.actualGrade}} / {{assignment.totalGrade}} <br />
-					<h1>Comment</h1> {{submission.instructorComment}}<br />
+					<h1>Submission</h1>
+					<a href="{{submission.file}}">{{submission.file}}</a>
 					<h1>Submitted date:</h1> {{submission.submitDate}}
+					<br>
 				</span>
 				<hr ng-if="submissions.length > 0">
-				<!--If the assignment has been submitted, show the submissions.-->
 				<span>
-					<h1>Worth {{assignment.weight}}%</h1>
-					<h1>Grade / {{assignment.totalGrade}}</h1>
+					<h1>Grade {{submission.actualGrade}} / {{assignment.totalGrade}}</h1>
 					<h1>Add a Comment</h1><input type="text" ng-model="submission.studentComment" /><br />
 					<!--Button text is 'Resubmit' if there are submissions-->
 					<input type="file" id="file" name="file" required/>
