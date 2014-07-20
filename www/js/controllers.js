@@ -55,7 +55,6 @@ nov.controller('CourseMaterialCtrl', ['$scope', '$stateParams', 'Data', 'userMod
 	$scope.user = $scope.userModel.getUser();
 	var materials = Data.getCourseMaterials($stateParams.courseId);
 	var courseMaterial = $filter('filter')(materials, {id: $stateParams.materialId})[0];
-	console.log(courseMaterial)
 	$scope.courseMaterial = courseMaterial;
 }]);
 

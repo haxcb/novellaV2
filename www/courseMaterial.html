@@ -7,15 +7,19 @@
 		<h1>{{courseMaterial.name}}</h1>
 		
 		<nov-frame>
-			<open-external url="courseMaterial.url" exit="closeBrowser()" 
+			<open-external ng-if="courseMaterial.fileType == 'pdf'" url="courseMaterial.url" exit="closeBrowser()" 
                load-start="loadStart()"
                load-stop="loadStop()"
                load-error="loadError()">
 				View
 			</open-external>
-			<a href="{{courseMaterial.url}}" download>
-				<button>Download</button>
-			</a>
+			<div ng-if="courseMaterial.fileType == 'video'" youtube code='IytNBm8WA1c'></div>
+			<!--Download button should only be available if instructor allows it.-->
+			<!-- <span ng-if="courseMaterial.download == true"> -->
+				<a href="{{courseMaterial.url}}" download>
+					<button>Download</button>
+				</a>
+			<!-- </span> -->
 			<hr>
 			<ul>
 				<li><b>Uploaded:</b> {{ courseMaterial.uploadDate }}</li>

@@ -88,7 +88,6 @@ nov.directive("openExternal", function($window){
             };
             var inAppBrowser;
             $scope.openUrl = function(){
-            	// inAppBrowser = $window.open('test/1.pdf', '_blank', 'location=yes');
                 inAppBrowser = $window.open($scope.url, '_blank', 'location=yes');
                 if($scope.exit instanceof Function){
                     inAppBrowser.addEventListener('exit', wrappedFunction($scope.exit));
@@ -96,4 +95,13 @@ nov.directive("openExternal", function($window){
             };
         }
     };
+});
+
+//http://plnkr.co/edit/5fptRcUqi3RIQXJ1426s?p=preview
+nov.directive('youtube', function() {
+  return {
+    restrict: 'EA',
+    scope: { code:'@code' },
+    template: '<div style="height:400px;"><iframe style="overflow:hidden;height:100%;width:100%" width="100%" height="100%" src="http://www.youtube.com/embed/{{code}}" frameborder="0" allowfullscreen></iframe></div>'
+  };
 });
