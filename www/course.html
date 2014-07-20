@@ -9,13 +9,25 @@
 
 		<!--Instructor options-->
 		<span ng-if="user == 'instructor'">
+			<!--BUG: Opening Add section hides the rest of the page contents.-->
 			<button ng-click="editing=!editing">Add</button>
 			<span ng-show="editing">
-				<text-angular ng-model="htmlVariable" 
-					ta-toolbar-class="editor-btn-toolbar"
-					ta-toolbar-button-class="editor-btn editor-btn-default"
-					ta-toolbar-group-class="editor-btn-group">
-				</text-angular>
+				<nov-frame>
+					<!--File uploader-->
+					<h1>Upload File</h1>
+						<form id="courseMaterial">
+							<input type="file" id="file" name="file" ng-model="courseMaterial.file" required/>
+							<input type="text" ng-model="courseMaterial.name" placeholder="File Name">
+							<button ng-click="upload(courseMaterial)">Submit</button>
+						</form>
+					<!--Text editor needs a lot of styling TLC.-->
+					<h1>Text Editor</h1>
+					<text-angular ng-model="course.editorData" 
+						ta-toolbar-class="editor-btn-toolbar"
+						ta-toolbar-button-class="editor-btn editor-btn-default"
+						ta-toolbar-group-class="editor-btn-group">
+					</text-angular>
+				</nov-frame>
 			</span>
 		</span>
 		
