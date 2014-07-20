@@ -6,9 +6,19 @@
 	<nov-content>
 		<nov-course-icons></nov-course-icons>
 		<h1>Course Materials</h1>
+
+		<!--Instructor options-->
 		<span ng-if="user == 'instructor'">
-			<button>Add</button>
+			<button ng-click="editing=!editing">Add</button>
+			<span ng-show="editing">
+				<text-angular ng-model="htmlVariable" 
+					ta-toolbar-class="editor-btn-toolbar"
+					ta-toolbar-button-class="editor-btn editor-btn-default"
+					ta-toolbar-group-class="editor-btn-group">
+				</text-angular>
+			</span>
 		</span>
+		
 		<div id="sort-options">
 			<button ng-click="predicate = 'name'; reverse=!reverse">Sort by Name</button>
 			<button ng-click="predicate = 'uploadDate'; reverse=!reverse">Sort by Date</button>
