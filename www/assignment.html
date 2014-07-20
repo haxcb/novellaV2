@@ -39,6 +39,31 @@
 				</span>
 			</form>
 
+			<div ng-if="user == 'instructor'">
+				<h1>Submissions</h1>
+				<table id="submissions-table">
+				<tr>
+				  <th>Name</th>
+				  <th>Grade</th>
+				  <th>Status</th>
+				  <th></th>
+				</tr>
+				<tr>
+				  <td>Maliha Ali</td>
+				  <td>8/10</td>		
+				  <td>Graded</td>
+				  <td><a href="#">View</a></td>
+				</tr>
+				<tr>
+				  <td>Lionel Finley</td>
+				  <td>/10</td>		
+				  <td>Unsubmitted</td>
+				  <td><a href="#">View</a></td>
+				</tr>
+				</table>
+			</div>
+
+			<!--This part has to go in submission template-->
 			<!--Instructor: Grade and instructor comment fields are editable.-->
 			<form ng-if="user=='instructor'" name="submit" class="submissions">
 				<span ng-repeat="submission in submissions">
