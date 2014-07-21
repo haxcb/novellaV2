@@ -17,7 +17,16 @@
 			<form ng-if="user=='instructor'" name="submit" class="submissions">
 				<span ng-repeat="submission in submissions">
 					<h1>Submission</h1>
-					<a href="{{submission.file}}">{{submission.file}}</a>
+					<!-- <a href="{{submission.file}}">{{submission.file}}</a> -->
+					<open-external url="submission.url" exit="closeBrowser()" 
+		               load-start="loadStart()"
+		               load-stop="loadStop()"
+		               load-error="loadError()">
+						View
+					</open-external>
+					<a href="{{submission.url}}" download>
+						<button>Download</button>
+					</a><br>
 					<a href="#">Student Name</a>
 					<h2>Student's Comment</h2> {{submission.studentComment}}
 					<h2>Submitted date</h2> {{submission.submitDate}}
