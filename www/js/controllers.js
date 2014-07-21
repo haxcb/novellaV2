@@ -69,6 +69,7 @@ nov.controller('AssignmentsCtrl', ['$scope', '$stateParams', 'Data', 'userModel'
 	$scope.assignments = Data.getAssignments($stateParams.courseId);
 	$scope.predicate = '-dueDate';
 	$scope.date = new Date();
+	$scope.editing = false;
 }])
 
 //Adapted from Zack Argyle
