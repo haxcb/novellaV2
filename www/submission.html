@@ -18,13 +18,13 @@
 				<span ng-repeat="submission in submissions">
 					<h1>Submission</h1>
 					<!-- <a href="{{submission.file}}">{{submission.file}}</a> -->
-					<open-external url="submission.url" exit="closeBrowser()" 
+					<open-external url="submission.file" exit="closeBrowser()" 
 		               load-start="loadStart()"
 		               load-stop="loadStop()"
 		               load-error="loadError()">
 						View
 					</open-external>
-					<a href="{{submission.url}}" download>
+					<a href="{{submission.file}}" download>
 						<button>Download</button>
 					</a><br>
 					<a href="#">Student Name</a>
