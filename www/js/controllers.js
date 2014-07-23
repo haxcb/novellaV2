@@ -56,6 +56,7 @@ nov.controller('CourseMaterialCtrl', ['$scope', '$stateParams', 'Data', 'userMod
 	var materials = Data.getCourseMaterials($stateParams.courseId);
 	var courseMaterial = $filter('filter')(materials, {id: $stateParams.materialId})[0];
 	$scope.courseMaterial = courseMaterial;
+	$scope.code = 'oHg5SJYRHA0';
 }]);
 
 nov.controller('ParticipationCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
