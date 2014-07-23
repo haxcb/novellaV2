@@ -45,8 +45,8 @@ nov.controller('CourseCtrl', ['$scope', '$stateParams', 'Data', 'userModel', fun
 	$scope.editing = false;
 	$scope.fileTypeOptions = [
 		{id: 1, name: 'PDF'}, 
-		{id: 2, name: 'audio'}, 
-		{id: 3, name: 'video'}
+		{id: 2, name: 'video'}, 
+		{id: 3, name: 'Create with text editor'}
 		];
 }]);
 

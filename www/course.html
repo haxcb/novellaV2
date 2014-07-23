@@ -14,22 +14,26 @@
 			<span ng-show="editing">
 				<nov-frame>
 					<!--File uploader-->
-					<h1>Upload File</h1>
+					<h1>Add Course Material</h1>
 						<form id="courseMaterial">
-							<input type="file" id="file" name="file" ng-model="courseMaterial.file" required/><br>
 							<input type="text" ng-model="courseMaterial.name" placeholder="File Name" required><br>
 							<select ng-model="courseMaterial.fileType" ng-options="option as option.name for option in fileTypeOptions">
 								<option value="">-- Choose File Type --</option>
 							</select><br>
+							<input type="file" id="file" name="file" ng-model="courseMaterial.file" ng-if="courseMaterial.fileType.name == 'PDF'"/><br>
+							<input type="text" ng-model="courseMaterial.url" ng-if="courseMaterial.fileType.name == 'video'" placeholder="YouTube URL"/><br>
 							<button ng-click="upload(courseMaterial)">Submit</button>
 						</form>
-					<!--Text editor needs a lot of styling TLC.-->
-					<h1>Text Editor</h1>
-					<text-angular ng-model="course.editorData" 
-						ta-toolbar-class="editor-btn-toolbar"
-						ta-toolbar-button-class="editor-btn editor-btn-default"
-						ta-toolbar-group-class="editor-btn-group">
-					</text-angular>
+					<span ng-if="courseMaterial.fileType.id == 3">
+						<!--Text editor needs a lot of styling TLC.-->
+						<h1>Text Editor</h1>
+						<text-angular ng-model="course.editorData" 
+							ta-toolbar-class="editor-btn-toolbar"
+							ta-toolbar-button-class="editor-btn editor-btn-default"
+							ta-toolbar-group-class="editor-btn-group">
+						</text-angular>
+						<button ng-click="upload(courseMaterial)">Submit</button>
+					</span>
 				</nov-frame>
 			</span>
 		</span>
