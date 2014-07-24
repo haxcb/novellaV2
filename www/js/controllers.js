@@ -48,7 +48,22 @@ nov.controller('CourseCtrl', ['$scope', '$stateParams', 'Data', 'userModel', fun
 		{id: 2, name: 'video'}, 
 		{id: 3, name: 'Create with text editor'}
 		];
-}]);
+	$scope.notifications = Data.getCourseNotifications($stateParams.courseId);
+}])
+
+.filter('notificationsFilter', function() {
+	return function (notifications) {
+		var filtered_list = [];
+		for (var i = 0; i < notifications.length; i++) {
+			var today = new Date().getTime()
+			var uploadDate = new Date(notifications[i].uploadDate).getTime();
+			if (today <= uploadDate) {
+			  	filtered_list.push(notifications[i]);
+			}
+		}
+		return filtered_list;
+	}
+});
 
 nov.controller('CourseMaterialCtrl', ['$scope', '$stateParams', 'Data', 'userModel', '$filter', function($scope, $stateParams, Data, userModel, $filter) {
 	$scope.userModel = userModel;
@@ -62,8 +77,6 @@ nov.controller('CourseMaterialCtrl', ['$scope', '$stateParams', 'Data', 'userMod
 		var match = url.match(regExp);
 		if (match&&match[2].length==11){
 		    return match[2];
-		}else{
-		    //error
 		}
 	}
 	$scope.code = parseYoutube(courseMaterial.url);

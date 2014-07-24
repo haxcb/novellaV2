@@ -44,8 +44,8 @@ nov.service('Data', function () {
 			],
 			assignments: [
 				{name: 'Project Deliverable 1', id: 21, dueDate: '2014-05-25', totalGrade: 100, weight: 25, uploadDate: '2014-05-05', url: 'test/1.pdf'},
-				{name: 'Report', id: 22, dueDate: '2014-06-15', weight: 30, totalGrade: 80, uploadDate: '2014-05-05', url: 'test/1.pdf'},
-				{name: 'Project Deliverable 2', id: 23, dueDate: '2014-08-20', totalGrade: 10, weight: 30, uploadDate: '2014-05-05', url: 'test/1.pdf'}
+				{name: 'Report', id: 22, dueDate: '2014-06-15', weight: 30, totalGrade: 80, uploadDate: '2014-06-05', url: 'test/1.pdf'},
+				{name: 'Project Deliverable 2', id: 23, dueDate: '2014-08-20', totalGrade: 10, weight: 30, uploadDate: '2014-07-05', url: 'test/1.pdf'}
 			] },
 		{ name: 'CMPT 355', id: 1, instructor: 'Wo Shun Luk', semester: 'Summer 2014', section: 'D100', role: 'Student', 
 			courseMaterials: [
@@ -104,7 +104,11 @@ nov.service('Data', function () {
 	}
 
 	this.getCourseNotifications = function(courseId) {
-
+		var courseMaterials = student.enrolledCourses[courseId].courseMaterials;
+		var assignments = student.enrolledCourses[courseId].assignments;
+		console.log('courseMaterials', courseMaterials)
+		console.log('assignments', assignments)
+		return courseMaterials.concat(assignments);
 	}
 
 	this.getAssignments = function(courseId) {
