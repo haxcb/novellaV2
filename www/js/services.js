@@ -37,8 +37,8 @@ nov.service('Data', function () {
 		enrolledCourses: [
 		{ name: 'CMPT 475', id: 0, instructor: 'Herbert H. Tsang', semester: 'Summer 2014', section: 'E100', role: 'Student',
 			courseMaterials: [
-				{ name: 'Intro to Software Engineering', id: 10, fileType: 'PDF', uploadDate: '2014-05-05', url: 'test/1.PDF'},
-				{ name: 'Agile Development', id: 11, fileType: 'PDF', uploadDate: '2014-05-12', url: 'test/1.PDF'},
+				{ name: 'Intro to Software Engineering', id: 10, fileType: 'PDF', uploadDate: '2014-05-05', download: true, url: 'test/1.PDF'},
+				{ name: 'Agile Development', id: 11, fileType: 'PDF', uploadDate: '2014-05-12', download: true, url: 'test/1.PDF'},
 				{ name: 'Security', id: 12, fileType: 'PDF', uploadDate: '2014-06-16', url: 'test/1.PDF'},
 				{ name: 'Video tutorial', id:13, fileType: 'video', uploadDate: '2014-07-20', url: 'http://www.youtube.com/watch?v=dQw4w9WgXcQ'}
 			],
@@ -49,7 +49,7 @@ nov.service('Data', function () {
 			] },
 		{ name: 'CMPT 355', id: 1, instructor: 'Wo Shun Luk', semester: 'Summer 2014', section: 'D100', role: 'Student', 
 			courseMaterials: [
-				{ name: 'Lecture 1', id: 14, fileType: 'PDF', uploadDate: '2014-05-05', url: 'test/1.PDF'},
+				{ name: 'Lecture 1', id: 14, fileType: 'PDF', uploadDate: '2014-05-05', download: true, url: 'test/1.PDF'},
 				{ name: 'Lecture 2', id: 15, fileType: 'PDF', uploadDate: '2014-05-12', url: 'test/1.PDF'}
 			],
 			assignments: [
@@ -58,7 +58,7 @@ nov.service('Data', function () {
 			] },
 		{ name: 'ENGL 103w', id: 2, instructor: 'Orion Kidder', semester: 'Summer 2014', section: 'D100', role: 'Student',
 			courseMaterials: [
-				{ name: 'Lecture 1', id: 16, fileType: 'PDF', uploadDate: '2014-05-05', url: 'test/1.PDF'},
+				{ name: 'Lecture 1', id: 16, fileType: 'PDF', uploadDate: '2014-05-05', download: true, url: 'test/1.PDF'},
 				{ name: 'Lecture 2', id: 17, fileType: 'PDF', uploadDate: '2014-05-12', url: 'test/1.PDF'}
 			],
 			assignments: [
