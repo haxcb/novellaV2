@@ -37,39 +37,39 @@ nov.service('Data', function () {
 		enrolledCourses: [
 		{ name: 'CMPT 475', id: 0, instructor: 'Herbert H. Tsang', semester: 'Summer 2014', section: 'E100', role: 'Student',
 			courseMaterials: [
-				{ name: 'Intro to Software Engineering', id: 10, fileType: 'pdf', uploadDate: '2014-05-05', url: 'test/1.pdf'},
-				{ name: 'Agile Development', id: 11, fileType: 'pdf', uploadDate: '2014-05-12', url: 'test/1.pdf'},
-				{ name: 'Security', id: 12, fileType: 'pdf', uploadDate: '2014-06-16', url: 'test/1.pdf'},
-				{ name: 'Video tutorial', id:13, fileType: 'video', uploadDate: '2014-07-20', url: 'http://www.youtube.com/watch?v=oHg5SJYRHA0'}
+				{ name: 'Intro to Software Engineering', id: 10, fileType: 'PDF', uploadDate: '2014-05-05', url: 'test/1.PDF'},
+				{ name: 'Agile Development', id: 11, fileType: 'PDF', uploadDate: '2014-05-12', url: 'test/1.PDF'},
+				{ name: 'Security', id: 12, fileType: 'PDF', uploadDate: '2014-06-16', url: 'test/1.PDF'},
+				{ name: 'Video tutorial', id:13, fileType: 'video', uploadDate: '2014-07-20', url: 'http://www.youtube.com/watch?v=dQw4w9WgXcQ'}
 			],
 			assignments: [
-				{name: 'Project Deliverable 1', id: 21, dueDate: '2014-05-25', totalGrade: 100, weight: 25, uploadDate: '2014-05-05', url: 'test/1.pdf'},
-				{name: 'Report', id: 22, dueDate: '2014-06-15', weight: 30, totalGrade: 80, uploadDate: '2014-06-05', url: 'test/1.pdf'},
-				{name: 'Project Deliverable 2', id: 23, dueDate: '2014-08-20', totalGrade: 10, weight: 30, uploadDate: '2014-07-05', url: 'test/1.pdf'}
+				{name: 'Project Deliverable 1', id: 21, dueDate: '2014-05-25', totalGrade: 100, weight: 25, uploadDate: '2014-05-05', url: 'test/1.PDF'},
+				{name: 'Report', id: 22, dueDate: '2014-06-15', weight: 30, totalGrade: 80, uploadDate: '2014-06-05', url: 'test/1.PDF'},
+				{name: 'Project Deliverable 2', id: 23, dueDate: '2014-08-20', totalGrade: 10, weight: 30, uploadDate: '2014-07-05', url: 'test/1.PDF'}
 			] },
 		{ name: 'CMPT 355', id: 1, instructor: 'Wo Shun Luk', semester: 'Summer 2014', section: 'D100', role: 'Student', 
 			courseMaterials: [
-				{ name: 'Lecture 1', id: 14, fileType: 'pdf', uploadDate: '2014-05-05', url: 'test/1.pdf'},
-				{ name: 'Lecture 2', id: 15, fileType: 'pdf', uploadDate: '2014-05-12', url: 'test/1.pdf'}
+				{ name: 'Lecture 1', id: 14, fileType: 'PDF', uploadDate: '2014-05-05', url: 'test/1.PDF'},
+				{ name: 'Lecture 2', id: 15, fileType: 'PDF', uploadDate: '2014-05-12', url: 'test/1.PDF'}
 			],
 			assignments: [
-				{name: 'Assignment 1', id: 24, dueDate: '2014-05-25', totalGrade: 100, weight: 25, uploadDate: '2014-05-05', url: 'test/1.pdf'},
-				{name: 'Assignment 2', id: 25, dueDate: '2014-08-20', totalGrade: 10, weight: 30, uploadDate: '2014-05-05', url: 'test/1.pdf'}
+				{name: 'Assignment 1', id: 24, dueDate: '2014-05-25', totalGrade: 100, weight: 25, uploadDate: '2014-05-05', url: 'test/1.PDF'},
+				{name: 'Assignment 2', id: 25, dueDate: '2014-08-20', totalGrade: 10, weight: 30, uploadDate: '2014-05-05', url: 'test/1.PDF'}
 			] },
 		{ name: 'ENGL 103w', id: 2, instructor: 'Orion Kidder', semester: 'Summer 2014', section: 'D100', role: 'Student',
 			courseMaterials: [
-				{ name: 'Lecture 1', id: 16, fileType: 'pdf', uploadDate: '2014-05-05', url: 'test/1.pdf'},
-				{ name: 'Lecture 2', id: 17, fileType: 'pdf', uploadDate: '2014-05-12', url: 'test/1.pdf'}
+				{ name: 'Lecture 1', id: 16, fileType: 'PDF', uploadDate: '2014-05-05', url: 'test/1.PDF'},
+				{ name: 'Lecture 2', id: 17, fileType: 'PDF', uploadDate: '2014-05-12', url: 'test/1.PDF'}
 			],
 			assignments: [
-				{name: 'Assignment 1', id: 26, dueDate: '2014-05-25', totalGrade: 100, weight: 25, uploadDate: '2014-05-05', url: 'test/1.pdf'},
-				{name: 'Assignment 2', id: 28, dueDate: '2014-08-20', totalGrade: 10, weight: 30, uploadDate: '2014-05-05', url: 'test/1.pdf'}
+				{name: 'Assignment 1', id: 26, dueDate: '2014-05-25', totalGrade: 100, weight: 25, uploadDate: '2014-05-05', url: 'test/1.PDF'},
+				{name: 'Assignment 2', id: 28, dueDate: '2014-08-20', totalGrade: 10, weight: 30, uploadDate: '2014-05-05', url: 'test/1.PDF'}
 			] },
 		],
 		submissions: [
-			{id: 40, assignmentId: 21, submitDate: '2014-05-25', status: 'submitted', actualGrade: 100, studentComment: '', instructorComment: 'Well done', file: 'test/1.pdf'},
-			{id: 41, assignmentId: 22, submitDate: '2014-06-16', status: 'late', actualGrade: '', studentComment: 'Sorry, late!', instructorComment: '', file: 'test/1.pdf'},
-			{id: 42, assignmentId: 33, submitDate: '2014-06-16', status: 'submitted', actualGrade: '', studentComment: '', instructorComment: '', file: 'test/2.pdf'},
+			{id: 40, assignmentId: 21, submitDate: '2014-05-25', status: 'submitted', actualGrade: 100, studentComment: '', instructorComment: 'Well done', file: 'test/1.PDF'},
+			{id: 41, assignmentId: 22, submitDate: '2014-06-16', status: 'late', actualGrade: '', studentComment: 'Sorry, late!', instructorComment: '', file: 'test/1.PDF'},
+			{id: 42, assignmentId: 33, submitDate: '2014-06-16', status: 'submitted', actualGrade: '', studentComment: '', instructorComment: '', file: 'test/2.PDF'},
 		]
 	};
 	
