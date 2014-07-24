@@ -14,8 +14,16 @@
 				View
 			</open-external>
 			<div ng-if="courseMaterial.fileType == 'video'" youtube code="code"></div>
-			<!--Download button should only be available if instructor allows it.-->
-			<span ng-if="courseMaterial.download == true && courseMaterial.fileType == 'PDF'">
+			<!--For students, download button should only be available if instructor allows it.-->
+			<span ng-if="user == 'student'">
+				<span ng-if="courseMaterial.download == true && courseMaterial.fileType == 'PDF'">
+					<a href="{{courseMaterial.url}}" download>
+						<button>Download</button>
+					</a>
+				</span>
+			</span>
+			<!-- Instructors can download all PDFs. -->
+			<span ng-if="user == 'instructor' && courseMaterial.fileType == 'PDF'">
 				<a href="{{courseMaterial.url}}" download>
 					<button>Download</button>
 				</a>
