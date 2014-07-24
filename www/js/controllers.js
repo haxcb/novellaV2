@@ -51,20 +51,6 @@ nov.controller('CourseCtrl', ['$scope', '$stateParams', 'Data', 'userModel', fun
 	$scope.notifications = Data.getCourseNotifications($stateParams.courseId);
 }])
 
-.filter('notificationsFilter', function() {
-	return function (notifications) {
-		var filtered_list = [];
-		for (var i = 0; i < notifications.length; i++) {
-			var today = new Date().getTime()
-			var uploadDate = new Date(notifications[i].uploadDate).getTime();
-			if (today <= uploadDate) {
-			  	filtered_list.push(notifications[i]);
-			}
-		}
-		return filtered_list;
-	}
-});
-
 nov.controller('CourseMaterialCtrl', ['$scope', '$stateParams', 'Data', 'userModel', '$filter', function($scope, $stateParams, Data, userModel, $filter) {
 	$scope.userModel = userModel;
 	$scope.user = $scope.userModel.getUser();

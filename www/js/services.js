@@ -106,8 +106,6 @@ nov.service('Data', function () {
 	this.getCourseNotifications = function(courseId) {
 		var courseMaterials = student.enrolledCourses[courseId].courseMaterials;
 		var assignments = student.enrolledCourses[courseId].assignments;
-		console.log('courseMaterials', courseMaterials)
-		console.log('assignments', assignments)
 		return courseMaterials.concat(assignments);
 	}
 
