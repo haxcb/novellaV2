@@ -58,18 +58,20 @@ nov.service('Data', function () {
 			] },
 		{ name: 'ENGL 103w', id: 2, instructor: 'Orion Kidder', semester: 'Summer 2014', section: 'D100', role: 'Student',
 			courseMaterials: [
-				{ name: 'Lecture 1', id: 16, fileType: 'PDF', uploadDate: '2014-05-05', download: true, url: 'test/1.PDF'},
-				{ name: 'Lecture 2', id: 17, fileType: 'PDF', uploadDate: '2014-05-12', url: 'test/1.PDF'}
+				{ name: 'Introduction to Hamlet', id: 16, fileType: 'PDF', uploadDate: '2014-05-05', download: true, url: 'test/1.PDF'},
+				{ name: 'Different Types of Irony', id: 17, fileType: 'PDF', uploadDate: '2014-05-12', url: 'test/1.PDF'}
 			],
 			assignments: [
-				{name: 'Assignment 1', id: 26, dueDate: '2014-05-25', totalGrade: 100, weight: 25, uploadDate: '2014-05-05', url: 'test/1.PDF'},
-				{name: 'Assignment 2', id: 28, dueDate: '2014-08-20', totalGrade: 10, weight: 30, uploadDate: '2014-05-05', url: 'test/1.PDF'}
+				{name: 'Character Analysis', id: 26, dueDate: '2014-05-25', totalGrade: 100, weight: 25, uploadDate: '2014-05-05', url: 'test/1.PDF'},
+				{name: 'Term Paper', id: 28, dueDate: '2014-08-20', totalGrade: 10, weight: 30, uploadDate: '2014-05-05', url: 'test/1.PDF'}
 			] },
 		],
 		submissions: [
 			{id: 40, assignmentId: 21, submitDate: '2014-05-25', status: 'submitted', actualGrade: 100, studentComment: '', instructorComment: 'Well done', file: 'test/1.PDF'},
 			{id: 41, assignmentId: 22, submitDate: '2014-06-16', status: 'late', actualGrade: '', studentComment: 'Sorry, late!', instructorComment: '', file: 'test/1.PDF'},
-			{id: 42, assignmentId: 33, submitDate: '2014-06-16', status: 'submitted', actualGrade: '', studentComment: '', instructorComment: '', file: 'test/2.PDF'},
+			{id: 42, assignmentId: 33, submitDate: '2014-06-16', status: 'submitted', actualGrade: '', studentComment: 'This was hard', instructorComment: '', file: 'test/2.PDF'},
+			{id: 43, assignmentId: 24, submitDate: '2014-06-16', status: 'not submitted', actualGrade: '', studentComment: '', instructorComment: '', file: 'test/1.PDF'},
+			{id: 44, assignmentId: 26, submitDate: '2014-06-16', status: 'submitted', actualGrade: 25, studentComment: '', instructorComment: 'Please elaborate', file: 'test/1.PDF'},
 		]
 	};
 	
