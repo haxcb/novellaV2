@@ -34,21 +34,30 @@
 
 		<!-- List of upcoming assignments based on due dates. -->
 		<h1>Upcoming</h1>
-		<nov-frame class="assignments"
-			   ng-repeat="assignment in assignments | upcomingAssignments">
-					<a href="#/app/courses/{{ course.id }}/assignments/{{assignment.id}}">
-							<button>{{assignment.name}} due {{assignment.dueDate}}</button>
-					</a>
-		</nov-frame>
+		<nov-long-button  class="assignments"
+		   ng-repeat="assignment in assignments | upcomingAssignments"
+		   href="#/app/courses/{{ course.id }}/assignments/{{assignment.id}}">
+				<nov-button-contents-left>
+					<h2>{{assignment.name}}</h2> 
+				</nov-button-contents-left>
+				<nov-button-contents-right>
+					<h4>Due {{assignment.dueDate}}</h4>
+				</nov-button-contents-right>
+
+		</nov-long-button>
 		
 		<!-- List of past assignments based on due dates. -->
 		<h1>Past</h1>	
-		<nov-frame class="assignments"
-			   ng-repeat="assignment in assignments | pastAssignments">
-					<a href="#/app/courses/{{ course.id }}/assignments/{{assignment.id}}">
-							<button>{{assignment.name}} due {{assignment.dueDate}}</button>
-					</a>
-		</nov-frame>
+		<nov-long-button ng-repeat="assignment in assignments | pastAssignments"
+			href="#/app/courses/{{ course.id }}/assignments/{{assignment.id}}"
+			class="assignments" >
+				<nov-button-contents-left>
+					<h2>{{assignment.name}}</h2>
+				</nov-button-contents-left>
+				<nov-button-contents-right>
+					<h4>Due {{assignment.dueDate}}</h4>
+				</nov-button-contents-right>
+		</nov-long-button >
 	</nov-content>
 
 </ion-view>
