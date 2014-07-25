@@ -21,7 +21,7 @@ nov.controller('DataCtrl', ['$scope', 'Data', function($scope, Data) {
 	
 	$scope.getStudent = function() {
 		return Data.getStudent();
-	}
+	};
 
 }]);
 
@@ -48,7 +48,7 @@ nov.controller('CourseCtrl', ['$scope', '$stateParams', 'Data', 'userModel', fun
 		{id: 3, name: 'Create with text editor'}
 		];
 	$scope.notifications = Data.getCourseNotifications($stateParams.courseId);
-}])
+}]);
 
 nov.controller('CourseMaterialCtrl', ['$scope', '$stateParams', 'Data', 'userModel', '$filter', function($scope, $stateParams, Data, userModel, $filter) {
 	$scope.userModel = userModel;
@@ -63,7 +63,7 @@ nov.controller('CourseMaterialCtrl', ['$scope', '$stateParams', 'Data', 'userMod
 		if (match&&match[2].length==11){
 		    return match[2];
 		}
-	}
+	};
 	$scope.code = parseYoutube(courseMaterial.url);
 }]);
 
@@ -84,31 +84,31 @@ nov.controller('AssignmentsCtrl', ['$scope', '$stateParams', 'Data', 'userModel'
 //Adapted from Zack Argyle
 //http://stackoverflow.com/questions/20335409/ng-repeat-compare-to-current-date-using-filter
 .filter('upcomingAssignments', function() {
-return function (assignments) {
-	var filtered_list = [];
-	for (var i = 0; i < assignments.length; i++) {
-		var today = new Date().getTime()
-		var dueDate = new Date(assignments[i].dueDate).getTime();
-		if (today <= dueDate) {
-		  	filtered_list.push(assignments[i]);
+	return function (assignments) {
+		var filtered_list = [];
+		for (var i = 0; i < assignments.length; i++) {
+			var today = new Date().getTime();
+			var dueDate = new Date(assignments[i].dueDate).getTime();
+			if (today <= dueDate) {
+			  	filtered_list.push(assignments[i]);
+			}
 		}
-	}
-	return filtered_list;
-}
+		return filtered_list;
+	};
 })
 
 .filter('pastAssignments', function() {
-return function (assignments) {
-	var filtered_list = [];
-	for (var i = 0; i < assignments.length; i++) {
-		var today = new Date().getTime()
-		var dueDate = new Date(assignments[i].dueDate).getTime();
-		if (today > dueDate) {
-		  	filtered_list.push(assignments[i]);
+	return function (assignments) {
+		var filtered_list = [];
+		for (var i = 0; i < assignments.length; i++) {
+			var today = new Date().getTime();
+			var dueDate = new Date(assignments[i].dueDate).getTime();
+			if (today > dueDate) {
+			  	filtered_list.push(assignments[i]);
+			}
 		}
-	}
-	return filtered_list;
-}
+		return filtered_list;
+	};
 });
 
 nov.controller('AssignmentCtrl', ['$scope', '$stateParams', 'Data', 'userModel', '$filter', function($scope, $stateParams, Data, userModel, $filter) {
@@ -124,20 +124,11 @@ nov.controller('AssignmentCtrl', ['$scope', '$stateParams', 'Data', 'userModel',
 	$scope.master = {};
 
 	$scope.uploadFile = function(){
-		console.log(document.getElementById('file').files[0])
-		// var f = document.getElementById('file').files[0],
-		// 	r = new FileReader();
-		// r.onloadend = function(e){
-		// 	var data = e.target.result;
-		// 	//send you binary data via $http or $resource or do anything else with it
-		// }
-		// r.readAsBinaryString(f);
-	}
+		console.log(document.getElementById('file').files[0]);
+	};
 
 	$scope.save = function(submission) {
 		$scope.master = angular.copy(submission);
-		console.log(document.getElementById('file').files[0])
-		console.log(submission)
 	};
 
 	$scope.pattern = /^\d*(\.\d*)?$/;
@@ -157,20 +148,11 @@ nov.controller('SubmissionCtrl', ['$scope', '$stateParams', 'Data', 'userModel',
 	$scope.master = {};
 
 	$scope.uploadFile = function(){
-		console.log(document.getElementById('file').files[0])
-		// var f = document.getElementById('file').files[0],
-		// 	r = new FileReader();
-		// r.onloadend = function(e){
-		// 	var data = e.target.result;
-		// 	//send you binary data via $http or $resource or do anything else with it
-		// }
-		// r.readAsBinaryString(f);
-	}
+		console.log(document.getElementById('file').files[0]);
+	};
 
 	$scope.save = function(submission) {
 		$scope.master = angular.copy(submission);
-		console.log(document.getElementById('file').files[0])
-		console.log(submission)
 	};
 
 	$scope.pattern = /^\d*(\.\d*)?$/;

@@ -18,9 +18,8 @@ nov.factory('userModel', function () {
         userModel.currentUser = userRole;
     };
     userModel.getUser = function () {
-    	console.log('getUser', userModel.currentUser)
     	return userModel.currentUser;
-    }
+    };
     return userModel;
 });
 
@@ -77,7 +76,7 @@ nov.service('Data', function () {
 	
 	this.getStudent = function() {
 		return student;
-	}
+	};
 	
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -88,36 +87,34 @@ nov.service('Data', function () {
 	var currentCourse = student.enrolledCourses[0]; // Default value to avoid strange cases
 	
 	this.getCourse = function(id) {
-		console.log('Course: ' + id);
 		return student.enrolledCourses[id];
-	}
+	};
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Course Materials & Assignments
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	this.getCourseMaterials = function(id) {
-		console.log('Course: ' + id);
 		return student.enrolledCourses[id].courseMaterials;
-	}
+	};
 
 	this.getCourseMaterial = function(courseId, materialId) {
 		return student.enrolledCourses[courseId].courseMaterials[materialId];
-	}
+	};
 
 	this.getCourseNotifications = function(courseId) {
 		var courseMaterials = student.enrolledCourses[courseId].courseMaterials;
 		var assignments = student.enrolledCourses[courseId].assignments;
 		return courseMaterials.concat(assignments);
-	}
+	};
 
 	this.getAssignments = function(courseId) {
 		return student.enrolledCourses[courseId].assignments;
-	}
+	};
 
 	this.getAssignment = function(courseId, assignmentId) {
 		return student.enrolledCourses[courseId].assignments[assignmentId];
-	}
+	};
 
 	this.getAssignmentSubmissions = function(assignmentId) {
 		var submissions = student.submissions;
@@ -128,6 +125,6 @@ nov.service('Data', function () {
 			}
 		}
 		return filtered_list;
-	}
+	};
 
 });

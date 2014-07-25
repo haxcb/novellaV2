@@ -109,7 +109,7 @@ nov.directive("openExternal", function($window){
                     $scope.$apply(function(){
                         action();
                     });
-                }
+                };
             };
             var inAppBrowser;
             $scope.openUrl = function(){
