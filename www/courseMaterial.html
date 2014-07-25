@@ -7,10 +7,7 @@
 		<h1>{{courseMaterial.name}}</h1>
 		
 		<nov-frame>
-			<open-external ng-if="courseMaterial.fileType == 'PDF'" url="courseMaterial.url" exit="closeBrowser()" 
-               load-start="loadStart()"
-               load-stop="loadStop()"
-               load-error="loadError()">
+			<open-external ng-if="courseMaterial.fileType == 'PDF'" url="courseMaterial.url">
 				View
 			</open-external>
 			<div ng-if="courseMaterial.fileType == 'video'" youtube code="code"></div>

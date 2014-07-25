@@ -5,8 +5,10 @@
 
 	<nov-content>
 		<h1>{{assignment.name}}</h1>
+		<!-- Assignment info -->
 		<nov-frame class="assignment">
-			See <a href="{{assignment.url}}">{{assignment.url}}</a> or <a href="{{assignment.url}}" download>download file</a>
+			<open-external url="assignment.url">View Assignment</open-external><br>
+			<a href="{{assignment.url}}" download>Download Assignment</a>
 			<hr>
 			Due {{assignment.dueDate}}
 			Posted {{assignment.uploadDate}}
@@ -17,7 +19,7 @@
 			<form ng-if="user=='student'" name="submit" class="submissions">
 				<span ng-repeat="submission in submissions">
 					<h1>Submission</h1>
-					<a href="{{submission.file}}">{{submission.file}}</a>
+					<a href="{{submission.file}}" download>{{submission.file}}</a>
 					<h2>Comment</h2> {{submission.studentComment}}
 					<h2>Submitted date</h2> {{submission.submitDate}}
 					<br>
@@ -39,6 +41,7 @@
 				</span>
 			</form>
 
+			<!-- Instructor sees a list of student submissions. -->
 			<div ng-if="user == 'instructor'">
 				<h1>Submissions</h1>
 				<table id="submissions-table">
@@ -58,6 +61,18 @@
 				  <td>Lionel Finley</td>
 				  <td>/10</td>		
 				  <td>Unsubmitted</td>
+				  <td><a href="#">View</a></td>
+				</tr>
+				<tr>
+				  <td>Amanda Humphries</td>
+				  <td>/10</td>		
+				  <td>On Time</td>
+				  <td><a href="#">View</a></td>
+				</tr>
+				<tr>
+				  <td>James Archer</td>
+				  <td>/10</td>		
+				  <td>On Time</td>
 				  <td><a href="#">View</a></td>
 				</tr>
 				</table>

@@ -21,6 +21,7 @@
 							<button ng-click="upload(assignment)">Submit</button>
 						</form>
 					<!--Text editor needs a lot of styling TLC.-->
+					<!--TextAngular https://github.com/fraywing/textAngular/ -->
 					<h1>Text Editor</h1>
 					<text-angular ng-model="assignment.editorData" 
 						ta-toolbar-class="editor-btn-toolbar"
@@ -31,6 +32,7 @@
 			</span>
 		</span>
 
+		<!-- List of upcoming assignments based on due dates. -->
 		<h1>Upcoming</h1>
 		<nov-frame class="assignments"
 			   ng-repeat="assignment in assignments | upcomingAssignments">
@@ -39,6 +41,7 @@
 					</a>
 		</nov-frame>
 		
+		<!-- List of past assignments based on due dates. -->
 		<h1>Past</h1>	
 		<nov-frame class="assignments"
 			   ng-repeat="assignment in assignments | pastAssignments">

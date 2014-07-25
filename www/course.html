@@ -7,7 +7,7 @@
 		<nov-course-icons></nov-course-icons>
 		<h1>Course Materials</h1>
 
-		<!--Instructor options-->
+		<!--Instructor options for adding course materials. -->
 		<span ng-if="user == 'instructor'">
 			<!--BUG: Opening Add section hides the rest of the page contents.-->
 			<button ng-click="editing=!editing">Add</button>
@@ -26,6 +26,7 @@
 						</form>
 					<span ng-if="courseMaterial.fileType.id == 3">
 						<!--Text editor needs a lot of styling TLC.-->
+						<!--TextAngular https://github.com/fraywing/textAngular/ -->
 						<h1>Text Editor</h1>
 						<text-angular ng-model="course.editorData" 
 							ta-toolbar-class="editor-btn-toolbar"

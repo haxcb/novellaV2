@@ -98,11 +98,7 @@ nov.directive("openExternal", function($window){
     return {
         restrict: 'E',
         scope: {
-            url : "=",
-            exit : "&",
-            loadStart : "&",
-            loadStop : "&",
-            loadError: "&"
+            url : "="
         },
         transclude: true,
         template:"<button class='btn' ng-click='openUrl()'><span ng-transclude></span></button>",
@@ -113,7 +109,7 @@ nov.directive("openExternal", function($window){
                     $scope.$apply(function(){
                         action();
                     });
-                }
+                };
             };
             var inAppBrowser;
             $scope.openUrl = function(){
