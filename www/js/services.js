@@ -39,7 +39,7 @@ nov.service('Data', function () {
 				{ name: 'Intro to Software Engineering', id: 10, fileType: 'PDF', uploadDate: '2014-05-05', download: true, url: 'test/1.PDF'},
 				{ name: 'Agile Development', id: 11, fileType: 'PDF', uploadDate: '2014-05-12', download: true, url: 'test/1.PDF'},
 				{ name: 'Security', id: 12, fileType: 'PDF', uploadDate: '2014-06-16', url: 'test/1.PDF'},
-				{ name: 'Video tutorial', id:13, fileType: 'video', uploadDate: '2014-07-20', url: 'http://www.youtube.com/watch?v=dQw4w9WgXcQ'}
+				{ name: 'Video tutorial', id:13, fileType: 'video', uploadDate: '2014-07-20', url: 'https://www.youtube.com/watch?v=pYkRc4s1OEg'}
 			],
 			assignments: [
 				{name: 'Project Deliverable 1', id: 21, dueDate: '2014-05-25', totalGrade: 100, weight: 25, uploadDate: '2014-05-05', url: 'test/1.PDF'},
