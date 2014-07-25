@@ -65,14 +65,6 @@ nov.controller('servLoginCtrl', ['$scope', '$http', function($scope, $http) {
 
 		
 
-		/*$http.post('http://127.0.0.1:8000/lms/login/', {email:"amalik",password:"22amal86"})
-		.success(function(data, status, headers, config) {
-			$scope.messages.push(data)
-		}).error(function(data, status){
-			$scope.errors.push(status);
-
-		});*/
-
 		
 
 		
