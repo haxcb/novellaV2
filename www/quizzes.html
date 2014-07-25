@@ -1,0 +1,29 @@
+<ion-view title="Quizzes">
+	<ion-nav-buttons side="right">
+		<button menu-toggle="right"class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+	
+	<nov-content>
+		
+		<h1>Upcoming</h1>
+		<nov-long-button  class="assignments"
+		   ng-repeat="quiz in quizzes"
+		   href="#/app/courses/{{ course.id }}/quizzes/{{quiz.id}}">
+		   
+		   <nov-button-contents-left>
+					<h2>{{quiz.name}}</h2> 
+				</nov-button-contents-left>
+				<nov-button-contents-right>
+					<h4>Due {{quiz.dueDate}}</h4>
+			</nov-button-contents-right>
+		   
+		</nov-long-button>
+		
+		<span ng-if="user == 'instructor'">
+			<button>+ Add</button>
+		</span>
+		
+		<h1>Past</h1>
+		
+	</nov-content>
+</ion-view>
