@@ -287,6 +287,79 @@ mark {
 	}
 }
 
+/******************************
+		COURSE MATERIAL STYLES
+*******************************/
+
+.course-options {
+	width:100%;
+}
+
+#sort-options {
+	float:right;
+	width:35%;
+}
+
+#sort-options button {
+	width:49%;
+}
+
+.course-search {
+	display:block;
+	float:left;
+	width:63%;
+}
+
+.course-options label {
+	font-size:16px;
+	text-transform:uppercase;
+	margin-right:10px;
+}
+
+.course-options input {
+	height:40px;
+	border-radius:5px;
+	border:1px solid #aaa;
+	margin-top:12px;
+	padding:3px 10px;
+}
+
+@media only screen
+	and (max-width: 1150px) {
+
+	.course-search {
+		width:55%;
+	}
+	
+	#sort-options {
+		float:right;
+		width:280px;
+	}	
+	
+}
+@media only screen
+	and (max-width: 700px) {
+
+	.course-search {
+		width:50%;
+	}
+	
+}
+@media only screen
+	and (max-width: 600px) {
+
+	.course-search {
+		width:100%;
+		float:none;
+	}
+	#sort-options {
+		float:none;
+		width:100%;
+	}
+	
+}
+
+
 
 
 /******************************
@@ -489,9 +562,8 @@ mark {
 
 button,
 button:visited {
-	padding: 4px 20px;
+	padding: 10px 20px;
 	font-size: 16px;
-	line-height: 36px;
 	letter-spacing: 0;
 	color: #c6c8c8;
 	color: #fff;
@@ -567,7 +639,7 @@ button.orange:active {
 	font-family:'Segoe UI Light';
 }
 
-.longButton > div {
+.longButton > div  {
     display:inline-block;
     vertical-align:middle;
 	width:49%;
@@ -581,11 +653,11 @@ button.orange:active {
 	text-align:right;
 }
 
-
 .container .longButton {
 	width:100%;
 }
 
+	
 
 /********************************
 		MOBILE STYLES

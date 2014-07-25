@@ -37,12 +37,19 @@
 				</nov-frame>
 			</span>
 		</span>
+		
+		<div class="course-options">
+			<div class="course-search">
+				<input placeholder="Search Material" ng-model="searchText">
+			</div>
+			<div id="sort-options">
+				<button ng-click="predicate = 'name'; reverse=!reverse">Sort by Name</button>
+				<button ng-click="predicate = 'uploadDate'; reverse=!reverse">Sort by Date</button>
+			</div>
 
-		<div id="sort-options">
-			<button ng-click="predicate = 'name'; reverse=!reverse">Sort by Name</button>
-			<button ng-click="predicate = 'uploadDate'; reverse=!reverse">Sort by Date</button>
+			<div class="clear"></div>
 		</div>
-		Search: <input ng-model="searchText">
+		
 		<nov-long-button 
 			href="#/app/courses/{{course.id}}/materials/{{material.id}}"
 			class="materials"
