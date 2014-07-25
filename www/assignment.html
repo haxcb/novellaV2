@@ -5,6 +5,7 @@
 
 	<nov-content>
 		<h1>{{assignment.name}}</h1>
+		<!-- Assignment info -->
 		<nov-frame class="assignment">
 			See <a href="{{assignment.url}}">{{assignment.url}}</a> or <a href="{{assignment.url}}" download>download file</a>
 			<hr>
@@ -39,6 +40,7 @@
 				</span>
 			</form>
 
+			<!-- Instructor sees a list of student submissions. -->
 			<div ng-if="user == 'instructor'">
 				<h1>Submissions</h1>
 				<table id="submissions-table">

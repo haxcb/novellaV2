@@ -16,7 +16,6 @@ nov.controller('AppCtrl', ['$scope', '$ionicModal', '$timeout', '$ionicSideMenuD
 
 }]);
 
-
 // Provide data access to HTML (corresponds with services.js)
 nov.controller('DataCtrl', ['$scope', 'Data', function($scope, Data) {
 	
