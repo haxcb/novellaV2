@@ -64,6 +64,35 @@ nov.directive('novCourseIcons', function() {
 	};
 });
 
+nov.directive('novLongButton', function() {
+	return {
+	
+		restrict: 'E', 
+		replace: true,
+		transclude: true,
+		templateUrl: 'nov-templates/novLongButton.html'
+	};
+});
+
+nov.directive('novButtonContentsLeft', function() {
+	return {
+	
+		restrict: 'E', 
+		replace: true,
+		transclude: true,
+		templateUrl: 'nov-templates/novButtonContentsLeft.html'
+	};
+});
+nov.directive('novButtonContentsRight', function() {
+	return {
+	
+		restrict: 'E', 
+		replace: true,
+		transclude: true,
+		templateUrl: 'nov-templates/novButtonContentsRight.html'
+	};
+});
+
 //http://tech.pro/tutorial/1357/phonegap-and-angularjs-in-app-browser
 nov.directive("openExternal", function($window){
     return {
