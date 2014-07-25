@@ -4,26 +4,37 @@
 		
 			<h1>SIGN IN</h1>
 			<p>Login to your Novella account</p>
-			<div class="list">
-				<form ng-controller="loginCtrl"
-					<!-- Email input -->
-					<label class="email" class="item item-input">
-						<input type="text" placeholder="Email" ng-model="username">
-					</label>
-					<!-- Password input -->
-					<label class="password" class="item item-input" ng-model="password">
-						<input type="password" placeholder="Password">
-					</label>
-				</form>
-			</div>
-			<!-- Login button box -->
-			<nov-button href="#/app/courses"
-				ng-init="setMenuDrag(false)"
-				ng-click="setMenuDrag(true)"
-				nav-clear>
-				LOGIN
-			</nov-button>
-			
+			<form ng-controller="servLoginCtrl">
+				<div class="list">
+					
+						<label class="err" ng-repeat="error in errors">
+							{{error}}
+						</label>
+						<label class="info" ng-repeat="message in messages">
+							{{message}}
+						</label>
+						<!-- Email input -->
+						<label class="email" class="item item-input">
+							<input type="text" placeholder="Email" ng-model="email">
+						</label>
+						<!-- Password input -->
+						<label class="password" class="item item-input" ng-model="password">
+							<input type="password" placeholder="Password">
+						</label>
+					
+				</div>
+				<!-- Login button box -->
+				<nov-button 
+					type="submit"					
+
+					ng-init="setMenuDrag(false)"
+					ng-click="setMenuDrag(true); logIn()"
+
+
+					nav-clear>
+					LOGIN
+				</nov-button>
+			</form>
 		</div>	
 		
 	</nov-content>

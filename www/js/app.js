@@ -6,6 +6,10 @@
 // 'nov.controllers' is found in controllers.js
 var nov = angular.module('nov', ['ionic', 'nov.controllers', 'nov.services', 'nov.directives']);
 
+/*nov.config(['$httpProvider', funnction ('$httpProvider') {
+  $httpProvider.defaults.header.post['X-CSRFToken'] = $('input[name=csrfmiddlewaretoken]').val();
+}]);*/
+
 nov.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -19,6 +23,9 @@ nov.run(function($ionicPlatform) {
     }
   });
 });
+
+
+
 
 // Add new HTML pages here
 nov.config(function($stateProvider, $urlRouterProvider) {
@@ -40,7 +47,7 @@ nov.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     });
-	
+
     $stateProvider.state('app.courses', {
       url: "/courses",
       views: {
@@ -60,7 +67,7 @@ nov.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     });
-	
+
     $stateProvider.state('app.participation', {
       url: "/courses/:courseId/participation",
       views: {
@@ -69,8 +76,8 @@ nov.config(function($stateProvider, $urlRouterProvider) {
           controller: 'ParticipationCtrl'
         }
       }
-    });	
-	
+    }); 
+
     $stateProvider.state('app.assignments', {
       url: "/courses/:courseId/assignments",
       views: {
@@ -79,9 +86,9 @@ nov.config(function($stateProvider, $urlRouterProvider) {
           controller: 'AssignmentsCtrl'
         }
       }
-    });	
-	
-	
+    }); 
+
+
     $stateProvider.state('app.quizzes', {
       url: "/courses/:courseId/quizzes",
       views: {
@@ -90,8 +97,8 @@ nov.config(function($stateProvider, $urlRouterProvider) {
           controller: 'QuizzesCtrl'
         }
       }
-    });	
-	
+    }); 
+
     $stateProvider.state('app.grades', {
       url: "/courses/:courseId/grades",
       views: {
@@ -104,5 +111,5 @@ nov.config(function($stateProvider, $urlRouterProvider) {
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/login');
-});
 
+});
