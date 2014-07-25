@@ -262,6 +262,13 @@ mark {
 	word-wrap:break-word;
 }
 
+.notificationLeftSide {
+	text-transform:uppercase;
+	font-size: 0.85em;
+	float:right;
+	text-align: right;
+	clear:both;
+}
 
 @media only screen
 	and (max-width: 900px) {
@@ -285,6 +292,14 @@ mark {
 	}
 	.courseButton h1 {
 		font-size:2em;
+	}
+}
+
+@media only screen
+	and (max-width: 480px) {
+	.notificationLeftSide {
+		border:1px solid red;
+		float:none;
 	}
 }
 

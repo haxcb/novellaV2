@@ -76,6 +76,19 @@ nov.controller('AssignmentsCtrl', ['$scope', '$stateParams', 'Data', 'userModel'
 	$scope.user = $scope.userModel.getUser();	
 	$scope.course = Data.getCourse($stateParams.courseId);
 	$scope.assignments = Data.getAssignments($stateParams.courseId);
+	// $scope.submissions = [];
+	// for(var i in $scope.assignments) {
+		// $scope.submissions.push(Data.getAssignmentSubmissions($scope.assignments[i].id));
+	// }
+	
+	$scope.getSubmissionStatus = function(id) {
+		console.log();
+		var submission = Data.getAssignmentSubmissions(id);
+		// if(submission.
+		// OVER DUE CODE
+		return 'orange';
+	};
+	
 	$scope.predicate = '-dueDate';
 	$scope.date = new Date();
 	$scope.editing = false;

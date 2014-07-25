@@ -34,9 +34,11 @@
 
 		<!-- List of upcoming assignments based on due dates. -->
 		<h1>Upcoming</h1>
-		<nov-long-button  class="assignments"
-		   ng-repeat="assignment in assignments | upcomingAssignments"
-		   href="#/app/courses/{{ course.id }}/assignments/{{assignment.id}}">
+		<nov-long-button
+			ng-repeat="assignment in assignments | upcomingAssignments"
+			href="#/app/courses/{{ course.id }}/assignments/{{assignment.id}}"
+			class="assignments {{ getSubmissionStatus(assignment.id)  }}">
+		   
 				<nov-button-contents-left>
 					<h2>{{assignment.name}}</h2> 
 				</nov-button-contents-left>
@@ -50,7 +52,7 @@
 		<h1>Past</h1>	
 		<nov-long-button ng-repeat="assignment in assignments | pastAssignments"
 			href="#/app/courses/{{ course.id }}/assignments/{{assignment.id}}"
-			class="assignments" >
+			class="assignments {{ getSubmissionStatus(assignment.id)  }}">
 				<nov-button-contents-left>
 					<h2>{{assignment.name}}</h2>
 				</nov-button-contents-left>
