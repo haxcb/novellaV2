@@ -184,21 +184,3 @@ nov.controller('GradesCtrl', ['$scope', '$stateParams', 'Data', function($scope,
 nov.controller('QuizzesCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
 	$scope.course = Data.getCourse($stateParams.courseId);
 }]);
-
-//http://tech.pro/tutorial/1357/phonegap-and-angularjs-in-app-browser
-nov.controller('MaterialsCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data){
-    $scope.course = Data.getCourse($stateParams.courseId);
-    $scope.url = 'http://www.google.com';
-    $scope.actions = [];
-    $scope.closeBrowser = function(){
-        $scope.actions.push('Closed Browser');
-    };
-    $scope.loadStart = function(){
-        $scope.actions.push('Load Start');
-    }   ;
-    $scope.loadStop = function(){
-        $scope.actions.push('Load Stop');
-    };
-    $scope.loadError = function(){
-        $scope.actions.push('Load Error');
-    }; }]);
