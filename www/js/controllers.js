@@ -7,12 +7,13 @@
 var nov = angular.module('nov.controllers', []);
 
 // Commonly used app-wide methods
-nov.controller('AppCtrl', ['$scope', '$ionicModal', '$timeout', '$ionicSideMenuDelegate', function($scope, $ionicModal, $timeout, $ionicSideMenuDelegate) {
+nov.controller('AppCtrl', ['$scope', '$ionicModal', '$timeout', '$ionicSideMenuDelegate', '$http', function($scope, $ionicModal, $timeout, $ionicSideMenuDelegate, $http) {
 	
 	// Enable/disable dragging to open the menu
 	$scope.setMenuDrag = function(val) {
 		$ionicSideMenuDelegate.canDragContent(val);
 	};
+	
 
 }]);
 

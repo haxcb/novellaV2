@@ -24,126 +24,72 @@ nov.factory('userModel', function () {
 });
 
 
-nov.service('Data', function () {
+nov.service('Data', function ($http) {
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Student
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
-	var student = {
-		name: 'David Holik',
-		id: '301142643',
-		enrolledCourses: [
-		{ name: 'CMPT 475', id: 0, instructor: 'Herbert H. Tsang', semester: 'Summer 2014', section: 'E100', role: 'Student',
-			courseMaterials: [
-				{ name: 'Intro to Software Engineering', id: 10, fileType: 'PDF', uploadDate: '2014-05-05', timestamp: '5:59PM', download: true, url: 'test/1.PDF'},
-				{ name: 'Agile Development', id: 11, fileType: 'PDF', uploadDate: '2014-05-12', timestamp: '5:59PM', download: true, url: 'test/1.PDF'},
-				{ name: 'Security', id: 12, fileType: 'PDF', uploadDate: '2014-06-16', timestamp: '5:59PM', url: 'test/1.PDF'},
-				{ name: 'Video tutorial', id:13, fileType: 'video', uploadDate: '2014-07-20', timestamp: '5:59PM', url: 'https://www.youtube.com/watch?v=pYkRc4s1OEg'}
-			],
-			assignments: [
-				{name: 'Project Deliverable 1', id: 21, dueDate: '2014-05-25', timeDue: '11:59PM', totalGrade: 100, weight: 25, uploadDate: '2014-05-05', timestamp: '5:59PM', url: 'test/1.PDF'},
-				{name: 'Report', id: 22, dueDate: '2014-06-15', timeDue: '11:59PM', weight: 30, totalGrade: 80, uploadDate: '2014-06-05', url: 'test/1.PDF'},
-				{name: 'Project Deliverable 2', id: 23, dueDate: '2014-08-20', timeDue: '11:59PM', totalGrade: 10, weight: 30, uploadDate: '2014-07-05', timestamp: '5:59PM', url: 'test/1.PDF'}
-			],
-			quizzes: [
-				{name: 'Quiz 1', id: 40, dueDate: '2014-07-30', timeDue: '11:59PM', questions: [ 
-					{value : 'Which value is not part of the Agile Manifesto?', answer: 0, responses : 
-						['Simple requirements over comprehensive documentation', 
-						'People over processes',
-						'Customer collaboration over contract negotiation',
-						'Responding to change over following a plan']
-					}, 
-					{value: 'Which values are part of the Agile Manifesto?', answer: 1, responses :
-						['Incorrect answer here',
-						'Correct answer here']
-					}
-				]},
-				{name: 'Quiz 2', id: 41, timeDue: '11:59PM', dueDate: '2014-07-30'}
-			] },
-		{ name: 'CMPT 355', id: 1, instructor: 'Wo Shun Luk', semester: 'Summer 2014', section: 'D100', role: 'Student', 
-			courseMaterials: [
-				{ name: 'Lecture 1', id: 14, fileType: 'PDF', uploadDate: '2014-05-05', timestamp: '5:59PM', download: true, url: 'test/1.PDF'},
-				{ name: 'Lecture 2', id: 15, fileType: 'PDF', uploadDate: '2014-05-12', timestamp: '5:59PM',  url: 'test/1.PDF'}
-			],
-			assignments: [
-				{name: 'Assignment 1', id: 24, dueDate: '2014-05-25', timeDue: '11:59PM', totalGrade: 100, weight: 25, uploadDate: '2014-05-05', timestamp: '5:59PM', url: 'test/1.PDF'},
-				{name: 'Assignment 2', id: 25, dueDate: '2014-08-20', timeDue: '11:59PM', totalGrade: 10, weight: 30, uploadDate: '2014-05-05', timestamp: '5:59PM', url: 'test/1.PDF'}
-			] },
-		{ name: 'ENGL 103w', id: 2, instructor: 'Orion Kidder', semester: 'Summer 2014', section: 'D100', role: 'Student',
-			courseMaterials: [
-				{ name: 'Introduction to Hamlet', id: 16, fileType: 'PDF', uploadDate: '2014-05-05', timestamp: '5:59PM', download: true, url: 'test/1.PDF'},
-				{ name: 'Different Types of Irony', id: 17, fileType: 'PDF', uploadDate: '2014-05-12', timestamp: '5:59PM', url: 'test/1.PDF'}
-			],
-			assignments: [
-				{name: 'Character Analysis', id: 26, dueDate: '2014-05-25', timeDue: '11:59PM', totalGrade: 100, weight: 25, uploadDate: '2014-05-05', timestamp: '5:59PM', url: 'test/1.PDF'},
-				{name: 'Term Paper', id: 28, dueDate: '2014-08-20', timeDue: '11:59PM', totalGrade: 10, weight: 30, uploadDate: '2014-05-05', timestamp: '5:59PM', url: 'test/1.PDF'}
-			] },
-		],
-		submissions: [
-			{id: 40, assignmentId: 21, submitDate: '2014-05-25', timestamp: '3:59PM', status: 'submitted', actualGrade: 100, studentComment: 'Please give me a good mark, Herbert.', instructorComment: 'Well done', file: 'test/1.PDF'},
-			{id: 41, assignmentId: 22, submitDate: '2014-06-16', timestamp: '5:59PM', status: 'late', actualGrade: '', studentComment: 'Sorry, late!', instructorComment: '', file: 'test/1.PDF'},
-			{id: 42, assignmentId: 33, submitDate: '2014-06-16', timestamp: '9:59PM', status: 'submitted', actualGrade: '', studentComment: 'This was hard', instructorComment: '', file: 'test/1.PDF'},
-			{id: 43, assignmentId: 24, submitDate: '2014-06-16', timestamp: '2:59PM', status: 'unsubmitted', actualGrade: '', studentComment: '', instructorComment: '', file: 'test/1.PDF'},
-			{id: 44, assignmentId: 26, submitDate: '2014-06-16', timestamp: '10:59PM', status: 'submitted', actualGrade: 25, studentComment: 'I like hotdogs.', instructorComment: 'Please elaborate', file: 'test/1.PDF'},
-		]
-	};
-	
-	this.getStudent = function() {
-		return student;
-	};
-	
+	var info;
+	var data = this;
+	$http.get('data/posts.json').then(function(res){
 
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// Courses
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////
+		info = res.data;   
 
-	
-	var currentCourse = student.enrolledCourses[0]; // Default value to avoid strange cases
-	
-	this.getCourse = function(id) {
-		return student.enrolledCourses[id];
-	};
+		data.getStudent = function() {
+			return info;
+		};
+		
 
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// Course Materials & Assignments
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
-	this.getCourseMaterials = function(id) {
-		return student.enrolledCourses[id].courseMaterials;
-	};
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////
+		// Courses
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	this.getCourseMaterial = function(courseId, materialId) {
-		return student.enrolledCourses[courseId].courseMaterials[materialId];
-	};
+		
+		var currentCourse = info.enrolledCourses[0]; // Default value to avoid strange cases
+		
+		data.getCourse = function(id) {
+			return info.enrolledCourses[id];
+		};
 
-	this.getCourseNotifications = function(courseId) {
-		var courseMaterials = student.enrolledCourses[courseId].courseMaterials;
-		var assignments = student.enrolledCourses[courseId].assignments;
-		return courseMaterials.concat(assignments);
-	};
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////
+		// Course Materials & Assignments
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+		data.getCourseMaterials = function(id) {
+			return info.enrolledCourses[id].courseMaterials;
+		};
 
-	this.getAssignments = function(courseId) {
-		return student.enrolledCourses[courseId].assignments;
-	};
+		data.getCourseMaterial = function(courseId, materialId) {
+			return info.enrolledCourses[courseId].courseMaterials[materialId];
+		};
 
-	this.getAssignment = function(courseId, assignmentId) {
-		return student.enrolledCourses[courseId].assignments[assignmentId];
-	};
+		data.getCourseNotifications = function(courseId) {
+			var courseMaterials = info.enrolledCourses[courseId].courseMaterials;
+			var assignments = info.enrolledCourses[courseId].assignments;
+			return courseMaterials.concat(assignments);
+		};
 
-	this.getAssignmentSubmissions = function(assignmentId) {
-		var submissions = student.submissions;
-		var filtered_list = [];
-		for (var i = 0; i < submissions.length; i++) {
-			if (submissions[i].assignmentId == assignmentId) {
-			  	filtered_list.push(submissions[i]);
+		data.getAssignments = function(courseId) {
+			return info.enrolledCourses[courseId].assignments;
+		};
+
+		data.getAssignment = function(courseId, assignmentId) {
+			return info.enrolledCourses[courseId].assignments[assignmentId];
+		};
+
+		data.getAssignmentSubmissions = function(assignmentId) {
+			var submissions = info.submissions;
+			var filtered_list = [];
+			for (var i = 0; i < submissions.length; i++) {
+				if (submissions[i].assignmentId == assignmentId) {
+					filtered_list.push(submissions[i]);
+				}
 			}
-		}
-		return filtered_list;
-	};
-	
-	this.getQuizzes = function(courseId) {
-		return student.enrolledCourses[courseId].quizzes;
-	};
-
+			return filtered_list;
+		};
+		
+		data.getQuizzes = function(courseId) {
+			return info.enrolledCourses[courseId].quizzes;
+		};
+	});
 });

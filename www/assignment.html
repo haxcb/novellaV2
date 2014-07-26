@@ -14,9 +14,10 @@
 			<span class="right">Posted {{assignment.uploadDate}} at {{assignment.timestamp}}</span>
 		</nov-frame>
 
-		<nov-frame class="submission">
-			<!--Student: Can submit and add comments.-->
-			<form ng-if="user=='student'" name="submit" class="submissions">
+		
+		<!--Student: Can submit and add comments.-->
+		<form ng-if="user=='student'" name="submit" class="submissions">
+			<nov-frame class="submission">
 				<span ng-repeat="submission in submissions">
 					<h1>Submission</h1>
 					<a href="{{submission.file}}" download>{{submission.file}}</a>
@@ -39,46 +40,47 @@
 						<button ng-if="submissions.length==0" ng-click="save(submission)">Submit</button> <button ng-if="submissions.length > 0" ng-click="save(submission)">Resubmit</button>
 					</span>
 				</span>
-			</form>
+			</nov-frame>
+		</form>
 
-			<!-- Instructor sees a list of student submissions. -->
-			<div ng-if="user == 'instructor'">
-				<h1>Submissions</h1>
+		<!-- Instructor sees a list of student submissions. -->
+		<div ng-if="user == 'instructor'">
+			<h1>Submissions</h1>
+			<nov-frame class="submission">
 				<table id="submissions-table">
-				<tr>
-				  <th>Name</th>
-				  <th>Grade</th>
-				  <th>Status</th>
-				  <th></th>
-				</tr>
-				<tr>
-				  <td>Maliha Ali</td>
-				  <td>8/10</td>		
-				  <td>Graded</td>
-				  <td><a href="#/app/courses/{{ course.id }}/assignments/{{assignment.id}}/submissions/{{submission.id}}">View</a></td>
-				</tr>
-				<tr>
-				  <td>Lionel Finley</td>
-				  <td>/10</td>		
-				  <td>Unsubmitted</td>
-				  <td><a href="#">View</a></td>
-				</tr>
-				<tr>
-				  <td>Amanda Humphries</td>
-				  <td>/10</td>		
-				  <td>On Time</td>
-				  <td><a href="#">View</a></td>
-				</tr>
-				<tr>
-				  <td>James Archer</td>
-				  <td>/10</td>		
-				  <td>On Time</td>
-				  <td><a href="#">View</a></td>
-				</tr>
+					<tr>
+					  <th>Name</th>
+					  <th>Grade</th>
+					  <th>Status</th>
+					  <th></th>
+					</tr>
+					<tr>
+					  <td>Maliha Ali</td>
+					  <td>8/10</td>		
+					  <td>Graded</td>
+					  <td><a href="#/app/courses/{{ course.id }}/assignments/{{assignment.id}}/submissions/{{submission.id}}">View</a></td>
+					</tr>
+					<tr>
+					  <td>Lionel Finley</td>
+					  <td>/10</td>		
+					  <td>Unsubmitted</td>
+					  <td><a href="#">View</a></td>
+					</tr>
+					<tr>
+					  <td>Amanda Humphries</td>
+					  <td>/10</td>		
+					  <td>On Time</td>
+					  <td><a href="#">View</a></td>
+					</tr>
+					<tr>
+					  <td>James Archer</td>
+					  <td>/10</td>		
+					  <td>On Time</td>
+					  <td><a href="#">View</a></td>
+					</tr>
 				</table>
-			</div>
-
-		</nov-frame>
+			</nov-frame>
+		</div>
 
 	</nov-content>
 
