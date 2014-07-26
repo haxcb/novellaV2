@@ -46,40 +46,47 @@
 		<!-- Instructor sees a list of student submissions. -->
 		<div ng-if="user == 'instructor'">
 			<h1>Submissions</h1>
-			<nov-frame class="submission">
-				<table id="submissions-table">
-					<tr>
-					  <th>Name</th>
-					  <th>Grade</th>
-					  <th>Status</th>
-					  <th></th>
+			<table id="submissions-table">
+				<tr>
+					<th>Name</th>
+					<th>Grade</th>
+					<th>Status</th>
+					<th></th>
+				</tr>
+				<tr>
+					<td>
+						<a>Maliha Ali</a>
+						<div class="timestamp">2014-08-19 at 11:50PM</div>
+					</td>
+					<td>8/10</td>		
+					<td class="green">Graded</td>
+					<td><a href="#/app/courses/{{ course.id }}/assignments/{{assignment.id}}/submissions/{{submission.id}}">View</a></td>
+				</tr>
+				<tr>
+					<td><a>Lionel Finley</a></td>
+					<td>/10</td>		
+					<td class="red">Unsubmitted</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>
+						<a>Amanda Humphries</a>
+						<div class="timestamp">2014-08-19 at 11:50PM</div>
+					</td>
+					<td>/10</td>		
+					<td class="yellow">On Time</td>
+					<td><a href="#">View</a></td>
 					</tr>
-					<tr>
-					  <td>Maliha Ali</td>
-					  <td>8/10</td>		
-					  <td>Graded</td>
-					  <td><a href="#/app/courses/{{ course.id }}/assignments/{{assignment.id}}/submissions/{{submission.id}}">View</a></td>
-					</tr>
-					<tr>
-					  <td>Lionel Finley</td>
-					  <td>/10</td>		
-					  <td>Unsubmitted</td>
-					  <td><a href="#">View</a></td>
-					</tr>
-					<tr>
-					  <td>Amanda Humphries</td>
-					  <td>/10</td>		
-					  <td>On Time</td>
-					  <td><a href="#">View</a></td>
-					</tr>
-					<tr>
-					  <td>James Archer</td>
-					  <td>/10</td>		
-					  <td>On Time</td>
-					  <td><a href="#">View</a></td>
-					</tr>
-				</table>
-			</nov-frame>
+				<tr>
+					<td>
+						<a>James Archer</a>
+						<div class="timestamp">2014-08-19 at 11:50PM</div>
+					</td>
+					<td>/10</td>		
+					<td class="yellow">On Time</td>
+					<td><a href="#">View</a></td>
+				</tr>
+			</table>
 		</div>
 
 	</nov-content>

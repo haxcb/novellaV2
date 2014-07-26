@@ -1,10 +1,12 @@
 
 * {
 	font-family:'Segoe UI', 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
+	
 }
 
 body {
 	font-size:1em;
+	color:#333;
 }
 
 b {
@@ -63,6 +65,7 @@ h6 {
 	font-size:0.8em;
 }
 
+button span,
 button h1,
 button h2,
 button h3,
@@ -754,7 +757,68 @@ button.gray:active,
 	width:100%;
 }
 
-	
+
+/********************************
+		MOBILE STYLES
+********************************/
+table {
+	width:100%;
+	border-collapse: collapse;
+    border-radius: 5px;
+    border-style: hidden; /* hide standard table (collapsed) border */
+    box-shadow: 0 0 0 1px #666; /* this draws the table border  */ 
+	text-transform:uppercase;	
+	background-color:#d8d8d8;
+}
+
+td {
+	border: 1px solid #ccc;
+	padding:10px 15px;
+	text-align:center;
+	vertical-align:middle;
+}
+
+td.green {
+	color:#21970A;
+}
+
+td.yellow {
+	color:#B47200;
+}
+
+td.red {
+	color:#f00;
+}
+
+th {
+	background: #f05050;
+    background: -webkit-linear-gradient(#f05050, #f14949); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#f05050, #f14949); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#f05050, #f14949); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#f05050, #f14949); /* Standard syntax (must be last) */	
+	text-align:left;
+	border: 1px solid #cf3232;
+	padding:10px 15px;
+	font-size:18px;
+	color:#fff;
+	text-align:center;
+}
+tr th:first-child,
+tr td:first-child {
+	text-align:left;
+}
+
+tr td:first-child a {
+	text-transform:capitalize;
+}
+tr td:first-child .timestamp {
+	font-size:14px;
+	margin:0;
+	color:#000;
+}
+
+
+
 
 /********************************
 		MOBILE STYLES
