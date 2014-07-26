@@ -31,6 +31,13 @@ nov.service('Data', function ($http) {
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////
 	var info;
 	var data = this;
+	
+	$http.get('data/data.json').then(function(res){
+
+		var bb = res.data; 
+		console.log(bb);
+	});
+	
 	$http.get('data/posts.json').then(function(res){
 
 		info = res.data;   
