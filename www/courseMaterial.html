@@ -27,7 +27,7 @@
 			</span>
 			<hr>
 			<ul>
-				<li><b>Uploaded:</b> {{ courseMaterial.uploadDate }}</li>
+				<li><b>Posted:</b> {{ courseMaterial.uploadDate }} at {{ courseMaterial.timestamp}}</li>
 				<li><b>Type:</b> {{ courseMaterial.fileType }}</li>
 			</ul>
 			<span ng-if="user == 'instructor'">
