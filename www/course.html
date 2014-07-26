@@ -5,8 +5,26 @@
 
 	<nov-content>
 		<nov-course-icons></nov-course-icons>
-		<h1>Course Materials</h1>
 
+		<span ng-if="user == 'instructor'">
+			<!-- Adding Attendance Button -->
+			<h1>Attendance</h1>
+
+			<nov-long-button 
+				href="INSERT LINK"
+				class="buttonAttendance">
+				
+				<nov-button-contents-left>
+					<h2>Take Attendance</h2>
+				</nov-button-contents-left>
+				
+				<nov-button-contents-right>
+					<h3>VIEW <mark>&gt;</mark></h3>
+				</nov-button-contents-right>
+			</nov-long-button>
+		</span>
+
+		<h1>Course Materials</h1>
 		<!--Instructor options for adding course materials. -->
 		<span ng-if="user == 'instructor'">
 			<!--BUG: Opening Add section hides the rest of the page contents.-->
