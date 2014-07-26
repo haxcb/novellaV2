@@ -1,0 +1,41 @@
+<ion-view title="New Assignment">
+	<ion-nav-buttons side="right">
+		<button menu-toggle="right"class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+
+	<nov-content class="create">
+		<!--Instructor options-->
+		<span ng-if="user == 'instructor'">
+			<h1>Create Assignment</h1>
+			
+			<nov-frame class="title">
+				<input type="text" ng-model="assignment.name" placeholder="Add a title" required>
+			</nov-frame>
+			
+			<nov-frame>
+				<!--File uploader-->
+
+				<!--Text editor needs a lot of styling TLC.-->
+				<!--TextAngular https://github.com/fraywing/textAngular/ -->
+				<text-angular ng-model="assignment.editorData" 
+					ng-click="setMenuDrag(false)"
+					ta-toolbar-class="editor-btn-toolbar"
+					ta-toolbar-button-class="editor-btn editor-btn-default"
+					ta-toolbar-group-class="editor-btn-group">
+				</text-angular>
+				
+				<input type="file" id="file" name="file" ng-model="assignment.file" required/>
+				
+				Out of <input type="text" ng-model="assignment.totalGrade" required>
+				
+				% Weight <input type="text" ng-model="assignment.weight" required>
+				
+				<input type="date" ng-model="assignment.dueDate" required>
+				
+				<button ng-click="upload(assignment)">Submit</button>
+				
+			</nov-frame>
+		</span>
+	</nov-content>
+
+</ion-view>

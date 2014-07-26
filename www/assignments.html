@@ -4,34 +4,7 @@
 	</ion-nav-buttons>
 
 	<nov-content>
-		<!--Instructor options-->
-		<span ng-if="user == 'instructor'">
-			<!--BUG: Opening Add section hides the rest of the page contents.-->
-			<button ng-click="editing=!editing">Add</button>
-			<span ng-show="editing">
-				<nov-frame>
-					<!--File uploader-->
-					<h1>Upload Assignment</h1>
-						<form id="assignment">
-							<input type="file" id="file" name="file" ng-model="assignment.file" required/><br>
-							<input type="text" ng-model="assignment.name" placeholder="Assignment Name" required><br>
-							Out of <input type="text" ng-model="assignment.totalGrade" required><br>
-							% Weight <input type="text" ng-model="assignment.weight" required><br>
-							<input type="date" ng-model="assignment.dueDate" required><br>
-							<button ng-click="upload(assignment)">Submit</button>
-						</form>
-					<!--Text editor needs a lot of styling TLC.-->
-					<!--TextAngular https://github.com/fraywing/textAngular/ -->
-					<h1>Text Editor</h1>
-					<text-angular ng-model="assignment.editorData" 
-						ta-toolbar-class="editor-btn-toolbar"
-						ta-toolbar-button-class="editor-btn editor-btn-default"
-						ta-toolbar-group-class="editor-btn-group">
-					</text-angular>
-				</nov-frame>
-			</span>
-		</span>
-
+	
 		<!-- List of upcoming assignments based on due dates. -->
 		<h1>Upcoming</h1>
 		<nov-long-button
@@ -48,6 +21,20 @@
 
 		</nov-long-button>
 		
+		<!-- Add assignment button -->
+		<span ng-if="user == 'instructor'">
+			<nov-long-button 
+				class="pink" 
+				href="#/app/courses/{{ course.id }}/assignments/create">
+				
+					<nov-button-contents-left>
+						<h2>+ Add</h2>
+					</nov-button-contents-left>
+					<nov-button-contents-right></nov-button-contents-right>
+					
+			</nov-long-button>
+		</span>
+		
 		<!-- List of past assignments based on due dates. -->
 		<h1>Past</h1>	
 		<nov-long-button ng-repeat="assignment in assignments | pastAssignments"
@@ -63,6 +50,7 @@
 				</nov-button-contents-right>
 				
 		</nov-long-button >
+		
 	</nov-content>
 
 </ion-view>

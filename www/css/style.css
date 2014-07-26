@@ -1,10 +1,12 @@
 
+input, button, select, textarea,
 * {
 	font-family:'Segoe UI', 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
 	
 }
 
 body {
+	font-family:'Segoe UI', 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
 	font-size:1em;
 	color:#333;
 }
@@ -117,6 +119,23 @@ article {
 	overflow:auto;
 }
 
+
+input::-webkit-input-placeholder { /* WebKit browsers */
+  line-height: 1.5em;
+  font-family:'Segoe UI Italic', sans-serif;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  line-height: 1.5em;
+  font-family:'Segoe UI Italic', sans-serif;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+  line-height: 1.5em;
+  font-family:'Segoe UI Italic', sans-serif;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+  line-height: 1.5em;
+  font-family:'Segoe UI Italic', sans-serif;
+}
 
 
 /********************************
@@ -310,10 +329,59 @@ mark {
 }
 
 /******************************
-	ASSIGNMENTS
+		NEW POST
 *******************************/
-.open {
-	
+.create input {
+	display:block;
+	padding:10px;
+	height:40px;
+	border-radius:5px;
+	border:1px solid #aaa;
+	padding:3px 10px;
+}
+.create .title  {
+	padding:5px;
+}
+.create .title input {
+	font-size:20px;
+}
+
+.create #file {
+	border:none;
+}
+
+.ta-scroll-window.form-control {
+	background-color:#fff;
+	clear:both;
+	margin-top:10px;
+	border-radius:5px;
+	border:1px solid #aaa;
+}
+
+.editor-btn-group {
+	float:left;
+}
+
+.editor-btn-group button {
+	padding:3px 5px;
+	min-width:40px;
+	background:none;
+	color:#333;
+/* 	border:1px solid #8d8d8d;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	border-bottom-left-radius:0px;
+	border-bottom-right-radius:0px; */
+	border:none;
+	border-radius:0;
+	border-right:1px solid #8d8d8d;
+}
+.editor-btn-group button:first-child {
+	border-left:1px solid #8d8d8d;
+}
+
+.editor-btn-toolbar button:last-child {
+	border-right:1px solid #8d8d8d;
 }
 
 
@@ -643,6 +711,20 @@ button.orange:focus,
 	border:1px solid #e38a2c;
 }
 
+button.pink,	
+button.pink:visited,
+button.pink:focus,
+.pink button,
+.pink button:visited,
+.pink button:focus  {
+	background: #f05050;
+    background: -webkit-linear-gradient(#f05050, #f14949); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#f05050, #f14949); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#f05050, #f14949); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#f05050, #f14949); /* Standard syntax (must be last) */	
+	border:1px solid #cf3232;
+}
+
 button.green,
 button.green:visited,
 button.green:focus,
@@ -697,6 +779,16 @@ button.orange:active,
     background: -moz-linear-gradient(#f5943e, #fb9a31); /* For Firefox 3.6 to 15 */
     background: linear-gradient(#f5943e, #fb9a31); /* Standard syntax (must be last) */		
 	border:1px solid #e38a2c;	
+}
+
+button.pink:active,
+.pink button:active {
+	background-color: #f14949;
+    background: -webkit-linear-gradient(#e24242, #f14949); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#e24242, #f14949); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#e24242, #f14949); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#e24242, #f14949); /* Standard syntax (must be last) */		
+	border:1px solid #cf3232;
 }
 
 button.green:active,

@@ -90,6 +90,16 @@ nov.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     });	
+	
+    $stateProvider.state('app.assignmentCreate', {
+      url: "/courses/:courseId/assignments/create",
+      views: {
+        'menuContent' :{
+          templateUrl: "assignmentCreate.html",
+          controller: 'AssignmentCreateCtrl'
+        }
+      }
+    });	
 
     $stateProvider.state('app.assignment', {
       url: "/courses/:courseId/assignments/:assignmentId",

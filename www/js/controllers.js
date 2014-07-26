@@ -108,7 +108,6 @@ nov.controller('AssignmentsCtrl', ['$scope', '$stateParams', 'Data', 'userModel'
 	
 	$scope.predicate = '-dueDate';
 	$scope.date = new Date();
-	$scope.editing = false;
 	
 }])
 
@@ -164,6 +163,11 @@ nov.controller('AssignmentCtrl', ['$scope', '$stateParams', 'Data', 'userModel',
 
 	$scope.pattern = /^\d*(\.\d*)?$/;
 
+}]);
+nov.controller('AssignmentCreateCtrl', ['$scope', '$stateParams', 'Data', 'userModel', '$filter', function($scope, $stateParams, Data, userModel, $filter) {
+	$scope.userModel = userModel;
+	$scope.user = $scope.userModel.getUser();	
+	$scope.course = Data.getCourse($stateParams.courseId);
 }]);
 
 nov.controller('SubmissionCtrl', ['$scope', '$stateParams', 'Data', 'userModel', '$filter', function($scope, $stateParams, Data, userModel, $filter) {
