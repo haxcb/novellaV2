@@ -4,8 +4,60 @@
 	</ion-nav-buttons>
 
 	<nov-content>
-		<h1>{{ course.name }} Assignments</h1>
+		<!--Instructor options-->
+		<span ng-if="user == 'instructor'">
+			<!--BUG: Opening Add section hides the rest of the page contents.-->
+			<button ng-click="editing=!editing">Add</button>
+			<span ng-show="editing">
+				<nov-frame>
+					<!--File uploader-->
+					<h1>Upload Assignment</h1>
+						<form id="assignment">
+							<input type="file" id="file" name="file" ng-model="assignment.file" required/><br>
+							<input type="text" ng-model="assignment.name" placeholder="Assignment Name" required><br>
+							Out of <input type="text" ng-model="assignment.totalGrade" required><br>
+							% Weight <input type="text" ng-model="assignment.weight" required><br>
+							<input type="date" ng-model="assignment.dueDate" required><br>
+							<button ng-click="upload(assignment)">Submit</button>
+						</form>
+					<!--Text editor needs a lot of styling TLC.-->
+					<!--TextAngular https://github.com/fraywing/textAngular/ -->
+					<h1>Text Editor</h1>
+					<text-angular ng-model="assignment.editorData" 
+						ta-toolbar-class="editor-btn-toolbar"
+						ta-toolbar-button-class="editor-btn editor-btn-default"
+						ta-toolbar-group-class="editor-btn-group">
+					</text-angular>
+				</nov-frame>
+			</span>
+		</span>
 
+		<!-- List of upcoming assignments based on due dates. -->
+		<h1>Upcoming</h1>
+		<nov-long-button  class="assignments"
+		   ng-repeat="assignment in assignments | upcomingAssignments"
+		   href="#/app/courses/{{ course.id }}/assignments/{{assignment.id}}">
+				<nov-button-contents-left>
+					<h2>{{assignment.name}}</h2> 
+				</nov-button-contents-left>
+				<nov-button-contents-right>
+					<h4>Due {{assignment.dueDate}}</h4>
+				</nov-button-contents-right>
+
+		</nov-long-button>
+		
+		<!-- List of past assignments based on due dates. -->
+		<h1>Past</h1>	
+		<nov-long-button ng-repeat="assignment in assignments | pastAssignments"
+			href="#/app/courses/{{ course.id }}/assignments/{{assignment.id}}"
+			class="assignments" >
+				<nov-button-contents-left>
+					<h2>{{assignment.name}}</h2>
+				</nov-button-contents-left>
+				<nov-button-contents-right>
+					<h4>Due {{assignment.dueDate}}</h4>
+				</nov-button-contents-right>
+		</nov-long-button >
 	</nov-content>
 
 </ion-view>

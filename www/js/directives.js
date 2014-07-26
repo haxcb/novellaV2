@@ -63,3 +63,78 @@ nov.directive('novCourseIcons', function() {
 		templateUrl: 'nov-templates/novCourseIcons.html'
 	};
 });
+
+nov.directive('novLongButton', function() {
+	return {
+	
+		restrict: 'E', 
+		replace: true,
+		transclude: true,
+		templateUrl: 'nov-templates/novLongButton.html'
+	};
+});
+
+nov.directive('novButtonContentsLeft', function() {
+	return {
+	
+		restrict: 'E', 
+		replace: true,
+		transclude: true,
+		templateUrl: 'nov-templates/novButtonContentsLeft.html'
+	};
+});
+nov.directive('novButtonContentsRight', function() {
+	return {
+	
+		restrict: 'E', 
+		replace: true,
+		transclude: true,
+		templateUrl: 'nov-templates/novButtonContentsRight.html'
+	};
+});
+
+//http://tech.pro/tutorial/1357/phonegap-and-angularjs-in-app-browser
+nov.directive("openExternal", function($window){
+    return {
+        restrict: 'E',
+        scope: {
+            url : "="
+        },
+        transclude: true,
+        template:"<button class='btn' ng-click='openUrl()'><span ng-transclude></span></button>",
+        controller: function($scope){
+
+            var wrappedFunction = function(action){
+                return function(){
+                    $scope.$apply(function(){
+                        action();
+                    });
+                };
+            };
+            var inAppBrowser;
+            $scope.openUrl = function(){
+                inAppBrowser = $window.open($scope.url, '_blank', 'location=yes');
+                if($scope.exit instanceof Function){
+                    inAppBrowser.addEventListener('exit', wrappedFunction($scope.exit));
+                }
+            };
+        }
+    };
+});
+
+//http://plnkr.co/edit/0N728e9SAtXg3uBvuXKF?p=preview
+nov.directive('youtube', function($sce) {
+  return {
+    restrict: 'EA',
+    scope: { code:'=' },
+    replace: true,
+    template: '<div class="youtube"><iframe src="{{url}}" frameborder="0" allowfullscreen></iframe></div>',
+    link: function (scope) {
+        scope.$watch('code', function (newVal) {
+           if (newVal) {
+               scope.url = $sce.trustAsResourceUrl("http://www.youtube.com/embed/" + newVal);
+           }
+        });
+    }
+  };
+});

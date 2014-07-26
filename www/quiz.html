@@ -1,0 +1,28 @@
+<ion-view title="Quiz">
+	<ion-nav-buttons side="right">
+		<button menu-toggle="right"class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+	
+	<nov-content>
+		<h1>{{quiz.name}}</h1>	
+		<h2>MINUTES LEFT XX:XX</h2>
+		{{ currentQuestion }}
+		<nov-frame ng-repeat="question in quiz.questions">
+			{{ $index + ". " + question.value }}
+			<div ng-repeat="response in question.responses">
+				<input type="radio" ng-model="$parent.$parent.questionSet[$parent.$index]" ng-value="$index">{{ response }} </input>
+			</div>
+		</nov-frame>
+		
+		<h2>NAVIGATE TO QUESTION</h2>
+		{{ currentQuestion }}
+		<nov-frame>
+		{{ currentQuestion }}
+			<div ng-repeat="question in quiz.questions">
+				<input type="radio" ng-model="$parent.currentQuestion" ng-value="$index"/> {{ $index }}
+			</div>
+		</nov-frame>
+		
+		<h1>{{ questionSet.index }}</h1>
+	</nov-content>
+</ion-view>
