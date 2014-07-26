@@ -45,6 +45,21 @@ nov.service('Data', function () {
 				{name: 'Project Deliverable 1', id: 21, dueDate: '2014-05-25', totalGrade: 100, weight: 25, uploadDate: '2014-05-05', url: 'test/1.PDF'},
 				{name: 'Report', id: 22, dueDate: '2014-06-15', weight: 30, totalGrade: 80, uploadDate: '2014-06-05', url: 'test/1.PDF'},
 				{name: 'Project Deliverable 2', id: 23, dueDate: '2014-08-20', totalGrade: 10, weight: 30, uploadDate: '2014-07-05', url: 'test/1.PDF'}
+			],
+			quizzes: [
+				{name: 'Quiz 1', id: 40, dueDate: '2014-05-25', questions: [ 
+					{value : 'Which value is not part of the Agile Manifesto?', answer: 0, responses : 
+						['Simple requirements over comprehensive documentation', 
+						'People over processes',
+						'Customer collaboration over contract negotiation',
+						'Responding to change over following a plan']
+					}, 
+					{value: 'Which values are part of the Agile Manifesto?', answer: 1, responses :
+						['Incorrect answer here',
+						'Correct answer here']
+					}
+				]},
+				{name: 'Quiz 2', id: 41, dueDate: '2014-04-25'}
 			] },
 		{ name: 'CMPT 355', id: 1, instructor: 'Wo Shun Luk', semester: 'Summer 2014', section: 'D100', role: 'Student', 
 			courseMaterials: [
@@ -125,6 +140,10 @@ nov.service('Data', function () {
 			}
 		}
 		return filtered_list;
+	};
+	
+	this.getQuizzes = function(courseId) {
+		return student.enrolledCourses[courseId].quizzes;
 	};
 
 });

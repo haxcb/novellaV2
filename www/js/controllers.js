@@ -176,6 +176,31 @@ nov.controller('GradesCtrl', ['$scope', '$stateParams', 'Data', function($scope,
 	$scope.course = Data.getCourse($stateParams.courseId);
 }]);
 
-nov.controller('QuizzesCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
+nov.controller('QuizzesCtrl', ['$scope', '$stateParams', 'Data', 'userModel', '$filter', function($scope, $stateParams, Data, userModel, $filter) {
+	$scope.userModel = userModel;
+	$scope.user = $scope.userModel.getUser();
+	$scope.course = Data.getCourse($stateParams.courseId);	
+	$scope.quizzes = Data.getQuizzes($stateParams.courseId);
+}]);
+
+nov.controller('CreateQuizCtrl', ['$scope', '$stateParams', 'Data', 'userModel', '$filter', function($scope, $stateParams, Data, userModel, $filter) {
+	$scope.userModel = userModel;
+	$scope.user = $scope.userModel.getUser();	
+	$scope.course = Data.getCourse($stateParams.courseId);	
+}]);
+
+nov.controller('QuizCtrl', ['$scope', '$stateParams', 'Data', 'userModel', '$filter', function($scope, $stateParams, Data, userModel, $filter) {
+	$scope.userModel = userModel;
+	$scope.user = $scope.userModel.getUser();	
 	$scope.course = Data.getCourse($stateParams.courseId);
+	
+	var quizzes = Data.getQuizzes($stateParams.courseId);
+	var quiz = $filter('filter')(quizzes, {id: $stateParams.quizId})[0];
+	$scope.quiz = quiz;
+	
+	$scope.started = false;
+	$scope.currentQuestion = 0;
+	$scope.questionSet = [];
+	
+	$scope.index = 0;
 }]);
