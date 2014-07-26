@@ -684,7 +684,7 @@ button:active {
 }
 
 button.orange:active,
-.orange .button:active {
+.orange button:active {
 	background-color: #f5943e;
     background: -webkit-linear-gradient(#f5943e, #fb9a31); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(#f5943e, #fb9a31); /* For Opera 11.1 to 12.0 */
