@@ -47,7 +47,7 @@ nov.service('Data', function () {
 				{name: 'Project Deliverable 2', id: 23, dueDate: '2014-08-20', totalGrade: 10, weight: 30, uploadDate: '2014-07-05', url: 'test/1.PDF'}
 			],
 			quizzes: [
-				{name: 'Quiz 1', id: 40, dueDate: '2014-05-25', questions: [ 
+				{name: 'Quiz 1', id: 40, dueDate: '2014-07-30', questions: [ 
 					{value : 'Which value is not part of the Agile Manifesto?', answer: 0, responses : 
 						['Simple requirements over comprehensive documentation', 
 						'People over processes',
@@ -59,7 +59,7 @@ nov.service('Data', function () {
 						'Correct answer here']
 					}
 				]},
-				{name: 'Quiz 2', id: 41, dueDate: '2014-04-25'}
+				{name: 'Quiz 2', id: 41, dueDate: '2014-07-30'}
 			] },
 		{ name: 'CMPT 355', id: 1, instructor: 'Wo Shun Luk', semester: 'Summer 2014', section: 'D100', role: 'Student', 
 			courseMaterials: [
