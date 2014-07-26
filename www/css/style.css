@@ -298,7 +298,11 @@ mark {
 @media only screen
 	and (max-width: 480px) {
 	.notificationLeftSide {
-		float:none;
+		text-align: left;
+		float:left;
+		display: block;
+		float: none;
+
 	}
 }
 
