@@ -32,12 +32,14 @@ nov.service('Data', function ($http) {
 	var info;
 	var data = this;
 	
+	// WIP; Restructured data
 	$http.get('data/data.json').then(function(res){
 
 		var bb = res.data; 
-		console.log(bb);
+		// console.log(bb);
 	});
 	
+	// Actual data
 	$http.get('data/posts.json').then(function(res){
 
 		info = res.data;   
