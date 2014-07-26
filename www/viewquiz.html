@@ -1,0 +1,23 @@
+<ion-view title="Quiz">
+	<ion-nav-buttons side="right">
+		<button menu-toggle="right"class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+	
+	<nov-content>
+	<h1>{{quiz.name}}</h1>	
+		<nov-frame ng-repeat="question in quiz.questions">
+			{{ $index + ". " + question.value }}
+			<div ng-repeat="response in question.responses">
+				<input type="radio" ng-model="questionSet[$parent.$index]" ng-value="$index" ng-disabled="true">{{ convert($index) + ") " + response }} </input>
+			</div>
+		</nov-frame>
+		
+		<nov-frame>
+				<h1>Out of </h1><h1>{{ quiz.questions.length }}</h1>
+				<h1>% Weight<h1><h1>25</h1>
+				<h1>Due Date</h1><h1>Maygust 32nd, 2002</h1>
+				<h1>Time Limit</h1><h1>40 Minutes</h1>
+		</nov-frame>
+		
+	</nov-content>
+</ion-view>

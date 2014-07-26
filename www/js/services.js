@@ -23,6 +23,28 @@ nov.factory('userModel', function () {
     return userModel;
 });
 
+nov.service('numberToAlphabetic', function () {
+	this.convert = function(integer) {
+		switch (integer)
+		{
+			case 0:
+				return 'a';
+			case 1:
+				return 'b';
+			case 2:
+				return 'c';
+			case 3:
+				return 'd';
+			case 4:
+				return 'e';
+			case 5:
+				return 'f';
+			default:
+				return '-';
+		}
+	}
+});
+
 
 nov.service('Data', function () {
 
@@ -48,19 +70,25 @@ nov.service('Data', function () {
 			],
 			quizzes: [
 				{name: 'Quiz 1', id: 40, dueDate: '2014-05-25', questions: [ 
-					{value : 'Which value is not part of the Agile Manifesto?', answer: 0, responses : 
+					{value : 'Which value is not part of the Agile Manifesto?', responses : 
 						['Simple requirements over comprehensive documentation', 
 						'People over processes',
 						'Customer collaboration over contract negotiation',
 						'Responding to change over following a plan']
 					}, 
-					{value: 'Which values are part of the Agile Manifesto?', answer: 1, responses :
+					{value: 'Which values are part of the Agile Manifesto?', responses :
 						['Incorrect answer here',
 						'Correct answer here']
 					}
 				]},
 				{name: 'Quiz 2', id: 41, dueDate: '2014-04-25'}
-			] },
+			],
+			responseSets: [
+				{id: 40, responses: [2, 1]}
+			],
+			answerSets: [
+				{id: 40, answers: [0, 1]}
+			]},
 		{ name: 'CMPT 355', id: 1, instructor: 'Wo Shun Luk', semester: 'Summer 2014', section: 'D100', role: 'Student', 
 			courseMaterials: [
 				{ name: 'Lecture 1', id: 14, fileType: 'PDF', uploadDate: '2014-05-05', download: true, url: 'test/1.PDF'},
