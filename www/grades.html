@@ -6,6 +6,68 @@
 	<nov-content>
 		<h1>{{ course.name }} Grades</h1>
 
+		<nov-long-button 
+			href="#/app/courses/{{course.id}}/grades/{{grades[0].id}}">
+				<nov-button-contents-left>
+					<h2>{{grades[0].name}}</h2>
+					<h4><b>State:</b>{{grades[0].state}}</h4>
+				</nov-button-contents-left>
+				<nov-button-contents-right>
+					<h4>Posted {{grades[0].lastPost}} </h4>
+					<h3>VIEW <mark>&gt;</mark></h3>
+				</nov-button-contents-right>
+		</nov-long-button>
+		
+		<nov-long-button 
+			href="#/app/courses/{{course.id}}/grades/{{grades[1].id}}">
+				<nov-button-contents-left>
+					<h2>{{grades[1].name}}</h2>
+					<h4><b>State:</b> {{grades[1].state}}</h4>
+				</nov-button-contents-left>
+				<nov-button-contents-right>
+					<h4>Posted {{grades[1].lastPost}} </h4>
+					<h3>VIEW <mark>&gt;</mark></h3>
+				</nov-button-contents-right>
+		</nov-long-button>
+		
+		<nov-long-button  
+			href="#/app/courses/{{course.id}}/grades/{{grades[2].id}}">
+				<nov-button-contents-left>
+					<h2>{{grades[2].name}}</h2>
+					<h4><b>State:</b>{{grades[2].state}}</h4>
+				</nov-button-contents-left>
+				
+				<nov-button-contents-right>
+					<h4>Posted {{grades[2].lastPost}}</h4>
+					<h3>VIEW <mark>&gt;</mark></h3>
+				</nov-button-contents-right>	
+		</nov-long-button>
+		
+		<nov-long-button  
+			href="#/app/courses/{{course.id}}/grades/{{grades[3].id}}">
+				<nov-button-contents-left>
+					<h2>{{grades[3].name}}</h2>
+					<h4><b>State:</b>{{grades[3].state}}</h4>
+				</nov-button-contents-left>
+				
+				<nov-button-contents-right>
+					<h4>Posted {{grades[3].lastPost}}</h4>
+					<h3>VIEW <mark>&gt;</mark></h3>
+				</nov-button-contents-right>	
+		</nov-long-button>
+		
+		<nov-long-button  
+			href="#/app/courses/{{course.id}}/grades/{{grades[4].id}}">
+				<nov-button-contents-left>
+					<h2>{{grades[4].name}}</h2>
+					<h4><b>State:</b> {{grades[4].state}}</h4>
+				</nov-button-contents-left>
+				<nov-button-contents-right>
+					<h4>Posted {{grades[4].lastPost}}</h4>
+					<h3>VIEW <mark>&gt;</mark></h3>
+				</nov-button-contents-right>	
+		</nov-long-button>
+		
 	</nov-content>
 
 </ion-view>

@@ -1,3 +1,17 @@
+<style type="text/css">
+	*{margin:0;padding:0;list-style-type:none;}
+	body{background:#fff;color:#333;font-family:"Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;font-size:0.9em;}
+	#container{width:900px;margin:50px auto;}
+	#chart, #chartData{border:1px solid #333;background:#ebedf2 url("images/gradient.png") repeat-x 0 0;}
+	#chart{display:block;margin:0 0 50px 0;float:left;cursor:pointer;}
+	#chartData{width:200px;margin:0 40px 0 0;float:right;border-collapse:collapse;box-shadow:0 0 1em rgba(0, 0, 0, 0.5);-moz-box-shadow:0 0 1em rgba(0, 0, 0, 0.5);-webkit-box-shadow:0 0 1em rgba(0, 0, 0, 0.5);background-position:0 -100px;}
+	#chartData th, #chartData td{padding:0.5em;border:1px dotted #666;text-align:left;}
+	#chartData th{border-bottom:2px solid #333;text-transform:uppercase;}
+	#chartData td{cursor:pointer;}
+	#chartData td.highlight{background:#e8e8e8;}
+	#chartData tr:hover td{background:#f0f0f0;}
+</style>
+
 <ion-view title="Participation">
 	<ion-nav-buttons side="right">
 		<button menu-toggle="right"class="button button-icon icon ion-navicon"></button>
@@ -5,7 +19,53 @@
 
 	<nov-content>
 		<h1>{{ course.name }} Participation</h1>
+		<div id="studentQuestion">
+			<fieldset data-role="collapsible" id="set1"> 
+				<legend>Question</legend>
+				<span id="quizInput1" for="textinput-f" readonly></span>
+				<div data-role="controlgroup" id="Quiz1">
+					<input name="radio-choice-v-2" id="radio-choice-v-2a" value="on" checked="checked" type="radio">
+					<label id="answer_a" for="radio-choice-v-2a">A)Peter</label>
+					<input name="radio-choice-v-2" id="radio-choice-v-2b" value="off" type="radio">
+					<label id="answer_b" for="radio-choice-v-2b">B)Alex</label>
+					<input name="radio-choice-v-2" id="radio-choice-v-2c" value="other" type="radio">
+					<label id="answer_c" for="radio-choice-v-2c">C)Alvin</label>
+					<input name="radio-choice-v-2" id="radio-choice-v-2d" value="other" type="radio">
+					<label id="answer_d" for="radio-choice-v-2d">D)Patric</label>
+					<input name="radio-choice-v-2" id="radio1" value="other" type="radio">
+					<label id="answer_e" for="radio-choice-v-2d">E)Eric</label>
+				</div>
+			</fieldset>
+			<form>
+				<button id="confirmAttCodeBtn" onclick="showStatis()">Confirm</button>
+			</form>
+		</div>
 
+		<div id="bar_div" style="display:none;">
+			<canvas id="chart" width="600" height="500"></canvas>
+			<table id="chartData">
+				<tr>
+					<th>Answer</th><th>number</th>
+				</tr>
+				<tr style="color:#0DA068">
+					<td>Peter</td><td id ="percentage_a">1862</td>
+				</tr>
+				<tr style="color:#194E9C">
+					<td>Alex</td><td>1316</td>
+				</tr>
+				<tr style="color:#ED9C13">
+					<td>Alvin</td><td>712</td>
+				</tr>
+				<tr style="color:#ED5713">
+					<td>Patric</td><td>3236</td>
+				</tr>
+				<tr style="color:#057249">
+					<td>Eric</td><td>6122</td>
+				</tr>
+			</table>
+		</div>
+			
 	</nov-content>
-
 </ion-view>
+
+

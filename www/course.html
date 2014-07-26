@@ -6,12 +6,25 @@
 	<nov-content>
 		<nov-course-icons></nov-course-icons>
 
-		<span ng-if="user == 'instructor'">
+		<span>
 			<!-- Adding Attendance Button -->
 			<h1>Attendance</h1>
 
-			<nov-long-button 
-				href="INSERT LINK"
+			<nov-long-button ng-if="user == 'instructor'"
+				href="#/app/courses/{{ course.id }}/attendence"
+				class="buttonAttendance">
+				
+				<nov-button-contents-left>
+					<h2>Take Attendance</h2>
+				</nov-button-contents-left>
+				
+				<nov-button-contents-right>
+					<h3>VIEW <mark>&gt;</mark></h3>
+				</nov-button-contents-right>
+			</nov-long-button>
+			
+			<nov-long-button ng-if="user == 'student'"
+				href="#/app/courses/{{ course.id }}/attendence"
 				class="buttonAttendance">
 				
 				<nov-button-contents-left>

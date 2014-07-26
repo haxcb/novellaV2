@@ -81,6 +81,16 @@ nov.config(function($stateProvider, $urlRouterProvider) {
       }
     });	
 	
+	$stateProvider.state('app.attendence', {
+      url: "/courses/:courseId/attendence",
+      views: {
+        'menuContent' :{
+          templateUrl: "attendence.html",
+          controller: 'AttendenceCtrl'
+        }
+      }
+    });
+	
     $stateProvider.state('app.assignments', {
       url: "/courses/:courseId/assignments",
       views: {
@@ -151,6 +161,16 @@ nov.config(function($stateProvider, $urlRouterProvider) {
       }
     });
 
+	$stateProvider.state('app.grades_subview', {
+		url: "/courses/:courseId/grades/:gradesId",
+		views: {
+		'menuContent' :{
+			templateUrl: "grades_subview.html",
+			controller: 'GradeSubviewCtrl'
+			}
+		}
+    });
+	
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/login');
 });

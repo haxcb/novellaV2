@@ -60,7 +60,14 @@ nov.service('Data', function () {
 					}
 				]},
 				{name: 'Quiz 2', id: 41, timeDue: '11:59PM', dueDate: '2014-07-30'}
-			] },
+			],
+			courseGrades: [
+                { name: 'Attendance Grade', id: 110, gradeType: 'a_grade', lastPost:'July 26, 2014', state:'available' },
+                { name: 'Participation Grade', id: 111, gradeType: 'p_grade', lastPost:'July 26, 2014', state:'available' },
+                { name: 'Quiz Grade', id: 112, gradeType: 'q_grade', lastPost: 'unknown', state: 'unavailable' },
+                { name: 'Exam Grade', id: 113, gradeType: 'e_grade', lastPost: 'unknown', state: 'unavailable' },
+			    { name: 'Total Grade', id: 114, gradeType: 't_grade', lastPost: 'unknown', state: 'unavailable' }
+			]},
 		{ name: 'CMPT 355', id: 1, instructor: 'Wo Shun Luk', semester: 'Summer 2014', section: 'D100', role: 'Student', 
 			courseMaterials: [
 				{ name: 'Lecture 1', id: 14, fileType: 'PDF', uploadDate: '2014-05-05', timestamp: '5:59PM', download: true, url: 'test/1.PDF'},
@@ -69,7 +76,14 @@ nov.service('Data', function () {
 			assignments: [
 				{name: 'Assignment 1', id: 24, dueDate: '2014-05-25', timeDue: '11:59PM', totalGrade: 100, weight: 25, uploadDate: '2014-05-05', timestamp: '5:59PM', url: 'test/1.PDF'},
 				{name: 'Assignment 2', id: 25, dueDate: '2014-08-20', timeDue: '11:59PM', totalGrade: 10, weight: 30, uploadDate: '2014-05-05', timestamp: '5:59PM', url: 'test/1.PDF'}
-			] },
+			],
+		    courseGrades: [
+                { name: 'Attendance Grade', id: 110, gradeType: 'a_grade', lastPost: 'July 26, 2014', state: 'available' },
+                { name: 'Participation Grade', id: 111, gradeType: 'p_grade', lastPost: 'July 26, 2014', state: 'available' },
+                { name: 'Quiz Grade', id: 112, gradeType: 'q_grade', lastPost: 'unknown', state: 'unavailable' },
+                { name: 'Exam Grade', id: 113, gradeType: 'e_grade', lastPost: 'unknown', state: 'unavailable' },
+			    { name: 'Total Grade', id: 114, gradeType: 't_grade', lastPost: 'unknown', state: 'unavailable' }
+        ]},
 		{ name: 'ENGL 103w', id: 2, instructor: 'Orion Kidder', semester: 'Summer 2014', section: 'D100', role: 'Student',
 			courseMaterials: [
 				{ name: 'Introduction to Hamlet', id: 16, fileType: 'PDF', uploadDate: '2014-05-05', timestamp: '5:59PM', download: true, url: 'test/1.PDF'},
@@ -78,7 +92,14 @@ nov.service('Data', function () {
 			assignments: [
 				{name: 'Character Analysis', id: 26, dueDate: '2014-05-25', timeDue: '11:59PM', totalGrade: 100, weight: 25, uploadDate: '2014-05-05', timestamp: '5:59PM', url: 'test/1.PDF'},
 				{name: 'Term Paper', id: 28, dueDate: '2014-08-20', timeDue: '11:59PM', totalGrade: 10, weight: 30, uploadDate: '2014-05-05', timestamp: '5:59PM', url: 'test/1.PDF'}
-			] },
+			],
+			courseGrades: [
+                { name: 'Attendance Grade', id: 110, gradeType: 'a_grade', lastPost: 'July 26, 2014', state: 'available' },
+                { name: 'Participation Grade', id: 111, gradeType: 'p_grade', lastPost: 'July 26, 2014', state: 'available' },
+                { name: 'Quiz Grade', id: 112, gradeType: 'q_grade', lastPost: 'unknown', state: 'unavailable' },
+                { name: 'Exam Grade', id: 113, gradeType: 'e_grade', lastPost: 'unknown', state: 'unavailable' },
+			    { name: 'Total Grade', id: 114, gradeType: 't_grade', lastPost: 'unknown', state: 'unavailable' }
+			]},
 		],
 		submissions: [
 			{id: 40, assignmentId: 21, submitDate: '2014-05-25', timestamp: '3:59PM', status: 'submitted', actualGrade: 100, studentComment: 'Please give me a good mark, Herbert.', instructorComment: 'Well done', file: 'test/1.PDF'},
@@ -144,6 +165,18 @@ nov.service('Data', function () {
 	
 	this.getQuizzes = function(courseId) {
 		return student.enrolledCourses[courseId].quizzes;
+	};
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Course Grade
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	this.getCourseGrades = function (id) {
+	    return student.enrolledCourses[id].courseGrades;
+	};
+
+	this.getCourseGrade = function (courseId, gradeId) {
+	    return student.enrolledCourses[courseId].courseGrades[gradeId];
 	};
 
 });

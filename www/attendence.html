@@ -1,0 +1,46 @@
+<ion-view title="Attendence">
+	<ion-nav-buttons side="right">
+		<button menu-toggle="right"class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+
+	<nov-content ng-if="user == 'instructor'">
+		<h1>{{ course.name }} Participation</h1>
+		<h2> please generate the attendance code: </h2>
+		
+		<form id="generateCode">
+			<input id="attendanceCodeOnput" type="text" ng-model="" placeholder="Attendence Code" required readonly><br>
+			<button id="generateCodeBtn" onclick="generateMixed(4)">Generate Code</button>
+		</form>
+		
+		<form id="startAttendence">
+			<input id="attendanceTimerInput" type="text" ng-model="" placeholder="Attendence Code" required readonly><br>
+			<button onclick="startCountDown();">start</button>
+		</form>
+		
+	</nov-content>
+	
+	<nov-content ng-if="user == 'student'">
+	
+		<h1>{{ course.name }} Attendence</h1>
+		<h2> please enter the attendance code: </h2>
+		
+		<form id="confirmAttCode">
+			<input id="comfirm_passcode" type="text" ng-model="" placeholder="Attendence Code" required><br>
+			<button id="confirmAttCodeBtn" onclick="attCheckIn()">Confirm</button>
+		</form>
+		
+		<!--Show last 10 uploaded course material and assignments-->
+		<div style="display:none;">
+		<h1>Checked-in List</h1>	
+		<nov-frame>
+			<ul id="" >
+				<li ng-if="notification.fileType">{{notification.course.name}}: course material posted <span class ="notificationLeftSide">fffffffffff</span></li>
+				<li ng-if="notification.totalGrade">{{notification.course.name}}: <a href="">{{notification.name}}</a> <span class = "notificationLeftSide">due {{notification.dueDate}}</span></li>
+			</ul>
+		</nov-frame>
+		</div>
+			
+	</nov-content>
+</ion-view>
+
+

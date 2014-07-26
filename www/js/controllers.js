@@ -45,7 +45,7 @@ nov.controller('CoursesCtrl', ['$scope', 'Data', 'userModel', function($scope, D
 	};
 }]);
 
-nov.controller('CourseCtrl', ['$scope', '$stateParams', 'Data', 'userModel', function($scope, $stateParams, Data, userModel) {
+nov.controller('CourseCtrl', ['$scope', '$stateParams', 'Data', 'userModel', function ($scope, $stateParams, Data, userModel) {
 	$scope.userModel = userModel;
 	$scope.user = $scope.userModel.getUser();
 	$scope.course = Data.getCourse($stateParams.courseId);
@@ -60,7 +60,7 @@ nov.controller('CourseCtrl', ['$scope', '$stateParams', 'Data', 'userModel', fun
 	$scope.notifications = Data.getCourseNotifications($stateParams.courseId);
 }]);
 
-nov.controller('CourseMaterialCtrl', ['$scope', '$stateParams', 'Data', 'userModel', '$filter', function($scope, $stateParams, Data, userModel, $filter) {
+nov.controller('CourseMaterialCtrl', ['$scope', '$stateParams', 'Data', 'userModel', '$filter', function ($scope, $stateParams, Data, userModel, $filter) {
 	$scope.userModel = userModel;
 	$scope.user = $scope.userModel.getUser();
 	var materials = Data.getCourseMaterials($stateParams.courseId);
@@ -189,8 +189,16 @@ nov.controller('SubmissionCtrl', ['$scope', '$stateParams', 'Data', 'userModel',
 
 }]);
 
-nov.controller('GradesCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
-	$scope.course = Data.getCourse($stateParams.courseId);
+nov.controller('GradesCtrl', ['$scope', '$stateParams', 'Data', 'userModel', function($scope, $stateParams, Data, userModel) {
+    $scope.userModel = userModel;
+    $scope.user = $scope.userModel.getUser();
+    $scope.course = Data.getCourse($stateParams.courseId);
+    var grades = Data.getCourseGrades($stateParams.courseId);
+    $scope.grades = grades;
+}]);
+
+nov.controller('GradeSubviewCtrl', ['$scope', '$stateParams', 'Data', function ($scope, $stateParams, Data) {
+    $scope.course = Data.getCourse($stateParams.courseId);
 }]);
 
 nov.controller('QuizzesCtrl', ['$scope', '$stateParams', 'Data', 'userModel', '$filter', function($scope, $stateParams, Data, userModel, $filter) {
@@ -220,4 +228,11 @@ nov.controller('QuizCtrl', ['$scope', '$stateParams', 'Data', 'userModel', '$fil
 	$scope.questionSet = [];
 	
 	$scope.index = 0;
+}]);
+
+
+nov.controller('AttendenceCtrl', ['$scope', '$stateParams', 'Data', 'userModel', function ($scope, $stateParams, Data, userModel) {
+    $scope.userModel = userModel;
+    $scope.user = $scope.userModel.getUser();
+    $scope.course = Data.getCourse($stateParams.courseId);
 }]);
