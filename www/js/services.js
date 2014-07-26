@@ -23,6 +23,28 @@ nov.factory('userModel', function () {
     return userModel;
 });
 
+nov.service('numberToAlphabetic', function () {
+	this.convert = function(integer) {
+		switch (integer)
+		{
+			case 0:
+				return 'a';
+			case 1:
+				return 'b';
+			case 2:
+				return 'c';
+			case 3:
+				return 'd';
+			case 4:
+				return 'e';
+			case 5:
+				return 'f';
+			default:
+				return '-';
+		}
+	}
+});
+
 
 nov.service('Data', function ($http) {
 
@@ -31,7 +53,7 @@ nov.service('Data', function ($http) {
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////
 	var info;
 	var data = this;
-	
+
 	// WIP; Restructured data
 	$http.get('data/data.json').then(function(res){
 

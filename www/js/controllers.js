@@ -205,13 +205,40 @@ nov.controller('QuizzesCtrl', ['$scope', '$stateParams', 'Data', 'userModel', '$
 	$scope.quizzes = Data.getQuizzes($stateParams.courseId);
 }]);
 
-nov.controller('CreateQuizCtrl', ['$scope', '$stateParams', 'Data', 'userModel', '$filter', function($scope, $stateParams, Data, userModel, $filter) {
+nov.controller('CreateQuizCtrl', ['$scope', '$stateParams', 'Data', 'userModel', 'numberToAlphabetic', '$filter', function($scope, $stateParams, Data, userModel, numberToAlphabetic, $filter) {
 	$scope.userModel = userModel;
 	$scope.user = $scope.userModel.getUser();	
 	$scope.course = Data.getCourse($stateParams.courseId);	
+	
+	$scope.convert = function(integer)
+	{
+		return numberToAlphabetic.convert(integer);
+	}
+	
+	$scope.questions = [];	
+	$scope.questions.push([{}]);
+	
+	$scope.responseSet = [];
 }]);
 
-nov.controller('QuizCtrl', ['$scope', '$stateParams', 'Data', 'userModel', '$filter', function($scope, $stateParams, Data, userModel, $filter) {
+nov.controller('ViewQuizCtrl', ['$scope', '$stateParams', 'Data', 'userModel', 'numberToAlphabetic', '$filter', function($scope, $stateParams, Data, userModel, numberToAlphabetic, $filter) {
+	$scope.userModel = userModel;
+	$scope.user = $scope.userModel.getUser();	
+	$scope.course = Data.getCourse($stateParams.courseId);
+	
+	var quizzes = Data.getQuizzes($stateParams.courseId);
+	var quiz = $filter('filter')(quizzes, {id: $stateParams.quizId})[0];
+	$scope.quiz = quiz;
+	
+	$scope.questionSet = [0,1];
+	
+	$scope.convert = function(integer)
+	{
+		return numberToAlphabetic.convert(integer);
+	}
+}]);
+
+nov.controller('QuizCtrl', ['$scope', '$stateParams', 'Data', 'userModel', 'numberToAlphabetic', '$filter', function($scope, $stateParams, Data, userModel, numberToAlphabetic, $filter) {
 	$scope.userModel = userModel;
 	$scope.user = $scope.userModel.getUser();	
 	$scope.course = Data.getCourse($stateParams.courseId);
@@ -225,4 +252,9 @@ nov.controller('QuizCtrl', ['$scope', '$stateParams', 'Data', 'userModel', '$fil
 	$scope.questionSet = [];
 	
 	$scope.index = 0;
+	
+	$scope.convert = function(integer)
+	{
+		return numberToAlphabetic.convert(integer);
+	}
 }]);

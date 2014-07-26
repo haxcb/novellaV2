@@ -5,5 +5,35 @@
 	
 	<nov-content>
 		<h1>Create Quiz</h1>
+			<form>
+				<input type="text" />
+					<nov-frame ng-repeat="question in questions"> 
+						<h1>Question {{ $index + 1 }}</h1>
+						<span ng-show="questions.length > 1">
+							<button ng-click="questions.splice($index, 1)">X</button>
+						</span>
+						<h1>{{ $index + 1 + "." }}</h1><input type="text" />
+						<div ng-repeat="response in questions[$index]">
+							<h1>{{ convert($index) }}</h1><input type="text" />
+							<input type="radio" ng-model="responseSet[$parent.$index]" ng-value="$index"/>
+						</div>
+						<span ng-show="questions[$index].length > 1">
+							<button ng-click="questions[$index].splice(questions[$index].length - 1, 1)">Delete</button>
+						</span>
+						<button ng-click="questions[$index].push({})">+ Add option</button>
+					</nov-frame>	
+
+			<button ng-click="questions.push([{}])">+ Add Question</button>
+			
+			<nov-frame>
+				<h1>Out of {{ questions.length }}</h1>
+				<h1>% Weight<h1><input type="number" min="1" max="100" />
+				<h1>Due Date</h1><input type="date" />
+				<h1>Time Limit</h1><input type="number" min="1" max="1000"/>
+				
+				<button>Cancel</button>
+				<button>Create</button>
+			</nov-frame>
+		</form>
 	</nov-content>
 </ion-view>

@@ -17,18 +17,18 @@
 		<nov-frame ng-repeat="question in quiz.questions" ng-show="currentQuestion == $index">
 			{{ $index + ". " + question.value }}
 			<div ng-repeat="response in question.responses">
-				<input type="radio" ng-model="$parent.$parent.questionSet[$parent.$index]" ng-value="$index">{{ response }} </input>
+				<input type="radio" ng-model="questionSet[$parent.$index]" ng-value="$index">{{ convert($index) + ") " + response }} </input>
 			</div>
 		</nov-frame>
 		
 		<h2>NAVIGATE TO QUESTION</h2>
 		<nov-frame>
 			<div ng-repeat="question in quiz.questions">
-				<input type="radio" ng-model="$parent.$parent.currentQuestion" ng-value="$index"/> {{ $index }}
+				<input type="radio" ng-model="$parent.currentQuestion" ng-value="$index"/> {{ $index }}
 			</div>
-			<button ng-click="$parent.currentQuestion = $parent.currentQuestion - 1" ng-disabled="$parent.currentQuestion == 0">Previous</button>
-			<button ng-click="$parent.currentQuestion = $parent.currentQuestion + 1" ng-hide="$parent.currentQuestion == quiz.questions.length - 1">Next</button>
-			<button ng-click="" ng-show="$parent.currentQuestion == quiz.questions.length - 1">Submit</button>
+			<button ng-click="currentQuestion = currentQuestion - 1" ng-disabled="currentQuestion == 0">Previous</button>
+			<button ng-click="currentQuestion = currentQuestion + 1" ng-hide="currentQuestion == quiz.questions.length - 1">Next</button>
+			<button ng-click="" ng-show="currentQuestion == quiz.questions.length - 1">Submit</button>
 		</nov-frame>
 	</nov-content>
 	</div>

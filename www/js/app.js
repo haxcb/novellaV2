@@ -141,6 +141,16 @@ nov.config(function($stateProvider, $urlRouterProvider) {
       }
     });	
 	
+	$stateProvider.state('app.viewquiz', {
+      url: "/courses/:courseId/quizzes/:quizId/view",
+      views: {
+        'menuContent' :{
+          templateUrl: "viewquiz.html",
+          controller: 'ViewQuizCtrl'
+        }
+      }
+    });	
+	
 	$stateProvider.state('app.quiz', {
       url: "/courses/:courseId/quizzes/:quizId",
       views: {
