@@ -33,6 +33,16 @@ nov.controller('LoginCtrl', ['$scope', 'Data', 'userModel', function($scope, Dat
 nov.controller('CoursesCtrl', ['$scope', 'Data', 'userModel', function($scope, Data, userModel) {
 	$scope.userModel = userModel;
 	$scope.user = $scope.userModel.getUser();
+	$scope.notifications = [];
+
+	var courses = Data.getStudent().enrolledCourses;
+	for (var i = courses.length - 1; i >= 0; i--) {
+		var singularCourse = Data.getCourseNotifications(courses[i].id);
+		for(var j = singularCourse.length -1; j >= 0; j--) {
+			singularCourse[j].course = courses[i];
+			$scope.notifications.push(singularCourse[j]);
+		}
+	};
 }]);
 
 nov.controller('CourseCtrl', ['$scope', '$stateParams', 'Data', 'userModel', function($scope, $stateParams, Data, userModel) {
