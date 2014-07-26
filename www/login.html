@@ -6,20 +6,22 @@
 			<p>Login to your Novella account</p>
 			<form ng-controller="servLoginCtrl">
 				<div class="list">
-					
+						<!-- Labels for debugging login 
 						<label class="err" ng-repeat="error in errors">
 							{{error}}
 						</label>
+						-->
 						<label class="info" ng-repeat="message in messages">
 							{{message}}
-						</label>
+						</label> 
+
 						<!-- Email input -->
 						<label class="email" class="item item-input">
 							<input type="text" placeholder="Email" ng-model="email">
 						</label>
-						<!-- Password input -->
-						<label class="password" class="item item-input" ng-model="password">
-							<input type="password" placeholder="Password">
+						<!-- Pasword input -->
+						<label class="password" class="item item-input" >
+							<input type="text" placeholder="" ng-model="pwd">
 						</label>
 					
 				</div>

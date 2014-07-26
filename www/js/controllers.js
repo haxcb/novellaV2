@@ -30,15 +30,7 @@ nov.controller('DataCtrl', ['$scope', 'Data', function($scope, Data) {
 
 nov.controller('servLoginCtrl', ['$scope', '$http', function($scope, $http) {
 
-	/*
-
-	$scope.test = function(){
-		$window.alert("Hi");
-	};
-
-	*/
-
-	$scope.formData = {};
+	
 
 	$scope.errors = [];
 	$scope.messages = [];
@@ -47,27 +39,20 @@ nov.controller('servLoginCtrl', ['$scope', '$http', function($scope, $http) {
 		$scope.errors.splice(0, $scope.errors.length); //to reset errors array
 		$scope.messages.splice(0, $scope.messages.length); //to reset messages array
 		
-
 		
 		$http({
-			url 	: 'http://127.0.0.1:8000/lms/login/',
-			method 	: 'POST',
-			data 	: {'email':$scope.email,'password':$scope.password},
-			dataType: 'json',
-			
-			headers : {'Content-Type' : 'application/json'},
-			
+		
+			url	: "http://127.0.0.1:8000/lms/login/" + "?email=" + $scope.email + "&password=" + $scope.pwd,
+			method: 'get',
+			crossDomain : true,			
+						
 		}).success(function(data, status, headers, config) {
-			$scope.messages.push(status, data)
+			$scope.messages.push(data)
 		}).error(function(status){
-			$scope.errors.push(status, data);
+			$scope.errors.push(status);
 		});
 
-		
-
-		
-
-		
+				
 	}
 
 	

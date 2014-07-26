@@ -25,7 +25,10 @@ nov.run(function($ionicPlatform) {
 });
 
 
-
+nov.config(['$httpProvider', function($httpProvider) {
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+}]);
 
 // Add new HTML pages here
 nov.config(function($stateProvider, $urlRouterProvider) {
@@ -113,3 +116,4 @@ nov.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/app/login');
 
 });
+
