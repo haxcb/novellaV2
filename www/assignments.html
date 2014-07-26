@@ -43,7 +43,7 @@
 					<h2>{{assignment.name}}</h2> 
 				</nov-button-contents-left>
 				<nov-button-contents-right>
-					<h4>Due {{assignment.dueDate}}</h4>
+					<h4>Due {{assignment.dueDate}} at {{ assignment.timeDue }}</h4>
 				</nov-button-contents-right>
 
 		</nov-long-button>
@@ -58,7 +58,7 @@
 					<h2>{{assignment.name}}</h2>
 				</nov-button-contents-left>
 				<nov-button-contents-right>
-					<h4>Due {{assignment.dueDate}}</h4>
+					<h4>Due {{assignment.dueDate}} at {{ assignment.timeDue }}</h4>
 					<h4><b>{{getSubmissionStatus(assignment.id)}}</b></h4>
 				</nov-button-contents-right>
 				
