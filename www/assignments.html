@@ -37,7 +37,7 @@
 		<nov-long-button
 			ng-repeat="assignment in assignments | upcomingAssignments"
 			href="#/app/courses/{{ course.id }}/assignments/{{assignment.id}}"
-			class="assignments {{ getSubmissionStatus(assignment.id)  }}">
+			class="assignments {{ getSubmissionStatusColor(assignment.id)  }}">
 		   
 				<nov-button-contents-left>
 					<h2>{{assignment.name}}</h2> 
@@ -52,13 +52,16 @@
 		<h1>Past</h1>	
 		<nov-long-button ng-repeat="assignment in assignments | pastAssignments"
 			href="#/app/courses/{{ course.id }}/assignments/{{assignment.id}}"
-			class="assignments {{ getSubmissionStatus(assignment.id)  }}">
+			class="assignments {{ getSubmissionStatusColor(assignment.id)  }}">
+			
 				<nov-button-contents-left>
 					<h2>{{assignment.name}}</h2>
 				</nov-button-contents-left>
 				<nov-button-contents-right>
 					<h4>Due {{assignment.dueDate}}</h4>
+					<h4><b>{{getSubmissionStatus(assignment.id)}}</b></h4>
 				</nov-button-contents-right>
+				
 		</nov-long-button >
 	</nov-content>
 

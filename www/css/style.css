@@ -304,6 +304,15 @@ mark {
 }
 
 /******************************
+	ASSIGNMENTS
+*******************************/
+.open {
+	
+}
+
+
+
+/******************************
 		COURSE MATERIAL STYLES
 *******************************/
 
@@ -616,7 +625,10 @@ button:visited {
 
 button.orange,
 button.orange:visited,
-button.orange:focus {
+button.orange:focus,
+.orange button,
+.orange button:visited,
+.orange button:focus  {
 	background-color: #fb9a31;
     background: -webkit-linear-gradient(#fb9a31, #f5943e); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(#fb9a31, #f5943e); /* For Opera 11.1 to 12.0 */
@@ -624,6 +636,35 @@ button.orange:focus {
     background: linear-gradient(#fb9a31, #f5943e); /* Standard syntax (must be last) */		
 	border:1px solid #e38a2c;
 }
+
+button.green,
+button.green:visited,
+button.green:focus,
+.green button,
+.green button:visited,
+.green button:focus {
+	background-color: #2AA82A;
+    background: -webkit-linear-gradient(#2AA82A, #38AB38); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#2AA82A, #38AB38); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#2AA82A, #38AB38); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#2AA82A, #38AB38); /* Standard syntax (must be last) */		
+	border:1px solid #249124;
+}
+
+button.gray,
+button.gray:visited,
+button.gray:focus,
+.gray button,
+.gray button:visited,
+.gray button:focus {
+	background-color: #858585;
+    background: -webkit-linear-gradient(#858585, #A1A1A1); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#858585, #A1A1A1); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#858585, #A1A1A1); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#858585, #A1A1A1); /* Standard syntax (must be last) */		
+	border:1px solid #888;
+}
+
 
 
 button:active {
@@ -642,13 +683,34 @@ button:active {
 	border:1px solid #cf3232;
 }
 
-button.orange:active {
+button.orange:active,
+.orange .button:active {
 	background-color: #f5943e;
     background: -webkit-linear-gradient(#f5943e, #fb9a31); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(#f5943e, #fb9a31); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(#f5943e, #fb9a31); /* For Firefox 3.6 to 15 */
     background: linear-gradient(#f5943e, #fb9a31); /* Standard syntax (must be last) */		
 	border:1px solid #e38a2c;	
+}
+
+button.green:active,
+.green button:active {
+	background-color: #38AB38;
+    background: -webkit-linear-gradient(#38AB38, #2AA82A); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#38AB38, #2AA82A); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#38AB38, #2AA82A); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#38AB38, #2AA82A); /* Standard syntax (must be last) */		
+	border:1px solid #e38a2c;	
+}
+
+button.gray:active,
+.gray button:active {
+	background-color: #A1A1A1;
+    background: -webkit-linear-gradient(#A1A1A1, #858585); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#A1A1A1, #858585); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#A1A1A1, #858585); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#A1A1A1, #858585); /* Standard syntax (must be last) */		
+	border:1px solid #888;
 }
 
 .longButton {
