@@ -24,7 +24,7 @@
 				<!-- Loop through menu options -->
 				<ion-item menu-close 
 						  nav-clear
-						  ng-repeat="course in getStudent().enrolledCourses"
+						  ng-repeat="course in getStudent().courses"
 						  href="#/app/courses/{{ course.id }}">
 							{{ course.name }}
 				</ion-item>

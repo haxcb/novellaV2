@@ -8,7 +8,7 @@
 
 		<span ng-if="user == 'instructor'">
 			<!-- Adding Attendance Button -->
-			<h1 class = "yellowHeader">Attendance</h1>
+			<h1>Attendance</h1>
 
 			<nov-long-button 
 				href="#/app/courses/{{ course.id }}/attendance"
@@ -24,7 +24,7 @@
 			</nov-long-button>
 		</span>
 
-		<h1 class = "yellowHeader">Course Materials</h1>
+		<h1>Course Materials</h1>
 		<!--Instructor options for adding course materials. -->
 		<span ng-if="user == 'instructor'">
 			<!--BUG: Opening Add section hides the rest of the page contents.-->

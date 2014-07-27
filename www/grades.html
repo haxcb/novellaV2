@@ -4,24 +4,58 @@
 	</ion-nav-buttons>
 
 	<nov-content>
-		<h1>{{ course.name }} Grades</h1>
+		
+		<div ng-if="user=='student'">
+			<h1>{{ course.name }} Grades</h1>
 
-		<table id ="grades-table">
-			<tr>
-				<th>{{course.name}}</th>
-				<th>weight</th>
-				<th>percent</th>
-				<th>mark</th>
-			</tr>
+			<table id ="grades-table">
+				<tr>
+					<th>{{course.name}}</th>
+					<th>weight</th>
+					<th>percent</th>
+					<th>mark</th>
+				</tr>
 
-			<tr ng-repeat = "submission in submissions">
-				<td>{{assignments[$index].name}}</td>
-				<td>{{assignments[$index].weight}}%</td>
-				<td>{{(submission.actualGrade)/(assignments[$index].totalGrade) *100}}%</td>
-				<td>{{submission.actualGrade}}/{{assignments[$index].totalGrade}}</td>
+				<tr ng-repeat="assignment in assignments">
+					<td>{{assignment.name}}</td>
+					<td>{{assignment.weight}}%</td>
+					<td>{{(submissions[$index].actualGrade)/(assignments[$index].totalGrade) *100}}%</td>
+					<td>{{submissions[$index].actualGrade}}/{{assignments[$index].totalGrade}}</td>
 
-			</tr>
-		</table>
+				</tr>
+			</table>
+		</div>
+
+		<div ng-if="user=='instructor'">
+
+			<h1>COMPONENTS</h1>
+			<table id ="components-table">
+				<tr>
+					<th>{{course.name}}</th>
+					<th>weight</th>
+					<th>out of</th>
+				</tr>
+
+				<tr ng-repeat = "submission in submissions">
+					<td>{{assignments[$index].name}}</td>
+					<td><input type="text" name="fname" maxlength="3" class = "gradesInputBox">%</td>
+					<td><input type="text" name="fname" maxlength="3" class = "gradesInputBox"></td>
+				</tr>
+			</table>
+
+
+			<button class="gradesCancel">CANCEL</button>
+			<button class="gradesSave">SAVE</button>
+
+			<h1 class = "clear">STUDENT GRADES</h1>
+			<table id ="student-table">
+				<th>NAME</th>
+
+				<tr ng-repeat = "submission in submissions">
+					<td>{{assignments[$index].name}} <a href = "www.sfu.ca" class = "gradesLink">VIEW</a></td>
+				</tr>
+			</table>
+		</div>
 
 	</nov-content>
 

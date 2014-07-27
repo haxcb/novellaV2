@@ -20,7 +20,15 @@
 		</nov-long-button>
 		
 		<span ng-if="user == 'instructor'">
-			<button>+ Add</button>
+			<nov-long-button 
+				href="#/app/courses/{{ course.id }}/quizzes/create"
+				class="pink">
+				<nov-button-contents-left>
+					<h2>+ Add</h2>
+				</nov-button-contents-left>
+				<nov-button-contents-right>
+				</nov-button-contents-right>
+			</button>
 		</span>
 		
 		<h1>Past</h1>
