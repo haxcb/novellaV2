@@ -54,12 +54,6 @@ nov.controller('CourseCtrl', ['$scope', '$stateParams', 'Data', 'userModel', fun
 	$scope.predicate = '-uploadDate';
 	//following is necessary so that notifications don't get sorted by Sort buttons
  	$scope.notificationPredicate = '-uploadDate';
-	$scope.editing = false;
-	$scope.fileTypeOptions = [
-		{id: 1, name: 'PDF'}, 
-		{id: 2, name: 'video'}, 
-		{id: 3, name: 'Create with text editor'}
-		];
 	$scope.notifications = Data.getCourseNotifications($stateParams.courseId);
 }]);
 
