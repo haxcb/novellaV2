@@ -1,0 +1,35 @@
+<ion-view title="{{course.name}} Attendance">
+	<ion-nav-buttons side="right">
+		<button menu-toggle="right"class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+
+	<nov-content>
+	<h1>ATTENDANCE 2</h1>
+	{{getDate()}} AT {{getTime()}}
+		<nov-frame>
+				{{index}} / {{course.studentList.length}} students marked<br>
+				<h1>{{course.studentList[index].name}}</h1><br>
+			<button ng-disabled="index > course.studentList.length - 1" ng-click="course.studentList[index].present = 'N'; index = index + 1">
+				<img src="css/img/icon_redxmark.png" >
+			</button>
+			<button ng-disabled="index > course.studentList.length - 1" ng-click="course.studentList[index].present = 'Y'; index = index + 1">
+				<img src="css/img/icon_checkmark.png" >
+			</button>
+			<div ng-repeat="student in course.studentList">
+				{{student.name}} : {{student.present}}
+			</div>
+		</nov-frame>
+
+		<h1>SELECT STUDENTS</h1>
+		<nov-frame>
+			<nov-button href="#/app/courses/{{ course.id }}">CANCEL</nov-button>
+			{{index}}
+			<nov-button ng-show="index > course.studentList.length - 1">FINISH</nov-button>
+		</nov-frame>
+
+
+		
+
+	</nov-content>
+
+</ion-view>

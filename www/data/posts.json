@@ -114,7 +114,33 @@
 					"timeDue": "11:59PM", 
 					"dueDate": "2014-07-30"
 				}
-			] 
+			],
+			"studentList": [
+				{
+					"name": "Graham Chapman",
+					"present": "U"
+				},
+				{
+					"name": "John Cleese",
+					"present": "U"
+				},
+				{
+					"name": "Terry Gilliam",
+					"present": "U"
+				},
+				{
+					"name": "Eric Idle",
+					"present": "U"
+				},
+				{
+					"name": "Terry Jones",
+					"present": "U"
+				},
+				{
+					"name": "Michael Palin",
+					"present": "U"
+				}
+			]    
 		},
 		{ 
 			"name": "CMPT 355", 
