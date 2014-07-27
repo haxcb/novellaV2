@@ -35,7 +35,7 @@ nov.controller('CoursesCtrl', ['$scope', 'Data', 'userModel', function($scope, D
 	$scope.userModel = userModel;
 	$scope.user = $scope.userModel.getUser();
 	$scope.notifications = [];
-
+	$scope.predicate = '-uploadDate';
 	var courses = Data.getStudent().courses;
 	for (var i = courses.length - 1; i >= 0; i--) {
 		var singularCourse = Data.getCourseNotifications(courses[i].id);
@@ -43,7 +43,7 @@ nov.controller('CoursesCtrl', ['$scope', 'Data', 'userModel', function($scope, D
 			singularCourse[j].course = courses[i];
 			$scope.notifications.push(singularCourse[j]);
 		}
-	};
+	}
 }]);
 
 nov.controller('CourseCtrl', ['$scope', '$stateParams', 'Data', 'userModel', function($scope, $stateParams, Data, userModel) {
@@ -52,14 +52,6 @@ nov.controller('CourseCtrl', ['$scope', '$stateParams', 'Data', 'userModel', fun
 	$scope.course = Data.getCourse($stateParams.courseId);
 	$scope.materials = Data.getCourseMaterials($stateParams.courseId);
 	$scope.predicate = '-uploadDate';
-	//following is necessary so that notifications don't get sorted by Sort buttons
- 	$scope.notificationPredicate = '-uploadDate';
-	$scope.editing = false;
-	$scope.fileTypeOptions = [
-		{id: 1, name: 'PDF'}, 
-		{id: 2, name: 'video'}, 
-		{id: 3, name: 'Create with text editor'}
-		];
 	$scope.notifications = Data.getCourseNotifications($stateParams.courseId);
 }]);
 
@@ -78,6 +70,20 @@ nov.controller('CourseMaterialCtrl', ['$scope', '$stateParams', 'Data', 'userMod
 		}
 	};
 	$scope.code = parseYoutube(courseMaterial.url);
+}]);
+
+nov.controller('CourseMaterialCreateCtrl', ['$scope', '$stateParams', 'Data', 'userModel', '$filter', function($scope, $stateParams, Data, userModel, $filter) {
+	$scope.userModel = userModel;
+	$scope.user = $scope.userModel.getUser();	
+	$scope.course = Data.getCourse($stateParams.courseId);
+	$scope.fileTypeOptions = [
+		{id: 1, name: 'PDF'}, 
+		{id: 2, name: 'video'}
+		];
+	// $scope.setMenuDrag(false);
+	$scope.upload = function(courseMaterial){
+		alert('Course material created!');
+	}
 }]);
 
 nov.controller('ParticipationCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
@@ -185,6 +191,9 @@ nov.controller('AssignmentCreateCtrl', ['$scope', '$stateParams', 'Data', 'userM
 	$scope.userModel = userModel;
 	$scope.user = $scope.userModel.getUser();	
 	$scope.course = Data.getCourse($stateParams.courseId);
+	$scope.upload = function(courseMaterial){
+		alert('Assignment created!');
+	}
 	// $scope.setMenuDrag(false);
 }]);
 
