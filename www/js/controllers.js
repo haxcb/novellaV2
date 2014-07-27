@@ -168,7 +168,7 @@ nov.controller('AssignmentCreateCtrl', ['$scope', '$stateParams', 'Data', 'userM
 	$scope.userModel = userModel;
 	$scope.user = $scope.userModel.getUser();	
 	$scope.course = Data.getCourse($stateParams.courseId);
-	$scope.setMenuDrag(false);
+	// $scope.setMenuDrag(false);
 }]);
 
 nov.controller('SubmissionCtrl', ['$scope', '$stateParams', 'Data', 'userModel', '$filter', function($scope, $stateParams, Data, userModel, $filter) {

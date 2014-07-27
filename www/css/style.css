@@ -350,6 +350,7 @@ mark {
 .create .title  {
 	padding:5px;
 }
+
 .create .title input {
 	font-size:20px;
 }
@@ -371,7 +372,7 @@ mark {
 }
 
 .editor-btn-group button {
-	padding:3px 5px;
+	padding:3px 4px;
 	min-width:40px;
 	background:none;
 	color:#333;
@@ -384,12 +385,34 @@ mark {
 	border-radius:0;
 	border-right:1px solid #8d8d8d;
 }
+
+.editor-btn-group button:active {
+	background:none;
+	background-color:#FABE5C;
+	border-radius:0;
+	border:none;
+	color:#333;
+}
+
 .editor-btn-group button:first-child {
 	border-left:1px solid #8d8d8d;
 }
 
 .editor-btn-toolbar button:last-child {
 	border-right:1px solid #8d8d8d;
+}
+
+.create h2 {
+	margin-right:20px;
+}
+
+.options {
+	width:49%;
+}
+
+.submit button {
+	width:100%;
+	margin:30px auto 0 auto;
 }
 
 

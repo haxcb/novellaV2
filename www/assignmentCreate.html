@@ -23,15 +23,33 @@
 					ta-toolbar-group-class="editor-btn-group">
 				</text-angular>
 				
-				<input type="file" id="file" name="file" ng-model="assignment.file" required/>
-				
-				Out of <input type="text" ng-model="assignment.totalGrade" required>
-				
-				% Weight <input type="text" ng-model="assignment.weight" required>
-				
-				<input type="date" ng-model="assignment.dueDate" required>
-				
-				<button ng-click="upload(assignment)">Submit</button>
+				<div>
+					<div class="options left">
+						<h2>Out of</h2>
+						<input type="text" ng-model="assignment.totalGrade" required>
+						<div class="clear"></div>
+					</div>
+					<div class="options right">
+						<h2>% Weight</h2>
+						<input type="text" ng-model="assignment.weight" required>
+						<div class="clear"></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div>
+					<div class="options left">
+						<h2>Upload file</h2>
+						<input type="file" id="file" name="file" ng-model="assignment.file" required/>
+						<div class="clear"></div>
+					</div>
+					<div class="options right">
+						<h2>Due date</h2>
+						<input type="date" ng-model="assignment.dueDate" required>
+						<div class="clear"></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<nov-button class="submit" ng-click="upload(assignment)">SUBMIT</button>
 				
 			</nov-frame>
 		</span>
