@@ -218,14 +218,30 @@ nov.controller('GradesCtrl', ['$scope', '$stateParams', 'Data', 'userModel', fun
 	$scope.course = Data.getCourse($stateParams.courseId);
 
 	$scope.assignments = Data.getAssignments($stateParams.courseId);
-	console.log($scope.assignments);
 
 	$scope.submissions = [];
 	
 	for(var i in $scope.assignments) {
-		var submissions = Data.getAssignmentSubmissions($stateParams.courseId, $scope.assignments[i]);	
-		$scope.submissions.push(submissions);
-	};
+		var submissions = Data.getAssignmentSubmissions($stateParams.courseId, $scope.assignments[i].id);
+		if(submissions.length > 0) {
+			for(var s in submissions) {	
+				$scope.submissions.push(submissions[s]);
+			}
+		} else {
+			// Submission does not exist
+			$scope.submissions.push({
+							"id": "", 
+							"assignmentId": "", 
+							"submitDate": "", 
+							"timestamp": "", 
+							"status": "", 
+							"actualGrade": "", 
+							"studentComment": "", 
+							"instructorComment": "", 
+							"file": ""
+			});
+		}
+	}
 
 }]);
 
