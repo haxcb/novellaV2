@@ -28,7 +28,10 @@ nov.controller('DataCtrl', ['$scope', 'Data', function($scope, Data) {
 
 nov.controller('LoginCtrl', ['$scope', 'Data', 'userModel', function($scope, Data, userModel) {
 	$scope.userModel = userModel;
-	$scope.setUser = userModel.setUser;
+	$scope.setUser = function(role) {
+		userModel.setUser(role);
+		Data.setUser(role);
+	}
 }]);
 
 nov.controller('CoursesCtrl', ['$scope', 'Data', 'userModel', function($scope, Data, userModel) {
@@ -83,6 +86,7 @@ nov.controller('CourseMaterialCreateCtrl', ['$scope', '$stateParams', 'Data', 'u
 		];
 	// $scope.setMenuDrag(false);
 	$scope.upload = function(courseMaterial){
+		Data.addCourseMaterial($stateParams.courseId, courseMaterial);
 		alert('Course material created!');
 	}
 }]);

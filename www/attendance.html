@@ -4,31 +4,65 @@
 	</ion-nav-buttons>
 
 	<nov-content>
-	<h1>ATTENDANCE 2</h1>
-	{{getDate()}} AT {{getTime()}}
+		<h1>ATTENDANCE 2</h1>
+		{{getDate()}} AT {{getTime()}}
+
 		<nov-frame>
-				{{index}} / {{course.studentList.length}} students marked<br>
-				<h1>{{course.studentList[index].name}}</h1><br>
-			<button ng-disabled="index > course.studentList.length - 1" ng-click="course.studentList[index].present = 'N'; index = index + 1">
-				<img src="css/img/icon_redxmark.png" >
+			{{index}} / {{course.studentList.length}} students marked<br>
+			<h1>{{course.studentList[index].name}}</h1><br>
+
+			<button ng-disabled="index > course.studentList.length - 1" ng-click="course.studentList[index].present = 'N'; increaseIndex()">
+				<img src="css/img/icon_redxmark.png">
 			</button>
-			<button ng-disabled="index > course.studentList.length - 1" ng-click="course.studentList[index].present = 'Y'; index = index + 1">
-				<img src="css/img/icon_checkmark.png" >
+
+			<button class="green" ng-disabled="index > course.studentList.length - 1" ng-click="course.studentList[index].present = 'Y'; increaseIndex()">
+				<img src="css/img/icon_grades.png">
 			</button>
-			<div ng-repeat="student in course.studentList">
-				{{student.name}} : {{student.present}}
+
+			<div ng-repeat="(name, present) in course.studentList"><!--Just for visualization/debug purposes-->
+				{{present.name}} : {{present.present}}
 			</div>
 		</nov-frame>
 
+
+
 		<h1>SELECT STUDENTS</h1>
 		<nov-frame>
-			<nov-button href="#/app/courses/{{ course.id }}">CANCEL</nov-button>
-			{{index}}
-			<nov-button ng-show="index > course.studentList.length - 1">FINISH</nov-button>
+			<select>
+				<option disabled selected>UNMARKED</option>
+				<option ng-repeat="(ind, student) in course.studentList | filter:{present: 'U'}" >
+					{{student.name}}
+					
+				</option>
+			</select>
+
+			<select>
+				<option disabled selected>ABSENT</option>
+				<option ng-repeat="(ind, student) in course.studentList | filter:{present: 'N'}">
+					{{student.name}}
+				</option>
+			</select>
+
+			<select>
+				<option disabled selected>PRESENT</option>
+				<option ng-repeat="(ind, student) in course.studentList | filter:{present: 'Y'}">
+					{{student.name}}
+				</option>
+			</select><br>
+
+
+			<h2>% WEIGHT</h2>
+			<input type="number" min="0" max="100" placeholder="Weight"></input>
+
+			<nov-button class="orange" ng-click="cancelAttendance()" href="#/app/courses/{{ course.id }}">
+				CANCEL
+			</nov-button>
+
+			<nov-button ng-show="index > course.studentList.length - 1" href="#/app/courses/{{ course.id }}">
+				FINISH
+			</nov-button>
+
 		</nov-frame>
-
-
-		
 
 	</nov-content>
 

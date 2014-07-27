@@ -34,6 +34,26 @@ nov.directive('novButton', function() {
 	};
 });
 
+nov.directive('novXButton', function() {
+	return {
+	
+		restrict: 'E', 
+		replace: true,
+		transclude: true,
+		templateUrl: 'nov-templates/novXButton.html'
+	};
+});
+
+nov.directive('novCheckButton', function() {
+	return {
+	
+		restrict: 'E', 
+		replace: true,
+		transclude: true,
+		templateUrl: 'nov-templates/novCheckButton.html'
+	};
+});
+
 nov.directive('novFrame', function() {
 	return {
 	
