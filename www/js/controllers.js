@@ -43,7 +43,7 @@ nov.controller('CoursesCtrl', ['$scope', 'Data', 'userModel', function($scope, D
 			singularCourse[j].course = courses[i];
 			$scope.notifications.push(singularCourse[j]);
 		}
-	};
+	}
 }]);
 
 nov.controller('CourseCtrl', ['$scope', '$stateParams', 'Data', 'userModel', function($scope, $stateParams, Data, userModel) {

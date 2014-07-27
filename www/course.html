@@ -67,7 +67,7 @@
 		
 		<div class="course-options">
 			<div class="course-search">
-				<input type="search" placeholder="Search Material" ng-model="searchText">
+				<input type="search" placeholder="Search Materials" ng-model="searchText">
 			</div>
 			<div id="sort-options">
 				<button ng-click="predicate = 'name'; reverse=!reverse">Sort by Name</button>
@@ -80,7 +80,7 @@
 		<nov-long-button 
 			href="#/app/courses/{{course.id}}/materials/{{material.id}}"
 			class="materials"
-			ng-repeat="material in materials | orderBy:predicate:reverse | filter:searchText">
+			ng-repeat="material in materials | filter:{name:searchText} | orderBy:predicate:reverse">
 			
 				<nov-button-contents-left>
 					<h2>{{material.name}}</h2>
