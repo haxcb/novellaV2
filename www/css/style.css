@@ -452,6 +452,7 @@ mark {
 	border:1px solid #aaa;
 	margin-top:12px;
 	padding:3px 10px;
+	box-sizing:border-box;
 }
 
 
@@ -474,25 +475,18 @@ mark {
 	and (max-width: 1150px) {
 
 	.course-search {
-		width:55%;
+		width:49%;
 	}
 	
 	#sort-options {
 		float:right;
-		width:280px;
+		width:49%;
 	}	
 	
 }
-@media only screen
-	and (max-width: 700px) {
 
-	.course-search {
-		width:50%;
-	}
-	
-}
 @media only screen
-	and (max-width: 600px) {
+	and (max-width: 620px) {
 
 	.course-search {
 		width:100%;
