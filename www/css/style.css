@@ -350,6 +350,7 @@ mark {
 .create .title  {
 	padding:5px;
 }
+
 .create .title input {
 	font-size:20px;
 }
@@ -371,7 +372,7 @@ mark {
 }
 
 .editor-btn-group button {
-	padding:3px 5px;
+	padding:3px 4px;
 	min-width:40px;
 	background:none;
 	color:#333;
@@ -384,12 +385,34 @@ mark {
 	border-radius:0;
 	border-right:1px solid #8d8d8d;
 }
+
+.editor-btn-group button:active {
+	background:none;
+	background-color:#FABE5C;
+	border-radius:0;
+	border:none;
+	color:#333;
+}
+
 .editor-btn-group button:first-child {
 	border-left:1px solid #8d8d8d;
 }
 
 .editor-btn-toolbar button:last-child {
 	border-right:1px solid #8d8d8d;
+}
+
+.create h2 {
+	margin-right:20px;
+}
+
+.options {
+	width:49%;
+}
+
+.submit button {
+	width:100%;
+	margin:30px auto 0 auto;
 }
 
 
@@ -726,10 +749,10 @@ button.pink:focus,
 .pink button:visited,
 .pink button:focus  {
 	background: #f05050;
-    background: -webkit-linear-gradient(#f05050, #f14949); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#f05050, #f14949); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#f05050, #f14949); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#f05050, #f14949); /* Standard syntax (must be last) */	
+    background: -webkit-linear-gradient(#f05050, #fb5a32); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#f05050, #fb5a32); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#f05050, #fb5a32); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#f05050, #fb5a32); /* Standard syntax (must be last) */	
 	border:1px solid #cf3232;
 }
 
@@ -792,10 +815,10 @@ button.orange:active,
 button.pink:active,
 .pink button:active {
 	background-color: #f14949;
-    background: -webkit-linear-gradient(#e24242, #f14949); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#e24242, #f14949); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#e24242, #f14949); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#e24242, #f14949); /* Standard syntax (must be last) */		
+    background: -webkit-linear-gradient(#f14949, #fb5a32); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#f14949, #fb5a32); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#f14949, #fb5a32); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#f14949, #fb5a32); /* Standard syntax (must be last) */		
 	border:1px solid #cf3232;
 }
 

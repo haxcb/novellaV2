@@ -52,6 +52,8 @@ nov.controller('CourseCtrl', ['$scope', '$stateParams', 'Data', 'userModel', fun
 	$scope.course = Data.getCourse($stateParams.courseId);
 	$scope.materials = Data.getCourseMaterials($stateParams.courseId);
 	$scope.predicate = '-uploadDate';
+	//following is necessary so that notifications don't get sorted by Sort buttons
+	$scope.notificationPredicate = '-uploadDate';
 	$scope.editing = false;
 	$scope.fileTypeOptions = [
 		{id: 1, name: 'PDF'}, 
@@ -182,7 +184,7 @@ nov.controller('AssignmentCreateCtrl', ['$scope', '$stateParams', 'Data', 'userM
 	$scope.userModel = userModel;
 	$scope.user = $scope.userModel.getUser();	
 	$scope.course = Data.getCourse($stateParams.courseId);
-	$scope.setMenuDrag(false);
+	// $scope.setMenuDrag(false);
 }]);
 
 nov.controller('SubmissionCtrl', ['$scope', '$stateParams', 'Data', 'userModel', '$filter', function($scope, $stateParams, Data, userModel, $filter) {

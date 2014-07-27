@@ -28,7 +28,15 @@
 		<!--Instructor options for adding course materials. -->
 		<span ng-if="user == 'instructor'">
 			<!--BUG: Opening Add section hides the rest of the page contents.-->
-			<button ng-click="editing=!editing">Add</button>
+			<nov-long-button 
+				class="pink" 
+				ng-click="editing=!editing">
+				<nov-button-contents-left>
+					<h2>+ Add</h2>
+				</nov-button-contents-left>
+				<nov-button-contents-right>
+				</nov-button-contents-right>
+			</button>
 			<span ng-show="editing">
 				<nov-frame>
 					<!--File uploader-->
@@ -59,7 +67,7 @@
 		
 		<div class="course-options">
 			<div class="course-search">
-				<input placeholder="Search Material" ng-model="searchText">
+				<input type="search" placeholder="Search Material" ng-model="searchText">
 			</div>
 			<div id="sort-options">
 				<button ng-click="predicate = 'name'; reverse=!reverse">Sort by Name</button>
@@ -89,7 +97,7 @@
 		<!--Show last 5 uploaded course material and assignments-->
 		<h1>Notifications</h1>	
 		<nov-frame class="notifications">
-			<ul id="notifications" ng-repeat="notification in notifications | orderBy:predicate:reverse | limitTo: 5">
+			<ul id="notifications" ng-repeat="notification in notifications | orderBy:predicate2:reverse | limitTo: 5">
 				<li ng-if="notification.fileType">{{course.name}}: <a href="#/app/courses/{{course.id}}/materials/{{notification.id}}">{{notification.name}}</a> course material posted <span class ="notificationLeftSide">{{notification.uploadDate}}</span></li>
 				<li ng-if="notification.totalGrade">{{course.name}}: <a href="#/app/courses/{{course.id}}/assignments/{{notification.id}}">{{notification.name}}</a> <span class = "notificationLeftSide">due {{notification.dueDate}}</span></li>
 			</ul>
