@@ -83,6 +83,9 @@ nov.controller('CourseMaterialCreateCtrl', ['$scope', '$stateParams', 'Data', 'u
 		{id: 2, name: 'video'}
 		];
 	// $scope.setMenuDrag(false);
+	$scope.upload = function(courseMaterial){
+		alert('Course material created!');
+	}
 }]);
 
 nov.controller('ParticipationCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
@@ -190,6 +193,9 @@ nov.controller('AssignmentCreateCtrl', ['$scope', '$stateParams', 'Data', 'userM
 	$scope.userModel = userModel;
 	$scope.user = $scope.userModel.getUser();	
 	$scope.course = Data.getCourse($stateParams.courseId);
+	$scope.upload = function(courseMaterial){
+		alert('Assignment created!');
+	}
 	// $scope.setMenuDrag(false);
 }]);
 
