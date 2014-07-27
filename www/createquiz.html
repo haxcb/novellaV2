@@ -3,37 +3,67 @@
 		<button menu-toggle="right"class="button button-icon icon ion-navicon"></button>
 	</ion-nav-buttons>
 	
-	<nov-content>
+	<nov-content class="create">
 		<h1>Create Quiz</h1>
-			<form>
-				<input type="text" />
-					<nov-frame ng-repeat="question in questions"> 
-						<h1>Question {{ $index + 1 }}</h1>
-						<span ng-show="questions.length > 1">
-							<button ng-click="questions.splice($index, 1)">X</button>
-						</span>
-						<h1>{{ $index + 1 + "." }}</h1><input type="text" />
-						<div ng-repeat="response in questions[$index]">
-							<h1>{{ convert($index) }}</h1><input type="text" />
-							<input type="radio" ng-model="responseSet[$parent.$index]" ng-value="$index"/>
-						</div>
-						<span ng-show="questions[$index].length > 1">
-							<button ng-click="questions[$index].splice(questions[$index].length - 1, 1)">Delete</button>
-						</span>
-						<button ng-click="questions[$index].push({})">+ Add option</button>
-					</nov-frame>	
+		<span>
+			<nov-frame class="title">
+				<input type="text" placeholder="Add a title" required>
+			</nov-frame>
+			
+			<nov-frame ng-repeat="question in questions"> 
+				<h1>Question {{ $index + 1 }}</h1>
+				<span ng-show="questions.length > 1">
+					<button ng-click="questions.splice($index, 1)">X</button>
+				</span>
+				<h1>{{ $index + 1 + "." }}</h1><input type="text" />
+				<div ng-repeat="response in questions[$index]">
+					<h1>{{ convert($index) }}</h1><input type="text" />
+					<input type="radio" ng-model="responseSet[$parent.$index]" ng-value="$index"/>
+				</div>
+				<span ng-show="questions[$index].length > 1">
+					<button ng-click="questions[$index].splice(questions[$index].length - 1, 1)">Delete</button>
+				</span>
+				<button ng-click="questions[$index].push({})">+ Add option</button>
+			</nov-frame>	
 
-			<button ng-click="questions.push([{}])">+ Add Question</button>
+			<nov-long-button 
+				class="pink" 
+				ng-click="questions.push([{}])">
+				<nov-button-contents-left>
+					<h2>+ Add</h2>
+				</nov-button-contents-left>
+				<nov-button-contents-right>
+				</nov-button-contents-right>
+			</nov-long-button >
 			
 			<nov-frame>
-				<h1>Out of {{ questions.length }}</h1>
-				<h1>% Weight<h1><input type="number" min="1" max="100" />
-				<h1>Due Date</h1><input type="date" />
-				<h1>Time Limit</h1><input type="number" min="1" max="1000"/>
-				
-				<button>Cancel</button>
-				<button>Create</button>
+				<div>
+					<div class="options left">
+						<h2>Out of</h2>
+						<input type="text" ng-model="assignment.totalGrade" required>
+						<div class="clear"></div>
+					</div>
+					<div class="options right">
+						<h2>% Weight</h2>
+						<input type="text" ng-model="assignment.weight" required>
+						<div class="clear"></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div>
+					<div class="options left">
+						<h2>Time limit</h2>
+						<input type="text" ng-model="assignment.weight" placeholder="Specify time limit in minutes" required>
+						<div class="clear"></div>
+					</div>
+					<div class="options right">
+						<h2>Due date</h2>
+						<input type="date" ng-model="assignment.dueDate" required>
+						<div class="clear"></div>
+					</div>
+					<div class="clear"></div>
+				</div>
 			</nov-frame>
-		</form>
+		</span>
 	</nov-content>
 </ion-view>
