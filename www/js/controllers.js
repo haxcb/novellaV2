@@ -211,10 +211,10 @@ nov.controller('SubmissionCtrl', ['$scope', '$stateParams', 'Data', 'userModel',
 
 }]);
 
-nov.controller('GradesCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
-	
+nov.controller('GradesCtrl', ['$scope', '$stateParams', 'Data', 'userModel', function($scope, $stateParams, Data,userModel) {
+	$scope.userModel = userModel;
+	$scope.user = $scope.userModel.getUser();
 	$scope.course = Data.getCourse($stateParams.courseId);
-
 	var submissions = Data.getStudentSubmissions();
 	$scope.assignments = Data.getAssignments($stateParams.courseId);
 
@@ -228,7 +228,6 @@ nov.controller('GradesCtrl', ['$scope', '$stateParams', 'Data', function($scope,
 			}	
 		};
 	};
-
 }]);
 
 nov.controller('QuizzesCtrl', ['$scope', '$stateParams', 'Data', 'userModel', '$filter', function($scope, $stateParams, Data, userModel, $filter) {
