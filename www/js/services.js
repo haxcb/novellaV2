@@ -12,7 +12,7 @@ var nov = angular.module('nov.services', []);
 
 nov.factory('userModel', function () {
     var userModel = {
-        currentUser: "instructor"
+        currentUser: ""
     };
     userModel.setUser = function (userRole) {
         userModel.currentUser = userRole;
