@@ -195,7 +195,23 @@ nov.controller('SubmissionCtrl', ['$scope', '$stateParams', 'Data', 'userModel',
 }]);
 
 nov.controller('GradesCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
+	
 	$scope.course = Data.getCourse($stateParams.courseId);
+
+	var submissions = Data.getStudentSubmissions();
+	$scope.assignments = Data.getAssignments($stateParams.courseId);
+
+	$scope.submissions = [];
+	
+	for(var i = 0; i < $scope.assignments.length; i++) {
+		for(var j = 0; j < submissions.length; j++) {
+			if(submissions[j].assignmentId == $scope.assignments[i].id) {
+				$scope.submissions.push(submissions[j]);
+				break;
+			}	
+		};
+	};
+
 }]);
 
 nov.controller('QuizzesCtrl', ['$scope', '$stateParams', 'Data', 'userModel', '$filter', function($scope, $stateParams, Data, userModel, $filter) {

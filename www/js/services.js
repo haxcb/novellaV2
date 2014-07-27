@@ -122,5 +122,10 @@ nov.service('Data', function ($http) {
 		data.getQuizzes = function(courseId) {
 			return info.enrolledCourses[courseId].quizzes;
 		};
+
+		data.getStudentSubmissions = function() {
+			return info.submissions;
+		};
+
 	});
 });
