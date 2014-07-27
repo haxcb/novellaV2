@@ -46,7 +46,7 @@ nov.controller('servLoginCtrl', ['$scope', '$http', function($scope, $http) {
 			crossDomain : true,			
 						
 		}).success(function(data, status, headers, config) {
-			$scope.messages.push(data)
+			$scope.messages.push(status)
 		}).error(function(status){
 			$scope.errors.push(status);
 		});
@@ -65,12 +65,13 @@ nov.controller('RegisterCtrl', ['$scope', '$http', function($scope, $http) {
 		
 		$http({
 		
-			url	: "http://54.186.33.14/lms/login/" + "?email=" + $scope.email + "&password=" + $scope.pwd,
+			url	: "http://54.186.33.14/lms/register/",
 			method: 'get',
+			data: {'email':$scope.email, 'password':$scope.password, 'firstName':$scope.firstName, 'lastName':$scope.lastName },
 			crossDomain : true,			
 						
 		}).success(function(data, status, headers, config) {
-			$scope.messages.push(data)
+			$scope.messages.push(status)
 		}).error(function(status){
 			$scope.errors.push(status);
 		});
