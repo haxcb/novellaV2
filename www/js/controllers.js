@@ -41,7 +41,7 @@ nov.controller('servLoginCtrl', ['$scope', '$http', function($scope, $http) {
 		
 		$http({
 		
-			url	: "http://54.186.33.14/lms/login/" + "?email=" + $scope.email + "&password=" + $scope.pwd,
+			url	: "http://54.186.33.14/novella/lms/login/" + "?email=" + $scope.email + "&password=" + $scope.pwd,
 			method: 'get',
 			crossDomain : true,			
 						
@@ -65,7 +65,7 @@ nov.controller('RegisterCtrl', ['$scope', '$http', function($scope, $http) {
 		
 		$http({
 		
-			url	: "http://54.186.33.14/lms/register/" + "?email=" + $scope.email + "&password=" + $scope.pwd + "&firstName" + $scope.firstName + "$lastName" + $scope.lastName,
+			url	: "http://54.186.33.14/novella/lms/register/" + "?email=" + $scope.email + "&password=" + $scope.pwd + "&firstName=" + $scope.firstName + "&lastName=" + $scope.lastName,
 			method: 'get',
 			crossDomain : true,			
 						
