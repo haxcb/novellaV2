@@ -36,6 +36,7 @@ nov.controller('CoursesCtrl', ['$scope', 'Data', 'userModel', function($scope, D
 	$scope.user = $scope.userModel.getUser();
 	$scope.notifications = [];
 	$scope.predicate = '-uploadDate';
+	$scope.reverse = false;
 	var courses = Data.getStudent().courses;
 	for (var i = courses.length - 1; i >= 0; i--) {
 		var singularCourse = Data.getCourseNotifications(courses[i].id);

@@ -113,8 +113,8 @@ nov.directive("openExternal", function($window){
             };
             var inAppBrowser;
             $scope.openUrl = function(){
-                // inAppBrowser = $window.open($scope.url, '_blank', 'location=yes');
-                inAppBrowser = window.open('https://docs.google.com/viewer?url=' + $scope.url + '&embedded=true', '_blank', 'location=yes');
+                inAppBrowser = $window.open($scope.url, '_system', 'location=yes');
+                // inAppBrowser = window.open('https://docs.google.com/viewer?url=' + $scope.url + '&embedded=true', '_blank', 'location=yes');
                 if($scope.exit instanceof Function){
                     inAppBrowser.addEventListener('exit', wrappedFunction($scope.exit));
                 }
