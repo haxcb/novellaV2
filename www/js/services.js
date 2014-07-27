@@ -72,7 +72,7 @@ nov.service('Data', function ($http) {
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Student
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////
-	var info;
+	var jsonData;
 	var data = this;
 
 	// WIP; Restructured data
@@ -83,12 +83,12 @@ nov.service('Data', function ($http) {
 	});
 	
 	// Actual data
-	$http.get('data/posts.json').then(function(res){
+	$http.get('data/data.json').then(function(res){
 
-		info = res.data;   
+		jsonData = res.data;   
 
 		data.getStudent = function() {
-			return info;
+			return jsonData.users[0];
 		};
 		
 
@@ -97,10 +97,26 @@ nov.service('Data', function ($http) {
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		
-		var currentCourse = info.enrolledCourses[0]; // Default value to avoid strange cases
+		var currentCourse = jsonData.courses[0]; // Default value to avoid strange cases
 		
 		data.getCourse = function(id) {
-			return info.enrolledCourses[id];
+			var courses = jsonData.courses;
+			for(var i in courses) {
+				if(courses[i].id == id) {
+					return courses[i];
+				}
+			}
+			return null;
+		};		
+		
+		data.getStudentCourse = function(id) {
+			var courses = data.getStudent().courses;
+			for(var i in courses) {
+				if(courses[i].id == id) {
+					return courses[i];
+				}
+			}
+			return null;
 		};
 
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -108,48 +124,63 @@ nov.service('Data', function ($http) {
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
 		data.getCourseMaterials = function(id) {
-			return info.enrolledCourses[id].courseMaterials;
+			return data.getCourse(id).courseMaterials;
 		};
 
 		data.getCourseMaterial = function(courseId, materialId) {
-			return info.enrolledCourses[courseId].courseMaterials[materialId];
+			var mats = data.getCourseMaterials(courseId);
+			for(var i in mats) {
+				if(mats[i].id == materialId) {
+					return mats[i];
+				}
+			}
+			return null;
 		};
 
 		data.getCourseNotifications = function(courseId) {
-			var courseMaterials = info.enrolledCourses[courseId].courseMaterials;
-			var assignments = info.enrolledCourses[courseId].assignments;
+			var courseMaterials = data.getCourseMaterials(courseId);
+			var assignments = data.getAssignments(courseId);
 			return courseMaterials.concat(assignments);
 		};
 
 		data.getAssignments = function(courseId) {
-			return info.enrolledCourses[courseId].assignments;
+			return data.getCourse(courseId).assignments;
 		};
 
 		data.getAssignment = function(courseId, assignmentId) {
-			return info.enrolledCourses[courseId].assignments[assignmentId];
+			var assigns = data.getAssignments(courseId);
+			for(var i in assigns) {
+				if(assigns[i].id == assignmentId) {
+					return assigns[i];
+				}
+			}
+			return null;
 		};
 
-		data.getAssignmentSubmissions = function(assignmentId) {
-			var submissions = info.submissions;
+		// ADDED COURSE ID PARAMETER HERE!!!
+		data.getAssignmentSubmissions = function(courseId, assignmentId) {
+			var course = data.getStudentCourse(courseId);
+			var submissions = course.submissions;
 			var filtered_list = [];
-			for (var i = 0; i < submissions.length; i++) {
+			for (var i in submissions) {
 				if (submissions[i].assignmentId == assignmentId) {
 					filtered_list.push(submissions[i]);
 				}
 			}
 			return filtered_list;
 		};
-
+		
 		data.getAttendance = function(courseId) {
-			return info.enrolledCourses[courseId].studentList;
+			return data.getCourse(courseId).studentList;
 		};
 		
 		data.getQuizzes = function(courseId) {
-			return info.enrolledCourses[courseId].quizzes;
+			return data.getCourse(courseId).quizzes;
 		};
 
+		// GET RID OF THIS
 		data.getStudentSubmissions = function() {
-			return info.submissions;
+			return jsonData.submissions;
 		};
 
 	});

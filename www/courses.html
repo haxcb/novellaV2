@@ -7,7 +7,7 @@
 		<h1>Your Courses</h1>
 		
 		<nov-frame class="course"
-		   ng-repeat="course in getStudent().enrolledCourses">
+		   ng-repeat="course in getStudent().courses">
 				<nov-course-button href="#/app/courses/{{ course.id }}">
 					<h1>{{ course.name }}</h1>
 					<h4>{{ course.section + ' ' + course.semester }}</h4>

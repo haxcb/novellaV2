@@ -36,7 +36,7 @@ nov.controller('CoursesCtrl', ['$scope', 'Data', 'userModel', function($scope, D
 	$scope.user = $scope.userModel.getUser();
 	$scope.notifications = [];
 
-	var courses = Data.getStudent().enrolledCourses;
+	var courses = Data.getStudent().courses;
 	for (var i = courses.length - 1; i >= 0; i--) {
 		var singularCourse = Data.getCourseNotifications(courses[i].id);
 		for(var j = singularCourse.length -1; j >= 0; j--) {
@@ -53,7 +53,7 @@ nov.controller('CourseCtrl', ['$scope', '$stateParams', 'Data', 'userModel', fun
 	$scope.materials = Data.getCourseMaterials($stateParams.courseId);
 	$scope.predicate = '-uploadDate';
 	//following is necessary so that notifications don't get sorted by Sort buttons
-	$scope.notificationPredicate = '-uploadDate';
+ 	$scope.notificationPredicate = '-uploadDate';
 	$scope.editing = false;
 	$scope.fileTypeOptions = [
 		{id: 1, name: 'PDF'}, 
@@ -98,6 +98,7 @@ nov.controller('AttendanceCtrl', ['$scope', '$stateParams', 'Data', 'userModel',
 	}
 }]);
 
+
 nov.controller('AssignmentsCtrl', ['$scope', '$stateParams', 'Data', 'userModel', function($scope, $stateParams, Data, userModel) {
 	$scope.userModel = userModel;
 	$scope.user = $scope.userModel.getUser();	
@@ -105,8 +106,8 @@ nov.controller('AssignmentsCtrl', ['$scope', '$stateParams', 'Data', 'userModel'
 	$scope.assignments = Data.getAssignments($stateParams.courseId);
 
 	$scope.getSubmissionStatusColor = function(id) {
-		if(Data.getAssignmentSubmissions(id).length > 0) {
-			var status = Data.getAssignmentSubmissions(id)[0].status;
+		if(Data.getAssignmentSubmissions($stateParams.courseId, id).length > 0) {
+			var status = Data.getAssignmentSubmissions($stateParams.courseId, id)[0].status;
 			if(status == 'submitted' || status == 'late')
 				return 'green';
 			else if(status == 'unsubmitted')
@@ -115,8 +116,8 @@ nov.controller('AssignmentsCtrl', ['$scope', '$stateParams', 'Data', 'userModel'
 		return 'orange';
 	};
 	$scope.getSubmissionStatus = function(id) {
-		if(Data.getAssignmentSubmissions(id).length > 0) {
-			var status = Data.getAssignmentSubmissions(id)[0].status;
+		if(Data.getAssignmentSubmissions($stateParams.courseId, id).length > 0) {
+			var status = Data.getAssignmentSubmissions($stateParams.courseId, id)[0].status;
 			return status;
 		}
 		return '';
@@ -165,7 +166,7 @@ nov.controller('AssignmentCtrl', ['$scope', '$stateParams', 'Data', 'userModel',
 	var assignments = Data.getAssignments($stateParams.courseId);
 	var assignment = $filter('filter')(assignments, {id: $stateParams.assignmentId})[0];
 	$scope.assignment = assignment;
-	$scope.submissions = Data.getAssignmentSubmissions($stateParams.assignmentId);
+	$scope.submissions = Data.getAssignmentSubmissions($stateParams.courseId, $stateParams.assignmentId);
 
 	$scope.master = {};
 
@@ -195,7 +196,7 @@ nov.controller('SubmissionCtrl', ['$scope', '$stateParams', 'Data', 'userModel',
 	var assignments = Data.getAssignments($stateParams.courseId);
 	var assignment = $filter('filter')(assignments, {id: $stateParams.assignmentId})[0];
 	$scope.assignment = assignment;
-	$scope.submissions = Data.getAssignmentSubmissions($stateParams.assignmentId);
+	$scope.submissions = Data.getAssignmentSubmissions($stateParams.courseId, $stateParams.assignmentId);
 
 	$scope.master = {};
 
@@ -215,19 +216,17 @@ nov.controller('GradesCtrl', ['$scope', '$stateParams', 'Data', function($scope,
 	
 	$scope.course = Data.getCourse($stateParams.courseId);
 
-	var submissions = Data.getStudentSubmissions();
+
 	$scope.assignments = Data.getAssignments($stateParams.courseId);
+	console.log($scope.assignments);
 
 	$scope.submissions = [];
 	
-	for(var i = 0; i < $scope.assignments.length; i++) {
-		for(var j = 0; j < submissions.length; j++) {
-			if(submissions[j].assignmentId == $scope.assignments[i].id) {
-				$scope.submissions.push(submissions[j]);
-				break;
-			}	
-		};
+	for(var i in $scope.assignments) {
+		var submissions = Data.getAssignmentSubmissions($stateParams.courseId, $scope.assignments[i]);	
+		$scope.submissions.push(submissions);
 	};
+	
 
 }]);
 
