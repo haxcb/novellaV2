@@ -84,6 +84,20 @@ nov.controller('ParticipationCtrl', ['$scope', '$stateParams', 'Data', function(
 	$scope.course = Data.getCourse($stateParams.courseId);
 }]);
 
+nov.controller('AttendanceCtrl', ['$scope', '$stateParams', 'Data', 'userModel', 'date', function($scope, $stateParams, Data, userModel, date) {
+	$scope.userModel = userModel;
+	$scope.user = $scope.userModel.getUser();
+	$scope.course = Data.getCourse($stateParams.courseId);
+	$scope.attendance = Data.getAttendance($stateParams.courseId);
+	$scope.index = 0;
+	$scope.getDate = function() {
+		return date.getDate();
+	}
+	$scope.getTime = function() {
+		return date.getTime();
+	}
+}]);
+
 nov.controller('AssignmentsCtrl', ['$scope', '$stateParams', 'Data', 'userModel', function($scope, $stateParams, Data, userModel) {
 	$scope.userModel = userModel;
 	$scope.user = $scope.userModel.getUser();	

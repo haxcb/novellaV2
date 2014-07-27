@@ -45,6 +45,27 @@ nov.service('numberToAlphabetic', function () {
 	}
 });
 
+nov.service('date', function () {
+	this.getDate = function() {
+		var day = new Date();
+		temp = day.toDateString();
+		temp = temp.substring(4, 10);
+		return temp.toUpperCase();
+	}
+	this.getTime = function() {
+		var time = new Date();
+		minute = time.getMinutes();
+		if (minute < 10){
+			minute = '0' + minute;
+		}
+		if (time.getHours() <= 12){
+			return time.getHours() + ':' + minute + 'AM';
+		} else {
+			return (time.getHours() - 12) + ':' + minute + 'PM';
+		}
+	}
+});
+
 
 nov.service('Data', function ($http) {
 
@@ -117,6 +138,10 @@ nov.service('Data', function ($http) {
 				}
 			}
 			return filtered_list;
+		};
+
+		data.getAttendance = function(courseId) {
+			return info.enrolledCourses[courseId].studentList;
 		};
 		
 		data.getQuizzes = function(courseId) {

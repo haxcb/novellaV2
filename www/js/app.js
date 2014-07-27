@@ -79,7 +79,17 @@ nov.config(function($stateProvider, $urlRouterProvider) {
           controller: 'ParticipationCtrl'
         }
       }
-    });	
+    });
+
+    $stateProvider.state('app.attendance', {
+      url: "/courses/:courseId/attendance",
+      views: {
+        'menuContent' :{
+          templateUrl: "attendance.html",
+          controller: 'AttendanceCtrl'
+        }
+      }
+    }); 
 	
     $stateProvider.state('app.assignments', {
       url: "/courses/:courseId/assignments",
