@@ -35,7 +35,7 @@ nov.controller('CoursesCtrl', ['$scope', 'Data', 'userModel', function($scope, D
 	$scope.userModel = userModel;
 	$scope.user = $scope.userModel.getUser();
 	$scope.notifications = [];
-
+	$scope.predicate = '-uploadDate';
 	var courses = Data.getStudent().courses;
 	for (var i = courses.length - 1; i >= 0; i--) {
 		var singularCourse = Data.getCourseNotifications(courses[i].id);
@@ -52,8 +52,6 @@ nov.controller('CourseCtrl', ['$scope', '$stateParams', 'Data', 'userModel', fun
 	$scope.course = Data.getCourse($stateParams.courseId);
 	$scope.materials = Data.getCourseMaterials($stateParams.courseId);
 	$scope.predicate = '-uploadDate';
-	//following is necessary so that notifications don't get sorted by Sort buttons
- 	$scope.notificationPredicate = '-uploadDate';
 	$scope.notifications = Data.getCourseNotifications($stateParams.courseId);
 }]);
 
