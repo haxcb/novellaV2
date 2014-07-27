@@ -79,6 +79,20 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "Herbert H. Tsang",
+			"id": "3011125463",
+			"courses": [
+				{ 
+					"name": "CMPT 475", 
+					"id": 0, 
+					"instructor": "Herbert H. Tsang", 
+					"semester": "Summer 2014", 
+					"section": "E100", 
+					"role": "Instructor"
+				}
+			]
 		}
 	],
 	"courses": [

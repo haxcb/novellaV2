@@ -86,10 +86,19 @@ nov.service('Data', function ($http) {
 	$http.get('data/data.json').then(function(res){
 
 		jsonData = res.data;   
+		var currentUser = jsonData.users[0];
 
 		data.getStudent = function() {
-			return jsonData.users[0];
+			return currentUser;
 		};
+		
+		data.setUser = function(role) {
+			if(role == 'student') {
+				currentUser = jsonData.users[0];
+			} else if(role == 'instructor') {
+				currentUser = jsonData.users[1];
+			}
+		}
 		
 
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -124,7 +133,9 @@ nov.service('Data', function ($http) {
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
 		data.getCourseMaterials = function(id) {
-			return data.getCourse(id).courseMaterials;
+			if(data.getCourse(id) != null)
+				return data.getCourse(id).courseMaterials;
+			return null;
 		};
 
 		data.getCourseMaterial = function(courseId, materialId) {
@@ -136,15 +147,25 @@ nov.service('Data', function ($http) {
 			}
 			return null;
 		};
+		
+		data.addCourseMaterial = function(courseId, material) {
+			console.log(material);
+		}
 
 		data.getCourseNotifications = function(courseId) {
 			var courseMaterials = data.getCourseMaterials(courseId);
 			var assignments = data.getAssignments(courseId);
+			if(assignments == null)
+				assignments = [];
+			if(courseMaterials == null)
+				courseMaterials = [];
 			return courseMaterials.concat(assignments);
 		};
 
 		data.getAssignments = function(courseId) {
-			return data.getCourse(courseId).assignments;
+			if(data.getCourse(courseId) != null)
+				return data.getCourse(courseId).assignments;
+			return null;
 		};
 
 		data.getAssignment = function(courseId, assignmentId) {
@@ -171,11 +192,15 @@ nov.service('Data', function ($http) {
 		};
 		
 		data.getAttendance = function(courseId) {
-			return data.getCourse(courseId).studentList;
+			if(data.getCourse(courseId) != null)
+				return data.getCourse(courseId).studentList;
+			return null;
 		};
 		
 		data.getQuizzes = function(courseId) {
-			return data.getCourse(courseId).quizzes;
+			if(data.getCourse(courseId) != null)
+				return data.getCourse(courseId).quizzes;
+			return null;
 		};
 
 		// GET RID OF THIS
