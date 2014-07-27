@@ -28,7 +28,15 @@
 		<!--Instructor options for adding course materials. -->
 		<span ng-if="user == 'instructor'">
 			<!--BUG: Opening Add section hides the rest of the page contents.-->
-			<button ng-click="editing=!editing">Add</button>
+			<nov-long-button 
+				class="pink" 
+				ng-click="editing=!editing">
+				<nov-button-contents-left>
+					<h2>+ Add</h2>
+				</nov-button-contents-left>
+				<nov-button-contents-right>
+				</nov-button-contents-right>
+			</button>
 			<span ng-show="editing">
 				<nov-frame>
 					<!--File uploader-->
