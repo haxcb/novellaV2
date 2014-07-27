@@ -80,6 +80,17 @@ nov.controller('CourseMaterialCtrl', ['$scope', '$stateParams', 'Data', 'userMod
 	$scope.code = parseYoutube(courseMaterial.url);
 }]);
 
+nov.controller('CourseMaterialCreateCtrl', ['$scope', '$stateParams', 'Data', 'userModel', '$filter', function($scope, $stateParams, Data, userModel, $filter) {
+	$scope.userModel = userModel;
+	$scope.user = $scope.userModel.getUser();	
+	$scope.course = Data.getCourse($stateParams.courseId);
+	$scope.fileTypeOptions = [
+		{id: 1, name: 'PDF'}, 
+		{id: 2, name: 'video'}
+		];
+	// $scope.setMenuDrag(false);
+}]);
+
 nov.controller('ParticipationCtrl', ['$scope', '$stateParams', 'Data', function($scope, $stateParams, Data) {
 	$scope.course = Data.getCourse($stateParams.courseId);
 }]);
