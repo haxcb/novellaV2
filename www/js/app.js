@@ -51,6 +51,16 @@ nov.config(function($stateProvider, $urlRouterProvider) {
       }
     });
 
+    $stateProvider.state('app.register', {
+      url: "/register",
+      views: {
+        'menuContent' :{
+          templateUrl: "create_account.html",
+          controller: 'RegisterCtrl'
+        }
+      }
+    });
+
     $stateProvider.state('app.courses', {
       url: "/courses",
       views: {

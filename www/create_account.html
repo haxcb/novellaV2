@@ -1,10 +1,9 @@
-<ion-view title="Novella">
+<ion-view title="Create Account">
 	<nov-content class="loginBG">   
-		<div class="login">
+		<div class="register">
 		
-			<h1>SIGN IN</h1>
-			<p>Login to your Novella account</p>
-			<form ng-controller="servLoginCtrl">
+			<h1>Create Account</h1>
+			<form ng-controller="RegisterCtrl">
 				<div class="list">
 						<!-- Labels for debugging login 
 						<label class="err" ng-repeat="error in errors">
@@ -15,6 +14,12 @@
 							{{message}}
 						</label> 
 
+						<label class="firstName" class="item item-input">
+							<input type="text" placeholder="First Name" ng-model="firstName">
+						</label>
+						<label class="lastName" class="item item-input">
+							<input type="text" placeholder="Last Name" ng-model="lastName">
+						</label>
 						<!-- Email input -->
 						<label class="email" class="item item-input">
 							<input type="text" placeholder="Email" ng-model="email">
@@ -30,38 +35,15 @@
 					type="submit"					
 
 					ng-init="setMenuDrag(false)"
-					ng-click="setMenuDrag(true); logIn()"
+					ng-click="setMenuDrag(true); register()"
 
 
 					nav-clear>
-					LOGIN
+					CREATE ACCOUNT
 				</nov-button>
 			</form>
-			<!-- Login button box -->
-			<nov-button href="#/app/courses"
-				ng-init="setMenuDrag(false)"
-				ng-click="setMenuDrag(true); setUser('student')"
-				nav-clear>
-				STUDENT LOGIN
-			</nov-button>
-			<nov-button href="#/app/courses"
-				ng-init="setMenuDrag(false)"
-				ng-click="setMenuDrag(true); setUser('instructor')"
-				nav-clear>
-				INSTRUCTOR LOGIN
-			</nov-button>
 			
 		</div>	
 		
 	</nov-content>
-	
-			
-		<!-- Bottom sign up bar -->
-		<a class="footerBar"
-			text-align="center"
-			href="#/app/register">
-				<div class="fakeBar"></div>
-				<h1>CREATE AN ACCOUNT &gt;</h1>
-		</a>
-	
 </ion-view>

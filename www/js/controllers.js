@@ -41,7 +41,7 @@ nov.controller('servLoginCtrl', ['$scope', '$http', function($scope, $http) {
 		
 		$http({
 		
-			url	: "http://127.0.0.1:8000/lms/login/" + "?email=" + $scope.email + "&password=" + $scope.pwd,
+			url	: "http://54.186.33.14/lms/login/" + "?email=" + $scope.email + "&password=" + $scope.pwd,
 			method: 'get',
 			crossDomain : true,			
 						
@@ -50,12 +50,32 @@ nov.controller('servLoginCtrl', ['$scope', '$http', function($scope, $http) {
 		}).error(function(status){
 			$scope.errors.push(status);
 		});
-
 				
 	}
 
-	
-	
+}]);
+
+nov.controller('RegisterCtrl', ['$scope', '$http', function($scope, $http) {
+	$scope.errors = [];
+	$scope.messages = [];
+
+	$scope.register = function() {
+		$scope.errors.splice(0, $scope.errors.length); //to reset errors array
+		$scope.messages.splice(0, $scope.messages.length); //to reset messages array
+		
+		$http({
+		
+			url	: "http://54.186.33.14/lms/login/" + "?email=" + $scope.email + "&password=" + $scope.pwd,
+			method: 'get',
+			crossDomain : true,			
+						
+		}).success(function(data, status, headers, config) {
+			$scope.messages.push(data)
+		}).error(function(status){
+			$scope.errors.push(status);
+		});
+				
+	}
 
 }]);
 
