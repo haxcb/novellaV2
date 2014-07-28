@@ -7,7 +7,7 @@
 		<!--Instructor options-->
 		<span ng-if="user == 'instructor'">
 			<h1>Create Course Material</h1>
-			
+			<form id="create-course-materials">
 			<nov-frame class="title">
 				<input type="text" ng-model="courseMaterial.name" placeholder="Add a title" required>
 			</nov-frame>
@@ -47,6 +47,7 @@
 				<nov-button class="submit" ng-click="upload(courseMaterial)">SUBMIT</button>
 				
 			</nov-frame>
+		</form>
 		</span>
 	</nov-content>
 

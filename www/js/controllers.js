@@ -76,16 +76,19 @@ nov.controller('CourseMaterialCtrl', ['$scope', '$stateParams', 'Data', 'userMod
 	$scope.code = parseYoutube(courseMaterial.url);
 }]);
 
-nov.controller('CourseMaterialCreateCtrl', ['$scope', '$stateParams', 'Data', 'userModel', '$filter', function($scope, $stateParams, Data, userModel, $filter) {
+nov.controller('CourseMaterialCreateCtrl', ['$scope', '$stateParams', 'Data', 'userModel', 'date', function($scope, $stateParams, Data, userModel, date) {
 	$scope.userModel = userModel;
 	$scope.user = $scope.userModel.getUser();	
 	$scope.course = Data.getCourse($stateParams.courseId);
+	$scope.courseMaterial = {};
 	$scope.fileTypeOptions = [
 		{id: 1, name: 'PDF'}, 
 		{id: 2, name: 'video'}
 		];
 	// $scope.setMenuDrag(false);
 	$scope.upload = function(courseMaterial){
+		courseMaterial.uploadDate = date.getDate();
+		courseMaterial.timestamp = date.getTime();
 		Data.addCourseMaterial($stateParams.courseId, courseMaterial);
 		alert('Course material created!');
 	}

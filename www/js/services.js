@@ -149,8 +149,23 @@ nov.service('Data', function ($http) {
 		};
 		
 		data.addCourseMaterial = function(courseId, material) {
-			console.log(material);
-		}
+			if (material != null) {
+				if (material.fileType.name == 'video') {
+					material.fileType = 'video';
+				}
+				if (material.fileType.name == 'PDF') {
+					material.fileType = 'PDF';
+				}
+				var mats = data.getCourseMaterials(courseId);
+				if (mats != null) {
+					var firstCourseMaterialId = mats[0].id
+					material.id = firstCourseMaterialId + mats.length;
+					mats.push(material);
+				}
+			}
+
+
+		};
 
 		data.getCourseNotifications = function(courseId) {
 			var courseMaterials = data.getCourseMaterials(courseId);
