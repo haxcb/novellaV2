@@ -1,0 +1,49 @@
+<ion-view title="Attendence">
+	<ion-nav-buttons side="right">
+		<button menu-toggle="right"class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+
+	<!-- instructor mode -->
+	<nov-content ng-if="user == 'instructor'">
+		<h1>{{ course.name }} Participation</h1>
+		<h2> please generate the attendance code: </h2>
+
+		<!--Attendance Code Generate -->
+		<div class="attCode-options">
+			<div class="att-generate">
+				<input id="attendanceCodeOnput"  placeholder="Generate the Attendance Code" type="text" placeholder="Attendence Code" required readonly>
+			</div>
+			<div id="attCode-btns">
+				<button id="generateCodeBtn" onclick="generateMixed(4)">Generate Code</button>
+				<button onclick="startCountDown();">start</button>
+			</div>
+			<div class="clear"></div>
+			<h4 id="attendanceTimerInput" style="text-align:center"></h4>
+		</div>
+		
+	</nov-content>
+	
+	<!-- student mode -->
+	<nov-content ng-if="user == 'student'">
+	
+		<h1>{{ course.name }} Attendence</h1>
+		
+		<!--Show Attendance List-->
+		<div id="checkedinListDiv" style="display:none;">
+			<h1>Checked-in List</h1>	
+			<nov-frame>
+				<ul id="attendanceCheckList"></ul>
+			</nov-frame>
+		</div>
+		
+		<!--Attendance Code Input -->
+		<h2> please enter the attendance code: </h2>
+		<form id="confirmAttCode">
+			<input id="comfirm_passcode" type="text" ng-model="" placeholder="Attendence Code" required><br>
+			<button id="confirmAttCodeBtn" onclick="attCheckIn()">Confirm</button>
+		</form>
+	</nov-content>
+	
+</ion-view>
+
+

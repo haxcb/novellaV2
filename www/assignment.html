@@ -1,0 +1,85 @@
+<ion-view title="Assignment">
+	<ion-nav-buttons side="right">
+		<button menu-toggle="right"class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+
+	<nov-content>
+		<h1>{{assignment.name}}</h1>
+		<!-- Assignment info -->
+		<nov-frame class="assignment">
+			<open-external url="assignment.url">View Assignment</open-external><br>
+			<a href="{{assignment.url}}" download>Download Assignment</a>
+			<hr>
+			<em class="left">DUE {{assignment.dueDate}} AT {{assignment.timeDue}}</em>
+			<span class="right">Posted {{assignment.uploadDate}} at {{assignment.timestamp}}</span>
+		</nov-frame>
+
+		<nov-frame class="submission">
+			<!--Student: Can submit and add comments.-->
+			<form ng-if="user=='student'" name="submit" class="submissions">
+				<span ng-repeat="submission in submissions">
+					<h1>Submission</h1>
+					<a href="{{submission.file}}" download>{{submission.file}}</a>
+					<h2>Comment</h2> {{submission.studentComment}}
+					<h2>Submitted date</h2> {{submission.submitDate}}
+					<br>
+				</span>
+				<hr ng-if="submissions.length > 0">
+				<span>
+					<h1>Grade {{submissions[0].actualGrade}} / {{assignment.totalGrade}}</h1>
+					<!--Show instructor comment if assignment has been marked.-->
+					<span ng-if="submissions.length > 0 && submissions[0].actualGrade !== ''">
+						<h1>Comment</h1> {{submissions[0].instructorComment}}
+					</span>
+					<!--The student can make submissions while the assignment has not been marked.-->
+					<span ng-if="submissions.length == 0 || submissions[0].actualGrade == ''">
+						<h1>Add a Comment</h1><input type="text" ng-model="submission.studentComment" />
+						<!--Button text is 'Resubmit' if there are submissions-->
+						<input type="file" id="file" name="file" required/>
+						<button ng-if="submissions.length==0" ng-click="save(submission)">Submit</button> <button ng-if="submissions.length > 0" ng-click="save(submission)">Resubmit</button>
+					</span>
+				</span>
+			</form>
+
+			<!-- Instructor sees a list of student submissions. -->
+			<div ng-if="user == 'instructor'">
+				<h1>Submissions</h1>
+				<table id="submissions-table">
+				<tr>
+				  <th>Name</th>
+				  <th>Grade</th>
+				  <th>Status</th>
+				  <th></th>
+				</tr>
+				<tr>
+				  <td>Maliha Ali</td>
+				  <td>8/10</td>		
+				  <td>Graded</td>
+				  <td><a href="#/app/courses/{{ course.id }}/assignments/{{assignment.id}}/submissions/{{submission.id}}">View</a></td>
+				</tr>
+				<tr>
+				  <td>Lionel Finley</td>
+				  <td>/10</td>		
+				  <td>Unsubmitted</td>
+				  <td><a href="#">View</a></td>
+				</tr>
+				<tr>
+				  <td>Amanda Humphries</td>
+				  <td>/10</td>		
+				  <td>On Time</td>
+				  <td><a href="#">View</a></td>
+				</tr>
+				<tr>
+				  <td>James Archer</td>
+				  <td>/10</td>		
+				  <td>On Time</td>
+				  <td><a href="#">View</a></td>
+				</tr>
+				</table>
+			</div>
+
+		</nov-frame>
+
+	</nov-content>
+
+</ion-view>

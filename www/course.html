@@ -6,6 +6,107 @@
 	<nov-content>
 		<nov-course-icons></nov-course-icons>
 
+		<span>
+			<!-- Adding Attendance Button -->
+			<h1>Attendance</h1>
+
+			<nov-long-button ng-if="user == 'instructor'"
+				href="#/app/courses/{{ course.id }}/attendence"
+				class="buttonAttendance">
+				
+				<nov-button-contents-left>
+					<h2>Take Attendance</h2>
+				</nov-button-contents-left>
+				
+				<nov-button-contents-right>
+					<h3>VIEW <mark>&gt;</mark></h3>
+				</nov-button-contents-right>
+			</nov-long-button>
+			
+			<nov-long-button ng-if="user == 'student'"
+				href="#/app/courses/{{ course.id }}/attendence"
+				class="buttonAttendance">
+				
+				<nov-button-contents-left>
+					<h2>Take Attendance</h2>
+				</nov-button-contents-left>
+				
+				<nov-button-contents-right>
+					<h3>VIEW <mark>&gt;</mark></h3>
+				</nov-button-contents-right>
+			</nov-long-button>
+		</span>
+
+		<h1>Course Materials</h1>
+		<!--Instructor options for adding course materials. -->
+		<span ng-if="user == 'instructor'">
+			<!--BUG: Opening Add section hides the rest of the page contents.-->
+			<button ng-click="editing=!editing">Add</button>
+			<span ng-show="editing">
+				<nov-frame>
+					<!--File uploader-->
+					<h1>Add Course Material</h1>
+						<form id="courseMaterial">
+							<input type="text" ng-model="courseMaterial.name" placeholder="File Name" required><br>
+							<select ng-model="courseMaterial.fileType" ng-options="option as option.name for option in fileTypeOptions">
+								<option value="">-- Choose File Type --</option>
+							</select><br>
+							<input type="file" id="file" name="file" ng-model="courseMaterial.file" ng-if="courseMaterial.fileType.name == 'PDF'"/><br>
+							<input type="text" ng-model="courseMaterial.url" ng-if="courseMaterial.fileType.name == 'video'" placeholder="YouTube URL"/><br>
+							<button ng-click="upload(courseMaterial)">Submit</button>
+						</form>
+					<span ng-if="courseMaterial.fileType.id == 3">
+						<!--Text editor needs a lot of styling TLC.-->
+						<!--TextAngular https://github.com/fraywing/textAngular/ -->
+						<h1>Text Editor</h1>
+						<text-angular ng-model="course.editorData" 
+							ta-toolbar-class="editor-btn-toolbar"
+							ta-toolbar-button-class="editor-btn editor-btn-default"
+							ta-toolbar-group-class="editor-btn-group">
+						</text-angular>
+						<button ng-click="upload(courseMaterial)">Submit</button>
+					</span>
+				</nov-frame>
+			</span>
+		</span>
+		
+		<div class="course-options">
+			<div class="course-search">
+				<input placeholder="Search Material" ng-model="searchText">
+			</div>
+			<div id="sort-options">
+				<button ng-click="predicate = 'name'; reverse=!reverse">Sort by Name</button>
+				<button ng-click="predicate = 'uploadDate'; reverse=!reverse">Sort by Date</button>
+			</div>
+
+			<div class="clear"></div>
+		</div>
+		
+		<nov-long-button 
+			href="#/app/courses/{{course.id}}/materials/{{material.id}}"
+			class="materials"
+			ng-repeat="material in materials | orderBy:predicate:reverse | filter:searchText">
+			
+				<nov-button-contents-left>
+					<h2>{{material.name}}</h2>
+					<h4><b>Type:</b> {{ material.fileType }}</h4>
+				</nov-button-contents-left>
+				
+				<nov-button-contents-right>
+					<h4>Posted {{ material.uploadDate }} </h4>
+					<h3>VIEW <mark>&gt;</mark></h3>
+				</nov-button-contents-right>
+					
+		</nov-long-button>
+
+		<!--Show last 5 uploaded course material and assignments-->
+		<h1>Notifications</h1>	
+		<nov-frame class="notifications">
+			<ul id="notifications" ng-repeat="notification in notifications | orderBy:predicate:reverse | limitTo: 5">
+				<li ng-if="notification.fileType">{{course.name}}: <a href="#/app/courses/{{course.id}}/materials/{{notification.id}}">{{notification.name}}</a> course material posted <span class ="notificationLeftSide">{{notification.uploadDate}}</span></li>
+				<li ng-if="notification.totalGrade">{{course.name}}: <a href="#/app/courses/{{course.id}}/assignments/{{notification.id}}">{{notification.name}}</a> <span class = "notificationLeftSide">due {{notification.dueDate}}</span></li>
+			</ul>
+		</nov-frame>	
 	</nov-content>
 
 </ion-view>

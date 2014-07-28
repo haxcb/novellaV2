@@ -4,7 +4,7 @@
 // 'nov' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'nov.controllers' is found in controllers.js
-var nov = angular.module('nov', ['ionic', 'nov.controllers', 'nov.services', 'nov.directives']);
+var nov = angular.module('nov', ['ionic', 'textAngular', 'nov.controllers', 'nov.services', 'nov.directives']);
 
 nov.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -60,6 +60,16 @@ nov.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     });
+
+    $stateProvider.state('app.courseMaterial', {
+      url: "/courses/:courseId/materials/:materialId",
+      views: {
+        'menuContent' :{
+          templateUrl: "courseMaterial.html",
+          controller: 'CourseMaterialCtrl'
+        }
+      }
+    });
 	
     $stateProvider.state('app.participation', {
       url: "/courses/:courseId/participation",
@@ -71,6 +81,16 @@ nov.config(function($stateProvider, $urlRouterProvider) {
       }
     });	
 	
+	$stateProvider.state('app.attendence', {
+      url: "/courses/:courseId/attendence",
+      views: {
+        'menuContent' :{
+          templateUrl: "attendence.html",
+          controller: 'AttendenceCtrl'
+        }
+      }
+    });
+	
     $stateProvider.state('app.assignments', {
       url: "/courses/:courseId/assignments",
       views: {
@@ -80,7 +100,26 @@ nov.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     });	
-	
+
+    $stateProvider.state('app.assignment', {
+      url: "/courses/:courseId/assignments/:assignmentId",
+      views: {
+        'menuContent' :{
+          templateUrl: "assignment.html",
+          controller: 'AssignmentCtrl'
+        }
+      }
+    });
+
+    $stateProvider.state('app.submission', {
+      url: "/courses/:courseId/assignments/:assignmentId/submissions/:submissionId",
+      views: {
+        'menuContent' :{
+          templateUrl: "submission.html",
+          controller: 'SubmissionCtrl'
+        }
+      }
+    });  
 	
     $stateProvider.state('app.quizzes', {
       url: "/courses/:courseId/quizzes",
@@ -92,6 +131,26 @@ nov.config(function($stateProvider, $urlRouterProvider) {
       }
     });	
 	
+	$stateProvider.state('app.createquiz', {
+      url: "/courses/:courseId/quizzes/create",
+      views: {
+        'menuContent' :{
+          templateUrl: "createquiz.html",
+          controller: 'CreateQuizCtrl'
+        }
+      }
+    });	
+	
+	$stateProvider.state('app.quiz', {
+      url: "/courses/:courseId/quizzes/:quizId",
+      views: {
+        'menuContent' :{
+          templateUrl: "quiz.html",
+          controller: 'QuizCtrl'
+        }
+      }
+    });
+	
     $stateProvider.state('app.grades', {
       url: "/courses/:courseId/grades",
       views: {
@@ -102,6 +161,17 @@ nov.config(function($stateProvider, $urlRouterProvider) {
       }
     });
 
+	$stateProvider.state('app.grades_subview', {
+	    url: "/courses/:courseId/grades/:studentId",
+		views: {
+		'menuContent' :{
+		    templateUrl: "grades_subview.html",
+			controller: 'GradeSubviewCtrl'
+			}
+		}
+	});
+
+	
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/login');
 });

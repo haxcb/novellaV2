@@ -1,0 +1,72 @@
+<ion-view title="Grades">
+	<ion-nav-buttons side="right">
+	<button menu-toggle="right"class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+
+	<nov-content>
+		<h1>{{ course.name }} Grades</h1>
+
+		<nov-frame id="grade_nov_frame" style="display:none">
+			<ul id="studentGradeList"></ul>
+		</nov-frame>
+		
+		<nov-long-button onclick="showStudentGrade('att')">
+				<nov-button-contents-left>
+					<h2>Attendance Grade</h2>
+					<h4><b>State:</b> available</h4>
+				</nov-button-contents-left>
+				<nov-button-contents-right>
+					<h4>Posted sdfsdfsdfds </h4>
+					<h3>VIEW <mark>&gt;</mark></h3>
+				</nov-button-contents-right>
+		</nov-long-button>
+		
+		<nov-long-button onclick="showStudentGrade('pati')">
+				<nov-button-contents-left>
+					<h2>Participation Grade</h2>
+					<h4><b>State:</b> available</h4>
+				</nov-button-contents-left>
+				<nov-button-contents-right>
+					<h4>Posted sdfsdfsdfds </h4>
+					<h3>VIEW <mark>&gt;</mark></h3>
+				</nov-button-contents-right>
+		</nov-long-button>
+		
+		<nov-long-button onclick="showStudentGrade('quiz')">
+			<nov-button-contents-left>
+					<h2>Quiz Grade</h2>
+					<h4><b>State:</b> not available</h4>
+				</nov-button-contents-left>
+				
+				<nov-button-contents-right>
+					<h4>Posted sdfsdfsdfds </h4>
+					<h3>VIEW <mark>&gt;</mark></h3>
+				</nov-button-contents-right>	
+		</nov-long-button>
+		
+		<nov-long-button onclick="showStudentGrade('exam')">
+			<nov-button-contents-left>
+				<h2>Exam Grade</h2>
+				<h4><b>State:</b> not available</h4>
+			</nov-button-contents-left>
+			
+			<nov-button-contents-right>
+				<h4>Posted sdfsdfsdfds </h4>
+				<h3>VIEW <mark>&gt;</mark></h3>
+			</nov-button-contents-right>
+					
+		</nov-long-button>
+		<nov-long-button onclick="showStudentGrade('total')">
+			<nov-button-contents-left>
+				<h2>Total Grade</h2>
+				<h4><b>State:</b> not available</h4>
+			</nov-button-contents-left>
+			<nov-button-contents-right>
+				<h4>Posted {{ material.uploadDate }}</h4>
+				<h3>VIEW <mark>&gt;</mark></h3>
+			</nov-button-contents-right>	
+		</nov-long-button>
+		
+	</nov-content>
+
+</ion-view>

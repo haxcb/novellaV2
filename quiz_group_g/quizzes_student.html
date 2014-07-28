@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+	<title>Quiz</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+	<script type="text/javascript" src="js/studentJS.js"></script>
+</head>
+
+<body>
+	<!-- *********************************  Student Side ********************************* -->
+	<!-- ********************************************************************************* -->
+	<!-- ********************************************************************************* -->
+
+
+<!-- Main Page : Quiz List Page -->
+<div data-role="page" id="quizList-page">
+    <div data-role="header" data-theme="b"><a href="#" data-rel="back" data-role="button">Back</a>
+         <h1> CMPT 475</h1>
+    </div>
+    <div data-role="content">
+		<ul data-role="listview" id="prof-list" data-divider-theme="a" data-inset="true">
+            <li data-role="list-divider" data-theme="b" role="heading">Quiz list</li>
+			<div id="quizList"></div>
+        </ul>       
+    </div>
+</div>
+
+<!-- Second Page: Ready Page -->
+<div data-role="page" id="ready-page">
+	<div data-role="header" data-theme="b"><a href="#" data-rel="back" data-role="button">Go back</a>
+         <h1>Quiz Introduction</h1>
+    </div>
+    
+    <div data-role="content" id="ready-content" ></div>		<!-- Load Introduction in content -->
+    	<div data-role="main" class="ui-content">
+    		<a href="#" class="ui-btn ui-icon-arrow-r ui-btn-icon-right" onclick='$.mobile.changePage("#Question-page")'>Start</a>
+    	</div>
+</div>
+
+<!-- Third Page: Questions -->
+<div data-role="page" id="Question-page">
+    <div data-role="header" data-theme="b">
+	<h1>Quiz</h1>	
+    </div>
+    <div data-role="content">
+    	<p id="currQues"></p>
+	<p>Time left: <span id = "timer"></span></p>
+		<form id="radioForm" method="post" action="demoform.asp">
+			<fieldset data-role="controlgroup">
+	      		<legend>Question: <span id="Questions"></span></legend>
+
+	      		<div id="radioAnsGroup">
+		        <label for="ans1" id="ANS1">Ans1</label>
+		        <span id="a"><input type="radio" name="ans" id="ans1" value="A"></span>
+		        <label for="ans2" id="ANS2">Ans2</label>
+		        <span id="b"><input type="radio" name="ans" id="ans2" value="B"></span>
+		        <label for="ans3" id="ANS3">Ans3</label>
+		        <span id="c"><input type="radio" name="ans" id="ans3" value="C"></span>
+		        <label for="ans4" id="ANS4">Ans4</label>
+		        <span id="d"><input type="radio" name="ans" id="ans4" value="D"></span>
+
+		    	</div>
+
+      		</fieldset>
+		</form>
+
+		<div data-role="main" class="ui-content">
+		
+	    	<div data-role="button-controlgroup" data-type="horizontal"> 
+		      <a href="#" class="ui-btn ui-icon-arrow-l ui-btn-icon-left" id="prev">Previous</a>
+		      <a href="#" class="ui-btn ui-icon-arrow-r ui-btn-icon-right" id="next">Next</a>
+		      <a href="#" class="ui-btn" id="submit">Submit</a>
+	    	</div><br>
+		</div>
+	</div>		
+</div>
+
+<!-- Fourth and Last Page: Grading Page -->
+<div data-role="page" id="Grading-page">
+	<div data-role="header" data-theme="b">
+		<a href="#" onclick='$.mobile.changePage("#quizList-page")' data-role="button">Back</a>
+		<h1 id="title_Grading">You're done</h1>
+	</div>
+
+	<div data-role="main" class="ui-content">
+		<div data-role="content">
+			<div id="showGrade">
+				<p>Your answers are successfully submitted!</p>				
+			</div>						
+			<input type="button" id="grade" value="Show Grade"> 
+		</div>
+	</div>
+</div>
+
+
+</body>
+</html>

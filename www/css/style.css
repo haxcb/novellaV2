@@ -94,6 +94,7 @@ input {
 	width:70%;
 	margin:0 auto;
 	margin-top:20px;
+	padding-bottom:20px;
 }
 
 .menu .nov-page {
@@ -261,6 +262,13 @@ mark {
 	word-wrap:break-word;
 }
 
+.notificationLeftSide {
+	text-transform:uppercase;
+	font-size: 0.85em;
+	float:right;
+	text-align: right;
+	clear:both;
+}
 
 @media only screen
 	and (max-width: 900px) {
@@ -286,6 +294,115 @@ mark {
 		font-size:2em;
 	}
 }
+
+@media only screen
+	and (max-width: 480px) {
+	.notificationLeftSide {
+		text-align: left;
+		float:left;
+		display: block;
+		float: none;
+
+	}
+}
+
+/******************************
+	ASSIGNMENTS
+*******************************/
+.open {
+	
+}
+
+
+
+/******************************
+		COURSE MATERIAL STYLES
+*******************************/
+
+.course-options {
+	width:100%;
+}
+
+#sort-options {
+	float:right;
+	width:35%;
+}
+
+#sort-options button {
+	width:49%;
+}
+
+.course-search {
+	display:block;
+	float:left;
+	width:63%;
+}
+
+.course-options label {
+	font-size:16px;
+	text-transform:uppercase;
+	margin-right:10px;
+}
+
+.course-options input {
+	height:40px;
+	border-radius:5px;
+	border:1px solid #aaa;
+	margin-top:12px;
+	padding:3px 10px;
+}
+
+
+.youtube {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+}
+.youtube iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+
+@media only screen
+	and (max-width: 1150px) {
+
+	.course-search {
+		width:55%;
+	}
+	
+	#sort-options {
+		float:right;
+		width:280px;
+	}	
+	
+}
+@media only screen
+	and (max-width: 700px) {
+
+	.course-search {
+		width:50%;
+	}
+	
+}
+@media only screen
+	and (max-width: 600px) {
+
+	.course-search {
+		width:100%;
+		float:none;
+	}
+	#sort-options {
+		float:none;
+		width:100%;
+	}
+	
+}
+
 
 
 
@@ -489,9 +606,8 @@ mark {
 
 button,
 button:visited {
-	padding: 4px 20px;
+	padding: 10px 20px;
 	font-size: 16px;
-	line-height: 36px;
 	letter-spacing: 0;
 	color: #c6c8c8;
 	color: #fff;
@@ -512,7 +628,10 @@ button:visited {
 
 button.orange,
 button.orange:visited,
-button.orange:focus {
+button.orange:focus,
+.orange button,
+.orange button:visited,
+.orange button:focus  {
 	background-color: #fb9a31;
     background: -webkit-linear-gradient(#fb9a31, #f5943e); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(#fb9a31, #f5943e); /* For Opera 11.1 to 12.0 */
@@ -520,6 +639,35 @@ button.orange:focus {
     background: linear-gradient(#fb9a31, #f5943e); /* Standard syntax (must be last) */		
 	border:1px solid #e38a2c;
 }
+
+button.green,
+button.green:visited,
+button.green:focus,
+.green button,
+.green button:visited,
+.green button:focus {
+	background-color: #2AA82A;
+    background: -webkit-linear-gradient(#2AA82A, #38AB38); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#2AA82A, #38AB38); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#2AA82A, #38AB38); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#2AA82A, #38AB38); /* Standard syntax (must be last) */		
+	border:1px solid #249124;
+}
+
+button.gray,
+button.gray:visited,
+button.gray:focus,
+.gray button,
+.gray button:visited,
+.gray button:focus {
+	background-color: #858585;
+    background: -webkit-linear-gradient(#858585, #A1A1A1); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#858585, #A1A1A1); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#858585, #A1A1A1); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#858585, #A1A1A1); /* Standard syntax (must be last) */		
+	border:1px solid #888;
+}
+
 
 
 button:active {
@@ -538,7 +686,8 @@ button:active {
 	border:1px solid #cf3232;
 }
 
-button.orange:active {
+button.orange:active,
+.orange button:active {
 	background-color: #f5943e;
     background: -webkit-linear-gradient(#f5943e, #fb9a31); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(#f5943e, #fb9a31); /* For Opera 11.1 to 12.0 */
@@ -547,16 +696,57 @@ button.orange:active {
 	border:1px solid #e38a2c;	
 }
 
-.longButton {
-	display:block;
-	width:70%;
-	margin-top:10px;
-	text-transform:uppercase;
+button.green:active,
+.green button:active {
+	background-color: #38AB38;
+    background: -webkit-linear-gradient(#38AB38, #2AA82A); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#38AB38, #2AA82A); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#38AB38, #2AA82A); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#38AB38, #2AA82A); /* Standard syntax (must be last) */		
+	border:1px solid #e38a2c;	
 }
 
+button.gray:active,
+.gray button:active {
+	background-color: #A1A1A1;
+    background: -webkit-linear-gradient(#A1A1A1, #858585); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#A1A1A1, #858585); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#A1A1A1, #858585); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#A1A1A1, #858585); /* Standard syntax (must be last) */		
+	border:1px solid #888;
+}
+
+.longButton {
+	box-sizing:border-box;
+	display:block;
+	width:100%;
+	margin-top:10px;
+	text-transform:uppercase;
+	padding:15px 10px;
+}
+
+.longButton h2, 
+.longButton h3 {
+	margin:0;
+}
+
+
 .longButton h4{
-	margin:5px 0;
+	margin:0;
 	font-family:'Segoe UI Light';
+}
+
+.longButton > div  {
+    display:inline-block;
+    vertical-align:middle;
+	width:49%;
+}
+
+.longButton .right h1,
+.longButton .right h2,
+.longButton .right h3,
+.longButton .right h4,
+.longButton .right h5 {
 	text-align:right;
 }
 
@@ -564,6 +754,7 @@ button.orange:active {
 	width:100%;
 }
 
+	
 
 /********************************
 		MOBILE STYLES
@@ -574,5 +765,60 @@ button.orange:active {
 	.login,
 	.nov-page {
 		width:95%;
+	}
+}
+
+
+/******************************
+	ATTENDANCE STYLES
+*******************************/
+
+.attCode-options {
+	width:100%;
+}
+
+#attCode-btns {
+	float:right;
+	width:35%;
+}
+
+#attCode-btns button {
+	width:49%;
+}
+
+.att-generate {
+	display:block;
+	float:left;
+	width:63%;
+}
+
+.attCode-options label {
+	font-size:16px;
+	text-transform:uppercase;
+	margin-right:10px;
+}
+
+.attCode-options input {
+	height:40px;
+	border-radius:5px;
+	border:1px solid #aaa;
+	margin-top:12px;
+	padding:3px 10px;
+}
+
+@media only screen
+	and (max-width: 1150px) {	
+	#attCode-btns {
+		float:right;
+		width:280px;
+	}	
+	
+}
+
+@media only screen
+	and (max-width: 600px) {
+	#attCode-btns {
+		float:none;
+		width:100%;
 	}
 }

@@ -1,0 +1,34 @@
+<ion-view title="Quiz">
+	<ion-nav-buttons side="right">
+		<button menu-toggle="right"class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+	
+	<nov-content>
+	<h1>{{quiz.name}}</h1>	
+	<div ng-hide="started">
+		<nov-frame>
+		<div>30 MINUTES</div>
+		<div>DUE {{quiz.dueDate}}</div>
+		<button ng-click="$parent.started = true" onclick="quizStart();">START QUIZ</button>
+		</nov-frame>
+	</div>
+	<div ng-show="started">
+		<h2>MINUTES LEFT XX:XX</h2>
+		<nov-frame ng-repeat="question in quiz.questions" ng-show="currentQuestion == $index">
+			{{ $index + ". " + question.value }}
+			<div ng-repeat="choice in question.choices">
+				<FORM METHOD="POST" ACTION="" id="choices_form">
+					<input class="radio_choices" type="radio" ng-model="$parent.$parent.questionSet[$parent.$index]" ng-value="$index">{{ choice }} </input>
+				</FORM>
+			</div>
+		</nov-frame>
+		
+		<h2>NAVIGATE TO QUESTION</h2>
+		<nov-frame>
+			<button ng-click="$parent.currentQuestion = $parent.currentQuestion - 1" ng-disabled="$parent.currentQuestion == 0">Previous</button>
+			<button ng-click="$parent.currentQuestion = $parent.currentQuestion + 1" ng-hide="$parent.currentQuestion == quiz.questions.length - 1" onclick="compareAnswer()">Next</button>
+			<button ng-click="" ng-show="$parent.currentQuestion == quiz.questions.length - 1" onclick="submitQquiz()" >Submit</button>
+		</nov-frame>
+	</nov-content>
+	</div>
+</ion-view>

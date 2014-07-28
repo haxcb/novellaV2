@@ -1,0 +1,51 @@
+{"meta": {"limit": 20, "next": null, "offset": 0, "previous": null, "total_count": 4}, 
+
+"objects": [
+	{"dueDate": "2014-07-31", 
+	"id": 4, 
+	"name": "Quiz 1", 
+	"questions": [
+		{"answer": "B", 
+		"choices":{
+			"choiceA": "5", 
+			"choiceB": "22", 
+			"choiceC": "3", 
+			"choiceD": "4"}, 
+		"value": "10+12=?"}, 
+		{"answer": "C", 
+		"choices":{
+			"choiceA": "5", 
+			"choiceB": "22", 
+			"choiceC": "130", 
+			"choiceD": "4"}, 
+		"value": "10+120=?"}],
+	"timeDue": "23:59:00", 
+	"timeLimit": 5},
+	
+	{"dueDate": "2014-07-14", 
+	"id": 5, 
+	"name": 
+	"asdfd", 
+	"questions": [
+		{"answer": "A", "choices":{"choiceA": "asdf", "choiceB": "asf", "choiceC": "", "choiceD": ""}, "value": "asdf"}],
+	"timeDue": "15:36:13", 
+	"timeLimit": 5}, 
+	
+	{"dueDate": "2014-07-31", 
+	"id": 6, 
+	"name": "Quiz 1", 
+	"questions": [
+		{"answer": "B", "choices":{"choiceA": "5", "choiceB": "22", "choiceC": "3", "choiceD": "4"}, "value": "10+12=?"}, 
+		{"answer": "C", "choices":{"choiceA": "5", "choiceB": "22", "choiceC": "130", "choiceD": "4"}, "value": "10+120=?"}], 
+	"timeDue": "23:59:00", 
+	"timeLimit": 5}, 
+	
+	{"dueDate": "2014-07-31", 
+	"id": 7, 
+	"name": "Quiz 3", 
+	"questions": [
+		{"answer": "B", "choices":{"choiceA": "5", "choiceB": "22", "choiceC": "3", "choiceD": "4"}, "value": "10+12=?"}, 
+		{"answer": "C", "choices":{"choiceA": "5", "choiceB": "22", "choiceC": "130", "choiceD": "4"}, "value": "10+120=?"}], 
+	"timeDue": "23:59:00", 
+	"timeLimit": 10}]
+}

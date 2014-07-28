@@ -3,9 +3,88 @@
 	<button menu-toggle="right"class="button button-icon icon ion-navicon"></button>
 	</ion-nav-buttons>
 
-	<nov-content>
+	<nov-content ng-if="user == 'instructor'">
+		<h1>{{ course.name }} Student Grades</h1>
+		<h2> Student List </h2>
+		
+		<nov-long-button 
+			href="#/app/courses/{{course.id}}/grades/{{student.id}}">
+				<nov-button-contents-left>
+					<h2>{{student.name}}</h2>
+					<h4><b>student #: </b> {{student.id}}</h4>
+				</nov-button-contents-left>
+				<nov-button-contents-right>
+					<h4>Course Enroll:  {{student.enrolledCourses.length}} </h4>
+					<h3>VIEW <mark>&gt;</mark></h3>
+				</nov-button-contents-right>
+		</nov-long-button>
+		
+	</nov-content>
+	
+	<nov-content ng-if="user == 'student'">
 		<h1>{{ course.name }} Grades</h1>
-
+		
+		<nov-frame id="grade_nov_frame" style="display:none">
+			<ul id="studentGradeList"></ul>
+		</nov-frame>
+		
+		<nov-long-button onclick="showStudentGrade('att')">
+				<nov-button-contents-left>
+					<h2>{{grades[0].name}}</h2>
+					<h4><b>State:</b>{{grades[0].state}}</h4>
+				</nov-button-contents-left>
+				<nov-button-contents-right>
+					<h4>Posted {{grades[0].lastPost}} </h4>
+					<h3>VIEW <mark>&gt;</mark></h3>
+				</nov-button-contents-right>
+		</nov-long-button>
+		
+		<nov-long-button onclick="showStudentGrade('pati')">
+				<nov-button-contents-left>
+					<h2>{{grades[1].name}}</h2>
+					<h4><b>State:</b> {{grades[1].state}}</h4>
+				</nov-button-contents-left>
+				<nov-button-contents-right>
+					<h4>Posted {{grades[1].lastPost}} </h4>
+					<h3>VIEW <mark>&gt;</mark></h3>
+				</nov-button-contents-right>
+		</nov-long-button>
+		
+		<nov-long-button  onclick="showStudentGrade('quiz')">
+				<nov-button-contents-left>
+					<h2>{{grades[2].name}}</h2>
+					<h4><b>State:</b>{{grades[2].state}}</h4>
+				</nov-button-contents-left>
+				
+				<nov-button-contents-right>
+					<h4>Posted {{grades[2].lastPost}}</h4>
+					<h3>VIEW <mark>&gt;</mark></h3>
+				</nov-button-contents-right>	
+		</nov-long-button>
+		
+		<nov-long-button  onclick="showStudentGrade('exam')">
+				<nov-button-contents-left>
+					<h2>{{grades[3].name}}</h2>
+					<h4><b>State:</b>{{grades[3].state}}</h4>
+				</nov-button-contents-left>
+				
+				<nov-button-contents-right>
+					<h4>Posted {{grades[3].lastPost}}</h4>
+					<h3>VIEW <mark>&gt;</mark></h3>
+				</nov-button-contents-right>	
+		</nov-long-button>
+		
+		<nov-long-button  onclick="showStudentGrade('total')">
+				<nov-button-contents-left>
+					<h2>{{grades[4].name}}</h2>
+					<h4><b>State:</b> {{grades[4].state}}</h4>
+				</nov-button-contents-left>
+				<nov-button-contents-right>
+					<h4>Posted {{grades[4].lastPost}}</h4>
+					<h3>VIEW <mark>&gt;</mark></h3>
+				</nov-button-contents-right>	
+		</nov-long-button>
+		
 	</nov-content>
 
 </ion-view>
