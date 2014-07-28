@@ -7,19 +7,21 @@
 		<h1>ATTENDANCE 2</h1>
 		{{getDate()}} AT {{getTime()}}
 
-		<nov-frame>
-			{{index}} / {{course.studentList.length}} students marked<br>
+		<nov-frame class="attendance">
+			<h2><em>{{index}}</em> / <em>{{course.studentList.length}}</em> students marked</h2>
 			<h1>{{course.studentList[index].name}}</h1><br>
+			
+			<div class="buttons">
+				<nov-x-button class="left" ng-disabled="index > course.studentList.length - 1" ng-click="course.studentList[index].present = 'N'; increaseIndex();">
+					<img src="css/img/icon_redxmark.png">
+				</nov-x-button>
 
-			<nov-x-button class="left" ng-disabled="index > course.studentList.length - 1" ng-click="course.studentList[index].present = 'N'; increaseIndex();">
-				<img src="css/img/icon_redxmark.png">
-			</nov-x-button>
+				<nov-check-button class="right" ng-disabled="index > course.studentList.length - 1" ng-click="course.studentList[index].present = 'Y'; increaseIndex();">
+					<img src="css/img/icon_grades.png">
+				</nov-check-button>
 
-			<nov-check-button class="left" ng-disabled="index > course.studentList.length - 1" ng-click="course.studentList[index].present = 'Y'; increaseIndex();">
-				<img src="css/img/icon_grades.png">
-			</nov-check-button>
-
-			<div class="clear"></div>
+				<div class="clear"></div>
+			</div>
 
 			<!--Just for visualization/debug purposes
 			<div ng-repeat="(name, present) in course.studentList">
@@ -30,7 +32,7 @@
 
 
 		<h1>SELECT STUDENTS</h1>
-		<nov-frame>
+		
 		<!--
 			<select>
 				<option disabled selected>UNMARKED</option>
@@ -71,16 +73,17 @@
 					</td>
 				</tr>
 			</table>
-
-
+			
+			<h1>SUBMIT</h1>
+			<nov-frame>
 			<h2>% WEIGHT</h2>
 			<input type="number" min="0" max="100" placeholder="Weight"></input>
 
-			<nov-button class="orange" ng-click="cancelAttendance()" href="#/app/courses/{{ course.id }}">
+			<nov-button class="orange cancel" ng-click="cancelAttendance()" href="#/app/courses/{{ course.id }}">
 				CANCEL
 			</nov-button>
 
-			<nov-button ng-show="index > course.studentList.length - 1" href="#/app/courses/{{ course.id }}">
+			<nov-button class="right submit" ng-show="index > course.studentList.length - 1" href="#/app/courses/{{ course.id }}">
 				FINISH
 			</nov-button>
 
