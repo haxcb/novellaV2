@@ -177,7 +177,7 @@ input:-ms-input-placeholder { /* Internet Explorer 10+ */
 
 mark {
 	
-	font-family:'Quicksand';
+	font-family:'Segoe UI', 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
 	background-color:transparent;
 	color:#fff;
 }
