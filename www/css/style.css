@@ -613,6 +613,32 @@ input[type="text"].gradesInputBox {
 	width:85%;
 }
 
+.quiz {
+	position:relative;
+}
+
+.quiz article {
+	margin:15px 0;
+}
+
+.quiz .close {
+	float:right;
+	position:absolute;
+	top:-15px;
+	right:-10px;
+}	
+ .quiz .close button {
+	border-radius:50%;
+	width:40px;
+	height:40px;
+	text-align:right;
+	padding:7px 12px 0 0;
+	font-size:18px;
+	font-family:'Quicksand', sans-serif;
+	font-weight:700;
+}
+
+
 
 
 

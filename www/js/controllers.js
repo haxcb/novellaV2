@@ -278,12 +278,14 @@ nov.controller('CreateQuizCtrl', ['$scope', '$stateParams', 'Data', 'userModel',
 	
 
 	$scope.upload = function(quiz) {
-		quiz.questions = [];
-		for(var i in $scope.questions) {
-			quiz.questions.push({
-				'responses': $scope.questions[i].responses,
-				'value': $scope.questions[i].value
-			});
+		if(quiz != null) {
+			quiz.questions = [];
+			for(var i in $scope.questions) {
+				quiz.questions.push({
+					'responses': $scope.questions[i].responses,
+					'value': $scope.questions[i].value
+				});
+			}
 		}
 		console.log(quiz);
 	};

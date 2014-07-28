@@ -10,34 +10,35 @@
 				<input type="text" ng-model="quiz.name" placeholder="Add a title" required>
 			</article>
 			
-			<nov-frame ng-repeat="question in questions"> 
-				<h2>Question {{ $index + 1 }}</h2>
-				
-				<span ng-show="questions.length > 1">
-					<button ng-click="questions.splice($index, 1)">X</button>
+			<div class="quiz" ng-repeat="question in questions">
+				<span class="close" ng-show="questions.length > 1">
+					<button ng-click="questions.splice($index, 1)"><p>X</p></button>
 				</span>
-				
-				<div class="question">
-					<h2 class="left">{{ $index + 1 + "." }}</h2>
-					<input class="left" ng-model="question.value" type="text" />
-					<div class="clear"></div>
-				</div>
-				
-				<div class="answer" ng-repeat="response in questions[$index]">
-					<input class="left" type="radio" ng-model="responseSet[$parent.$index]" ng-value="$index"/>
-					<h2 class="left">{{ convert($index) }}</h2>
-					<input class="left" ng-model="entry" ng-change="updateResponses(question, entry, $index)" type="text" />
-					<div class="clear"></div>
-				</div>
-				
-				<span ng-show="questions[$index].length > 1">
-					<button ng-click="questions[$index].splice(questions[$index].length - 1, 1)">Delete</button>
-				</span>
-				
-				<button ng-click="questions[$index].push({})">+ Add option</button>
-				
-			</nov-frame>	
+				<nov-frame> 
+					<h2>Question {{ $index + 1 }}</h2>
 
+					<div class="question">
+						<h2 class="left">{{ $index + 1 + "." }}</h2>
+						<input class="left" ng-model="question.value" type="text" />
+						<div class="clear"></div>
+					</div>
+					
+					<div class="answer" ng-repeat="response in questions[$index]">
+						<input class="left" type="radio" ng-model="responseSet[$parent.$index]" ng-value="$index"/>
+						<h2 class="left">{{ convert($index) }}</h2>
+						<input class="left" ng-model="entry" ng-change="updateResponses(question, entry, $index)" type="text" />
+						<div class="clear"></div>
+					</div>
+					
+					<span ng-show="questions[$index].length > 1">
+						<button ng-click="questions[$index].splice(questions[$index].length - 1, 1)">Delete</button>
+					</span>
+					
+					<button ng-click="questions[$index].push({})">+ Add option</button>
+					
+				</nov-frame>	
+			</div>
+			
 			<nov-long-button 
 				class="pink" 
 				ng-click="questions.push([{}])">
@@ -75,7 +76,6 @@
 					</div>
 					<div class="clear"></div>
 				</div>
-				<p>{{quiz.name}}</p>
 				<nov-button class="submit" ng-click="upload(quiz, questions)">SUBMIT</button>
 				
 			</nov-frame>
