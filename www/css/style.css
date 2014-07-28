@@ -599,6 +599,22 @@ input[type="text"].gradesInputBox {
 }
 
 
+/********************************
+		QUIZ STYLES
+********************************/
+.question input {
+	width:90%;
+}
+.answer input:first-child {
+	width:auto;
+	margin-right:20px;
+}
+.answer input {
+	width:85%;
+}
+
+
+
 
 /********************************
 		NAVIGATOR STYLES

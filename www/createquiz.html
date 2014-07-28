@@ -6,46 +6,58 @@
 	<nov-content class="create">
 		<h1>Create Quiz</h1>
 		<span>
-			<nov-frame class="title">
-				<input type="text" placeholder="Add a title" required>
-			</nov-frame>
+			<article class="title">
+				<input type="text" ng-model="quiz.name" placeholder="Add a title" required>
+			</article>
 			
 			<nov-frame ng-repeat="question in questions"> 
-				<h1>Question {{ $index + 1 }}</h1>
+				<h2>Question {{ $index + 1 }}</h2>
+				
 				<span ng-show="questions.length > 1">
 					<button ng-click="questions.splice($index, 1)">X</button>
 				</span>
-				<h1>{{ $index + 1 + "." }}</h1><input type="text" />
-				<div ng-repeat="response in questions[$index]">
-					<h1>{{ convert($index) }}</h1><input type="text" />
-					<input type="radio" ng-model="responseSet[$parent.$index]" ng-value="$index"/>
+				
+				<div class="question">
+					<h2 class="left">{{ $index + 1 + "." }}</h2>
+					<input class="left" ng-model="question.value" type="text" />
+					<div class="clear"></div>
 				</div>
+				
+				<div class="answer" ng-repeat="response in questions[$index]">
+					<input class="left" type="radio" ng-model="responseSet[$parent.$index]" ng-value="$index"/>
+					<h2 class="left">{{ convert($index) }}</h2>
+					<input class="left" ng-model="entry" ng-change="updateResponses(question, entry, $index)" type="text" />
+					<div class="clear"></div>
+				</div>
+				
 				<span ng-show="questions[$index].length > 1">
 					<button ng-click="questions[$index].splice(questions[$index].length - 1, 1)">Delete</button>
 				</span>
+				
 				<button ng-click="questions[$index].push({})">+ Add option</button>
+				
 			</nov-frame>	
 
 			<nov-long-button 
 				class="pink" 
 				ng-click="questions.push([{}])">
-				<nov-button-contents-left>
-					<h2>+ Add</h2>
-				</nov-button-contents-left>
-				<nov-button-contents-right>
-				</nov-button-contents-right>
+					<nov-button-contents-left>
+						<h2>+ Add</h2>
+					</nov-button-contents-left>
+					<nov-button-contents-right>
+					</nov-button-contents-right>
 			</nov-long-button >
 			
 			<nov-frame>
 				<div>
 					<div class="options left">
 						<h2>Out of</h2>
-						<input type="text" ng-model="assignment.totalGrade" required>
+						<input type="text" ng-model="quiz.totalGrade" required>
 						<div class="clear"></div>
 					</div>
 					<div class="options right">
 						<h2>% Weight</h2>
-						<input type="text" ng-model="assignment.weight" required>
+						<input type="text" ng-model="quiz.weight" required>
 						<div class="clear"></div>
 					</div>
 					<div class="clear"></div>
@@ -53,16 +65,19 @@
 				<div>
 					<div class="options left">
 						<h2>Time limit</h2>
-						<input type="text" ng-model="assignment.weight" placeholder="Specify time limit in minutes" required>
+						<input type="text" ng-model="quiz.weight" placeholder="Specify time limit in minutes" required>
 						<div class="clear"></div>
 					</div>
 					<div class="options right">
 						<h2>Due date</h2>
-						<input type="date" ng-model="assignment.dueDate" required>
+						<input type="date" ng-model="quiz.dueDate" required>
 						<div class="clear"></div>
 					</div>
 					<div class="clear"></div>
 				</div>
+				<p>{{quiz.name}}</p>
+				<nov-button class="submit" ng-click="upload(quiz, questions)">SUBMIT</button>
+				
 			</nov-frame>
 		</span>
 	</nov-content>

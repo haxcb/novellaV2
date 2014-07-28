@@ -274,7 +274,29 @@ nov.controller('CreateQuizCtrl', ['$scope', '$stateParams', 'Data', 'userModel',
 	$scope.convert = function(integer)
 	{
 		return numberToAlphabetic.convert(integer);
-	}
+	};
+	
+
+	$scope.upload = function(quiz) {
+		quiz.questions = [];
+		for(var i in $scope.questions) {
+			quiz.questions.push({
+				'responses': $scope.questions[i].responses,
+				'value': $scope.questions[i].value
+			});
+		}
+		console.log(quiz);
+	};
+	
+	
+	$scope.updateResponses = function(question, ans, i) {
+		if(question.responses != null)
+			question.responses[i] = ans;
+		else {
+			question.responses = [];
+			question.responses[i] = ans;
+		}
+	};
 	
 	$scope.questions = [];	
 	$scope.questions.push([{}]);
