@@ -127,6 +127,21 @@ nov.service('Data', function ($http) {
 			}
 			return null;
 		};
+		
+		data.getStudents = function(courseId) {
+			var users = jsonData.users;
+			var students = [];
+			for(var i in users) {
+				var courses = users[i].courses;
+				
+				for(var j in courses) {
+					if(courses[j].id == courseId && courses[j].role.toLowerCase() == 'student') {
+						students.push(users[i]);
+					}
+				}
+			}
+			return students;
+		};
 
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Course Materials & Assignments

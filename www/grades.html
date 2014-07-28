@@ -38,8 +38,8 @@
 
 				<tr ng-repeat = "submission in submissions">
 					<td>{{assignments[$index].name}}</td>
-					<td><input type="text" name="fname" maxlength="3" class = "gradesInputBox">%</td>
-					<td><input type="text" name="fname" maxlength="3" class = "gradesInputBox"></td>
+					<td><input type="text" name="fname" maxlength="3" value="{{assignments[$index].weight}}" class = "gradesInputBox">%</td>
+					<td><input type="text" name="fname" maxlength="3" value="{{assignments[$index].totalGrade}}" class = "gradesInputBox"></td>
 				</tr>
 			</table>
 
@@ -53,7 +53,7 @@
 				<th>NAME</th>
 
 				<tr ng-repeat = "submission in submissions">
-					<td>{{assignments[$index].name}} <a href = "www.sfu.ca" class = "gradesLink">VIEW</a></td>
+					<td>{{assignments[$index].name}} <a href="#/app/courses/{{ course.id }}/assignments/{{assignments[$index].id}}" class="gradesLink">VIEW</a></td>
 				</tr>
 			</table>
 		</div>

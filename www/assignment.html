@@ -53,18 +53,18 @@
 					<th>Status</th>
 					<th></th>
 				</tr>
-				<tr>
+				<tr ng-repeat="student in students">
 					<td>
-						<a>Maliha Ali</a>
-						<div class="timestamp">2014-08-19 at 11:50PM</div>
+						<a>{{student.name}}</a>
+						<div class="timestamp">{{getTimestamp(student)}}</div>
 					</td>
-					<td>8/10</td>		
+					<td>{{ getGrade(student) }}/{{ assignment.totalGrade }}</td>
 					<td class="green">Graded</td>
 					<td><a href="#/app/courses/{{ course.id }}/assignments/{{assignment.id}}/submissions/{{submission.id}}">View</a></td>
 				</tr>
 				<tr>
 					<td><a>Lionel Finley</a></td>
-					<td>/10</td>		
+					<td>/{{ assignment.totalGrade }}</td>		
 					<td class="red">Unsubmitted</td>
 					<td></td>
 				</tr>
@@ -73,7 +73,7 @@
 						<a>Amanda Humphries</a>
 						<div class="timestamp">2014-08-19 at 11:50PM</div>
 					</td>
-					<td>/10</td>		
+					<td>/{{ assignment.totalGrade }}</td>		
 					<td class="yellow">On Time</td>
 					<td><a href="#">View</a></td>
 					</tr>
@@ -82,7 +82,7 @@
 						<a>James Archer</a>
 						<div class="timestamp">2014-08-19 at 11:50PM</div>
 					</td>
-					<td>/10</td>		
+					<td>/{{ assignment.totalGrade }}</td>		
 					<td class="yellow">On Time</td>
 					<td><a href="#">View</a></td>
 				</tr>

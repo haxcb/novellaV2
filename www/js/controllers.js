@@ -195,7 +195,43 @@ nov.controller('AssignmentCtrl', ['$scope', '$stateParams', 'Data', 'userModel',
 	$scope.assignment = assignment;
 	$scope.submissions = Data.getAssignmentSubmissions($stateParams.courseId, $stateParams.assignmentId);
 
+	$scope.students = Data.getStudents($stateParams.courseId);
+	
 	$scope.master = {};
+	
+	$scope.getTimestamp = function(student) {
+		var courses = student.courses;
+		var submissions = [];
+		for(var i in courses) {
+			if(courses[i].id == $stateParams.courseId) {
+				submissions = courses[i].submissions;
+			}
+		}
+
+		for(var i in submissions) {
+			if(submissions[i].assignmentId == $stateParams.assignmentId) {
+				return submissions[i].submitDate + " AT " + submissions[i].timestamp;
+			}
+		}
+		return '';
+	}	
+	
+	$scope.getGrade = function(student) {
+		var courses = student.courses;
+		var submissions = [];
+		for(var i in courses) {
+			if(courses[i].id == $stateParams.courseId) {
+				submissions = courses[i].submissions;
+			}
+		}
+
+		for(var i in submissions) {
+			if(submissions[i].assignmentId == $stateParams.assignmentId) {
+				return submissions[i].actualGrade;
+			}
+		}
+		return '';
+	}
 
 	$scope.uploadFile = function(){
 		console.log(document.getElementById('file').files[0]);
