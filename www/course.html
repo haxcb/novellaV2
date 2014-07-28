@@ -71,8 +71,8 @@
 		<h1>Notifications</h1>	
 		<nov-frame class="notifications">
 			<ul id="notifications" ng-repeat="notification in notifications | orderBy:'uploadDate':true | limitTo: 5">
-				<li ng-if="notification.fileType">{{course.name}}: <a href="#/app/courses/{{course.id}}/materials/{{notification.id}}">{{notification.name}}</a> course material posted <span class ="notificationLeftSide">{{notification.uploadDate}}</span></li>
-				<li ng-if="notification.totalGrade">{{course.name}}: <a href="#/app/courses/{{course.id}}/assignments/{{notification.id}}">{{notification.name}}</a> <span class = "notificationLeftSide">due {{notification.dueDate}}</span></li>
+				<li ng-if="notification.fileType"><b>{{course.name}}</b>: <a href="#/app/courses/{{course.id}}/materials/{{notification.id}}">{{notification.name}}</a> course material posted <span class ="notificationLeftSide">{{notification.uploadDate}}</span></li>
+				<li ng-if="notification.totalGrade"><b>{{course.name}}</b>: <a href="#/app/courses/{{course.id}}/assignments/{{notification.id}}">{{notification.name}}</a> <span class = "notificationLeftSide">due {{notification.dueDate}}</span></li>
 			</ul>
 		</nov-frame>	
 	</nov-content>
