@@ -1,0 +1,20 @@
+﻿{   
+"question":"What's your nammmme?",   
+"item": {
+	"a":"Peter",
+	"b":"Alex",
+	"c":"Alvin",
+	"d":"Patric",
+	"e":"Eric"
+	}, 
+"percentage": {
+	"a":"1862",
+	"b":"1316",
+	"c":"712",
+	"d":"3236",
+	"e":"6122"
+	}, 
+"answer":"a",
+"attendence": [],
+"Participate": []
+}   

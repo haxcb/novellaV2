@@ -1,0 +1,21 @@
+﻿{   
+"attendenceCode":"",
+"question":"what's the prof's age?",   
+"item": {
+	"a":"60",
+	"b":"50",
+	"c":"40",
+	"d":"1" 
+	}, 
+"answer":"a",
+"attendence": [{"time":"Monday, July 07, 2014 17:11:30 AM"},
+			   {"time":"Monday, July 14, 2014 18:03:34 AM"},
+			   {"time":"Monday, July 14, 2014 19:50:30 AM"},
+			   {"time":"Monday, July 21, 2014 17:10:20 AM"},
+			   {"time":"Monday, July 21, 2014 20:20:20 AM"},
+			   {"time":"Monday, July 28, 2014 19:20:10 AM"}],
+"Participate": [{"time":"Monday, July 07, 2014 18:20:30 AM"},
+			   {"time":"Monday, July 14, 2014 18:05:34 AM"},
+			   {"time":"Monday, July 21, 2014 20:10:20 AM"},
+			   {"time":"Monday, July 28, 2014 19:57:10 AM"}]
+}   
