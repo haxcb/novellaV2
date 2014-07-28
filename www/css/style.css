@@ -231,6 +231,55 @@ mark {
 }
 
 
+/********************************
+		ATTENDANCE STYLES
+********************************/
+
+.attendance h2 {
+	color:#333;
+	text-align:center;
+}
+
+.attendance h2 em {
+	font-size:25px;
+}
+
+.attendance h1 {
+	font-size:50px;
+	text-align:center;
+	font-family:'Segoe UI Semibold', sans-serif;
+}
+
+.attendance .buttons {
+	width:45%;
+	margin:0 auto;
+}
+
+
+.xButton, .checkButton {
+	width:47%;
+	display:block;
+}
+
+.xButton button,
+.checkButton button {
+	width:100%;
+	border-radius:10px;
+}
+
+.xButton img {
+	background:url('img/icon_redxmarkbig.png') no-repeat center;
+	background-size:100%;
+	width:100%;
+}
+
+.checkButton img {
+	background:url('img/icon_grades.png') no-repeat center;
+	background-size:100%;
+	width:100%;	
+}
+
+
 
 /********************************
 		COURSES STYLES
@@ -613,6 +662,56 @@ input[type="text"].gradesInputBox {
 	width:85%;
 }
 
+.quizNav input[type="radio"] { 
+	display:none;
+}
+
+.quizNav input[type="radio"]:checked + .circle {
+	background-color: #f5943e;
+    background: -webkit-linear-gradient(#f5943e, #fb9a31); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#f5943e, #fb9a31); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#f5943e, #fb9a31); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#f5943e, #fb9a31); /* Standard syntax (must be last) */		
+	border:4px solid #f05050;
+}
+
+.quizNav label {
+	display:block;
+	margin-right:10px;
+}
+
+.quizNav .block {
+	width:20px;
+	height:5px;
+	background-color:#f05050;
+	float:left;
+	position:relative;
+	top:33px;
+	left:40px;
+}
+
+.quizNav  div.opt:last-child .block {
+	background-color:#d8d8d8;
+}
+
+.quizNav .circle {
+	border-radius:50%;
+	width:40px;
+	height:40px;
+	padding:0;
+	position:relative;
+	z-index:1;
+}
+
+.question .select {
+	width:auto;
+	margin-right:10px;
+	margin-top:3px;
+}
+.ask {
+	margin-bottom:10px;
+}
+
 .quiz {
 	position:relative;
 }
@@ -890,57 +989,6 @@ button.gray:active,
 	border:1px solid #888;
 }
 
-.xButton, .checkButton {
-	width:20%;
-	display:block;
-	margin-right:10px;
-}
-
-.xButton button,
-.checkButton button {
-	width:100%;
-	border-radius:10px;
-}
-
-.xButton img {
-	background:url('img/icon_redxmarkbig.png') no-repeat center;
-	background-size:100%;
-	width:100%;
-}
-
-.checkButton img {
-	background:url('img/icon_grades.png') no-repeat center;
-	background-size:100%;
-	width:100%;	
-}
-
-
-
-
-
-.gradesSave {
-	float: right;
-	width:20%;
-	font-size: 1.3em;
-}
-
-.gradesCancel {
-	background-color: #f5943e;
-    background: -webkit-linear-gradient(#f5943e, #fb9a31); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#f5943e, #fb9a31); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#f5943e, #fb9a31); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#f5943e, #fb9a31); /* Standard syntax (must be last) */		
-	
-	border:1px solid #e38a2c;	
-	float: left;
-	width:20%;
-	font-size: 1.3em;
-}
-
-.gradesLink {
-	float:right;
-}
-
 
 .longButton {
 	box-sizing:border-box;
@@ -980,6 +1028,42 @@ button.gray:active,
 	width:100%;
 }
 
+/* .cancel button, 
+.submit button {
+	width:49%;
+} */
+
+
+/********************************
+		GRADES STYLES
+********************************/
+
+
+
+.gradesSave {
+	float: right;
+	width:20%;
+	font-size: 1.3em;
+}
+
+.gradesCancel {
+	background-color: #f5943e;
+    background: -webkit-linear-gradient(#f5943e, #fb9a31); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#f5943e, #fb9a31); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#f5943e, #fb9a31); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#f5943e, #fb9a31); /* Standard syntax (must be last) */		
+	
+	border:1px solid #e38a2c;	
+	float: left;
+	width:20%;
+	font-size: 1.3em;
+}
+
+.gradesLink {
+	float:right;
+}
+
+
 
 /********************************
 		MOBILE STYLES
@@ -992,6 +1076,7 @@ table {
     box-shadow: 0 0 0 1px #666; /* this draws the table border  */ 
 	text-transform:uppercase;	
 	background-color:#d8d8d8;
+	margin-bottom:10px;
 }
 
 td {
