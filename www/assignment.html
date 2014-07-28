@@ -59,7 +59,7 @@
 						<div class="timestamp">{{getTimestamp(student)}}</div>
 					</td>
 					<td>{{ getGrade(student) }}/{{ assignment.totalGrade }}</td>
-					<td class="green">Graded</td>
+					<td class="{{ getStatusColor(student) }}">{{ getStatus(student) }}</td>
 					<td><a href="#/app/courses/{{ course.id }}/assignments/{{assignment.id}}/submissions/{{submission.id}}">View</a></td>
 				</tr>
 				<tr>

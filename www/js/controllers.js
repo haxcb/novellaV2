@@ -200,23 +200,33 @@ nov.controller('AssignmentCtrl', ['$scope', '$stateParams', 'Data', 'userModel',
 	$scope.master = {};
 	
 	$scope.getTimestamp = function(student) {
-		var courses = student.courses;
-		var submissions = [];
-		for(var i in courses) {
-			if(courses[i].id == $stateParams.courseId) {
-				submissions = courses[i].submissions;
-			}
-		}
-
-		for(var i in submissions) {
-			if(submissions[i].assignmentId == $stateParams.assignmentId) {
-				return submissions[i].submitDate + " AT " + submissions[i].timestamp;
-			}
+		var submission = $scope.getSubmission(student);
+		if(submission != null) {
+			return submission.submitDate + " AT " + submission.timestamp;
 		}
 		return '';
 	}	
 	
 	$scope.getGrade = function(student) {
+		var submission = $scope.getSubmission(student);
+		if(submission != null) {
+			return submission.actualGrade;
+		}
+		return null;
+	}
+	
+	$scope.getStatus = function(student) {
+		var submission = $scope.getSubmission(student);
+		if(submission != null) {
+			if(submission.actualGrade != '') {
+				return 'graded';
+			}
+			return submission.status;
+		}		
+		return 'unsubmitted';
+	}
+	
+	$scope.getSubmission =  function(student) {
 		var courses = student.courses;
 		var submissions = [];
 		for(var i in courses) {
@@ -225,13 +235,28 @@ nov.controller('AssignmentCtrl', ['$scope', '$stateParams', 'Data', 'userModel',
 			}
 		}
 
-		for(var i in submissions) {
+		for(var i in submissions) {	
 			if(submissions[i].assignmentId == $stateParams.assignmentId) {
-				return submissions[i].actualGrade;
+				return submissions[i];
 			}
 		}
-		return '';
+		return null;
 	}
+	
+	$scope.getStatusColor = function(student) {
+		var status = $scope.getStatus(student);
+		var submission = $scope.getSubmission(student);
+		if(submission != null) {
+			if(submission.actualGrade != '') {
+				return 'green'
+			} else if(status == 'submitted' || status == 'late') {
+				return 'yellow';
+			} 
+		}
+		return 'red';
+	}
+	
+	
 
 	$scope.uploadFile = function(){
 		console.log(document.getElementById('file').files[0]);
