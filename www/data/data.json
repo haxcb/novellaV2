@@ -105,7 +105,7 @@
 			"courseMaterials": [
 				{
 					"name": "Intro to Software Engineering", 
-					"id": "10", 
+					"id": 10, 
 					"fileType": "PDF", 
 					"uploadDate": "2014-05-05", 
 					"timestamp": "5:59PM", 
