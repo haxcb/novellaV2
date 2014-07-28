@@ -1,0 +1,16 @@
+project: The main project folder
+- novella: The django project folder
+- testing.txt: for random server config tests
+- readme.txt: Instructions for the readers on how to read the source code
+-- corsheaders: A django helper app to implement CORS and avoid same-origin-restrictions. Consists entirely of third party code.
+-- lms: The main learning management system app fodler
+--- migrations: for south DB migration files
+--- templates: Contains all the view templates
+--- admin.py
+--- api.py
+--- models.py
+--- tests.py
+--- urls.py
+--- views.py
+-- novella: The django project config files
+-- tastypie: All code from the tastypie app for RESTful api implementation
