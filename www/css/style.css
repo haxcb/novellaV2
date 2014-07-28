@@ -749,6 +749,14 @@ input[type="text"].gradesInputBox {
 	background-color:#372440;
 	border:none;
 }
+.bar-stable .button,
+.bar-stable .button:hover,
+.bar-stable .button.button-clear,
+.bar-stable .button.active, 
+.bar-stable .button.activated {
+	color:#fff;
+}
+
 
 .bar.bar-stable .title {
 	text-transform:uppercase;
@@ -826,6 +834,10 @@ input[type="text"].gradesInputBox {
 /* Change color of first item in menu */
 .menu  .list .first {
 	background-color:#8e3243;
+	font-family:'Segoe UI';	
+	text-transform:uppercase;
+	color:#fff;
+	font-size:1.5em;
 }
 
 /* Highlight color */
