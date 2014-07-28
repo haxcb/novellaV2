@@ -101,12 +101,25 @@ nov.controller('AttendanceCtrl', ['$scope', '$stateParams', 'Data', 'userModel',
 	$scope.course = Data.getCourse($stateParams.courseId);
 	$scope.attendance = Data.getAttendance($stateParams.courseId);
 	$scope.index = 0;
+	$scope.cancelAttendance = function() {
+		while ($scope.index >= 0) {
+			$scope.course.studentList[$scope.index - 1].present = 'U';
+			$scope.index = $scope.index - 1;
+		};
+		$scope.increaseIndex();
+	};
+	$scope.increaseIndex = function() {
+		$scope.index = $scope.index + 1;
+	};
+	$scope.setIndex = function(ind) {
+		$scope.index = ind;
+	};
 	$scope.getDate = function() {
 		return date.getDate();
-	}
+	};
 	$scope.getTime = function() {
 		return date.getTime();
-	}
+	};
 }]);
 
 
