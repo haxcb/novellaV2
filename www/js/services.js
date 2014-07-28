@@ -170,10 +170,6 @@ nov.service('Data', function ($http) {
 		data.getCourseNotifications = function(courseId) {
 			var courseMaterials = data.getCourseMaterials(courseId);
 			var assignments = data.getAssignments(courseId);
-			if(assignments == null)
-				assignments = [];
-			if(courseMaterials == null)
-				courseMaterials = [];
 			return courseMaterials.concat(assignments);
 		};
 

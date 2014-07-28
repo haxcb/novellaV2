@@ -79,13 +79,16 @@
 			<h2>% WEIGHT</h2>
 			<input type="number" min="0" max="100" placeholder="Weight"></input>
 
-			<nov-button class="orange cancel" ng-click="cancelAttendance()" href="#/app/courses/{{ course.id }}">
-				CANCEL
-			</nov-button>
+			<div>
+				<button class="orange cancel left" ng-click="cancelAttendance()" href="#/app/courses/{{ course.id }}">
+					CANCEL
+				</button>
 
-			<nov-button class="right submit" ng-show="index > course.studentList.length - 1" href="#/app/courses/{{ course.id }}">
-				FINISH
-			</nov-button>
+				<button class="right submit" ng-show="index > course.studentList.length - 1" href="#/app/courses/{{ course.id }}">
+					FINISH
+				</button>
+				<div class="clear"></div>
+			</div>
 
 		</nov-frame>
 
