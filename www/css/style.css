@@ -613,6 +613,56 @@ input[type="text"].gradesInputBox {
 	width:85%;
 }
 
+.quizNav input[type="radio"] { 
+	display:none;
+}
+
+.quizNav input[type="radio"]:checked + .circle {
+	background-color: #f5943e;
+    background: -webkit-linear-gradient(#f5943e, #fb9a31); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#f5943e, #fb9a31); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#f5943e, #fb9a31); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#f5943e, #fb9a31); /* Standard syntax (must be last) */		
+	border:4px solid #f05050;
+}
+
+.quizNav label {
+	display:block;
+	margin-right:10px;
+}
+
+.quizNav .block {
+	width:20px;
+	height:5px;
+	background-color:#f05050;
+	float:left;
+	position:relative;
+	top:33px;
+	left:40px;
+}
+
+.quizNav  div.opt:last-child .block {
+	background-color:#d8d8d8;
+}
+
+.quizNav .circle {
+	border-radius:50%;
+	width:40px;
+	height:40px;
+	padding:0;
+	position:relative;
+	z-index:1;
+}
+
+.question .select {
+	width:auto;
+	margin-right:10px;
+	margin-top:3px;
+}
+.ask {
+	margin-bottom:10px;
+}
+
 .quiz {
 	position:relative;
 }

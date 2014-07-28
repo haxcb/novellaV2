@@ -15,18 +15,30 @@
 	<div ng-show="started">
 		<h2>MINUTES LEFT XX:XX</h2>
 		<nov-frame ng-repeat="question in quiz.questions" ng-show="currentQuestion == $index">
-			{{ $index + ". " + question.value }}
-			<div ng-repeat="response in question.responses">
-				<input type="radio" ng-model="$parent.$parent.questionSet[$parent.$index]" ng-value="$index">{{ convert($index) + ") " + response }} </input>
+			<div class="ask">{{ $index + 1 + ". " + question.value }}</div>
+			<div ng-repeat="response in question.responses" class="question">
+				<label for="q{{ $parent.$index }}{{ $index }}">
+					<input class="select left" name="question{{$parent.$index}}" id="q{{ $parent.$index }}{{ $index }}" type="radio" ng-model="$parent.$parent.questionSet[$parent.$index]" ng-value="$index" />
+					<p class="left">{{ convert($index) + ") " + response }}</p>
+					<div class="clear"></div>
+				</label>
 			</div>
 		</nov-frame>
 		
 		<h2>NAVIGATE TO QUESTION</h2>
 		<nov-frame>
-			<div ng-repeat="question in quiz.questions">
-				<input type="radio" ng-model="$parent.$parent.currentQuestion" ng-value="$index"/> {{ $index }}
+			<div class="quizNav">
+				<div class="opt left"  ng-repeat="question in quiz.questions">
+					<div class="block"></div>
+					<label for="nav {{$index}}">
+						<input id="nav{{$index}}" type="radio" ng-model="$parent.$parent.currentQuestion" ng-value="$index"/> 
+						<button class="circle">{{ $index }}</button>
+					</label>
+					
+				</div>
 			</div>
-			<button ng-click="$parent.currentQuestion = $parent.currentQuestion - 1" ng-disabled="$parent.currentQuestion == 0">Previous</button>
+			<div class="clear"></div>
+			<button ng-click="$parent.currentQuestion = $parent.currentQuestion - 1" ng-hide="$parent.currentQuestion == 0">Previous</button>
 			<button ng-click="$parent.currentQuestion = $parent.currentQuestion + 1" ng-hide="$parent.currentQuestion == quiz.questions.length - 1">Next</button>
 			<button ng-click="" ng-show="$parent.currentQuestion == quiz.questions.length - 1">Submit</button>
 		</nov-frame>
