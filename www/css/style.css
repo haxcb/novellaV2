@@ -739,6 +739,21 @@ input[type="text"].gradesInputBox {
 
 
 
+/********************************
+		PARTICIPATION STYLES
+********************************/
+#Quiz1 input {
+	width:auto;
+	display:block;
+	float:left;
+	margin-right:7px;
+}
+#Quiz1 label {
+	display:block;
+	float:left;
+	margin-bottom:10px;
+}
+
 
 /********************************
 		NAVIGATOR STYLES
